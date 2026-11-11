@@ -1,0 +1,41 @@
+# Mind Lab: the brain workbench, the imagining brain, and the scorecard (started 11 November 2026)
+
+**The creator's goal:**
+- **First:** an autonomous cognitive mind ("to emerge or to be built").
+- **Ultimately:** an independent conscious mind.
+
+Their words are in ACL's local book notes, `drafts/book_rewrite/part2/notes_for_book_2026-11-11.md`.
+
+**The five projects** (the creator, 11 November 2026: "i would go with 1 and 2 and 5 but we gotta continue these with
+acl and cradle so overall 5 project works"):
+
+| project | where | asks |
+|---|---|---|
+| ACL | `D:\acl` | can culture appear from nothing, with a neural brain in a deep-time world? |
+| Cradle | `D:\cradle` | can a neural child keep up with an ordinary life among AI people? |
+| **Workbench** | `workbench/` | which brain design gives which ability? One ability at a time, fast. |
+| **Imagine** | `imagine/` | can a brain learn a model of its world, plan in its head, and choose its own goals? |
+| **Scorecard** | `scorecard/` | a fixed, published-theory-based checklist of autonomy and of features linked to consciousness, scored the same way for every brain |
+
+**How they connect:**
+1. The workbench tests brain parts one ability at a time.
+2. What passes goes into Cradle (a life) and ACL (deep time and culture).
+3. The scorecard measures every brain in all four.
+4. "Imagine" is the first brain part the workbench builds, because NB2 showed that a brain which only reacts is not
+   enough.
+
+**Rules** (as ACL and Cradle):
+- A frozen plan before code or data; the council (GPT, Gemini, DeepSeek); the blind recompute; findings that never
+  hide a failure.
+- No language model inside any mind.
+- No keys or money handled by the assistant.
+- Public surfaces (a GitHub repo, posts) are created only by the creator.
+- No "Claude" or Co-Authored-By lines in commits.
+- Talk to the creator simply.
+- **Honesty about consciousness:** nobody can test for it today. The scorecard measures indicator features named by
+  published theories, never "it is conscious".
+
+**Status:** this folder is local (git, no remote). Cloud runs need a GitHub repo, which the creator creates when ready.
+
+## Log
+- 2026-11-11: started. Three plans, drafts, not frozen: `workbench/plan.md`, `imagine/plan.md`, `scorecard/plan.md`.
