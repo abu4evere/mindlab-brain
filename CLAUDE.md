@@ -35,7 +35,20 @@ acl and cradle so overall 5 project works"):
 - **Honesty about consciousness:** nobody can test for it today. The scorecard measures indicator features named by
   published theories, never "it is conscious".
 
+**How the three work:**
+- **They are not worlds like ACL or Cradle.** The workbench is a set of small fast tasks, one ability each; Imagine is a
+  brain part; the scorecard is a fixed set of tests run on every brain.
+- **GPT's ideas** (`gpt_view_projects_2026-11-11.md`) fold in:
+  - Genesis is the workbench's "alone vs with others" condition;
+  - Mirror is the second brain part, and a scorecard test;
+  - Darwin is ACL;
+  - Odyssey is Imagine's own goals;
+  - Embody comes later.
+- **The workbench's first experiment** is GPT's question: does a mind need other minds to develop, or can it become
+  autonomous alone?
+
 **Status:** this folder is local (git, no remote). Cloud runs need a GitHub repo, which the creator creates when ready.
 
 ## Log
 - 2026-11-11: started. Three plans, drafts, not frozen: `workbench/plan.md`, `imagine/plan.md`, `scorecard/plan.md`.
+- 2026-11-11: GPT's five ideas (pasted by the creator) folded in, labelled as GPT; the first workbench experiment is alone vs with others.
