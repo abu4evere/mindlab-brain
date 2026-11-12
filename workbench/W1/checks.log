@@ -1,0 +1,8 @@
+every layout's detour/control label and shortest path recomputed: yes
+no test layout is a learning layout: yes
+B solves every test layout in exactly its shortest path: yes
+gradients equal finite differences, F: yes (worst rel. 3.1e-08)
+gradients equal finite differences, R (untruncated): yes (worst rel. 3.4e-07)
+the actor-critic logit gradient (policy and entropy terms) equals finite differences: yes
+the same seed gives the same result twice (R, 300 episodes): yes
+All: PASS
