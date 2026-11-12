@@ -43,9 +43,10 @@ def uncols(d):
 
 
 class VIN:
-    def __init__(self, seed, K):
+    def __init__(self, seed, K, mode="max"):
         r = np.random.default_rng(seed)
         self.K = K
+        self.mode = mode                                     # "max" (VIN) or "mean" (Vm: v = tanh(mean of q))
         self.rec = False
         self.p = {"Wr": r.normal(0, 0.3, (1, 2, 3, 3)), "br": np.zeros(1),
                   "Wq": r.normal(0, 0.3, (A, 1, 3, 3)), "Wv": r.normal(0, 0.3, (A, 1, 3, 3)),
@@ -65,8 +66,12 @@ class VIN:
         q = Rq
         trace = []                                               # per iteration: (columns of v, argmax of q before)
         for _ in range(self.K - 1):
-            am = q.argmax(1)
-            v = q[np.arange(N * N), am]
+            if self.mode == "max":
+                am = q.argmax(1)
+                v = q[np.arange(N * N), am]
+            else:
+                v = np.tanh(q.mean(1))
+                am = v                                       # kept for the backward pass (1 - v^2)
             c_v = cols(v.reshape(1, N, N))
             trace.append((c_v, am))
             q = Rq + c_v @ p["Wv"].reshape(A, 9).T
@@ -103,7 +108,10 @@ class VIN:
             g["Wv"] += (dq.T @ c_v).reshape(A, 1, 3, 3)
             dv_map = uncols(dq @ Wv9).ravel()                    # (121,)
             dq = np.zeros((N * N, A))
-            dq[np.arange(N * N), am] = dv_map
+            if self.mode == "max":
+                dq[np.arange(N * N), am] = dv_map
+            else:
+                dq[:] = (dv_map * (1.0 - am ** 2) / A)[:, None]
         dRq += dq
         g["Wq"] += (dRq.T @ c_r).reshape(A, 1, 3, 3)
         dr = uncols(dRq @ p["Wq"].reshape(A, 9)).ravel()

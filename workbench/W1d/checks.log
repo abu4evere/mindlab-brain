@@ -1,0 +1,6 @@
+gradients equal finite differences, VIN max K=1: yes (worst rel. 2.7e-07; 0 nudges skipped for flipping a max)
+gradients equal finite differences, VIN max K=30: yes (worst rel. 3.4e-07; 1 nudges skipped for flipping a max)
+gradients equal finite differences, VIN mean K=30: yes (worst rel. 5.8e-07; 0 nudges skipped for flipping a max)
+moving-food probe: 120 items, one per detour test layout: yes
+the same seed gives the same result twice (V, 50 episodes): yes
+All: PASS
