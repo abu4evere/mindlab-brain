@@ -1,0 +1,7 @@
+egocentric view: food in place, walls and the outside as walls, agent centred: yes
+probe sets: labels and shortest paths recomputed, held-out families not in learning: yes
+gradients equal finite differences, C: yes (worst rel. 1.6e-08)
+gradients equal finite differences, E: yes (worst rel. 1.2e-08)
+DAgger's label (B's move) shortens the path from every reachable cell: yes
+the same seed gives the same result twice (C-dag, 60 episodes): yes
+All: PASS

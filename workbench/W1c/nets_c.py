@@ -57,50 +57,65 @@ class FlatNet(B1.Net):
             B1.H = keep
 
 
+LAYERS = [(2, 8, 1, 1), (8, 8, 2, 0), (8, 16, 2, 0)]     # (in channels, out channels, stride, padding); 3 x 3 kernels
+
+
+def _cols(a, stride, pad):
+    """im2col: a (C, H, W) -> (positions, C * 9), positions row-major."""
+    if pad:
+        a = np.pad(a, ((0, 0), (pad, pad), (pad, pad)))
+    win = sliding_window_view(a, (3, 3), axis=(1, 2))[:, ::stride, ::stride]   # (C, Ho, Wo, 3, 3)
+    C, Ho, Wo = win.shape[:3]
+    return win.transpose(1, 2, 0, 3, 4).reshape(Ho * Wo, C * 9), Ho, Wo
+
+
+def _uncols(dcols, C, H, W, Ho, Wo, stride, pad):
+    """col2im: the gradient of the columns back onto the (C, H, W) map."""
+    d = np.zeros((C, H + 2 * pad, W + 2 * pad))
+    dc = dcols.reshape(Ho, Wo, C, 3, 3)
+    for ky in range(3):
+        for kx in range(3):
+            d[:, ky:ky + stride * (Ho - 1) + 1:stride, kx:kx + stride * (Wo - 1) + 1:stride] +=                 dc[:, :, :, ky, kx].transpose(2, 0, 1)
+    return d[:, pad:pad + H, pad:pad + W] if pad else d
+
+
 class ConvNet:
-    """C: conv 3x3 (2 -> 8, padding 1) + ReLU; conv 3x3 stride 2 (8 -> 8) + ReLU (21 -> 10); 800 -> 64 tanh; heads."""
+    """C: conv 3x3 (2 -> 8, padding 1) + ReLU; 3x3 stride 2 (8 -> 8) + ReLU; 3x3 stride 2 (8 -> 16) + ReLU
+    (21 -> 21 -> 10 -> 4); 256 -> 64 tanh; 5 action scores and a value."""
 
     def __init__(self, seed):
         r = np.random.default_rng(seed)
-        self.p = {"K1": r.normal(0, 0.3, (8, 2, 3, 3)), "b1": np.zeros(8),
-                  "K2": r.normal(0, 0.15, (8, 8, 3, 3)), "b2": np.zeros(8),
-                  "Wf": r.normal(0, 0.05, (HID, 800)), "bf": np.zeros(HID),
-                  "Wa": r.normal(0, 0.1, (5, HID)), "ba": np.zeros(5), "Wv": r.normal(0, 0.1, HID), "bv": np.zeros(1)}
+        self.p = {}
+        for i, (ci, co, _, _) in enumerate(LAYERS, 1):
+            self.p[f"K{i}"] = r.normal(0, np.sqrt(2.0 / (ci * 9)), (co, ci, 3, 3))
+            self.p[f"b{i}"] = np.zeros(co)
+        self.p.update({"Wf": r.normal(0, 0.1, (HID, 256)), "bf": np.zeros(HID), "Wa": r.normal(0, 0.1, (5, HID)),
+                       "ba": np.zeros(5), "Wv": r.normal(0, 0.1, HID), "bv": np.zeros(1)})
         self.rec = False
         self.cache = []
 
     def reset(self):
         self.cache = []
 
-    @staticmethod
-    def _cols1(x):
-        xp = np.pad(x.reshape(2, S, S), ((0, 0), (1, 1), (1, 1)))
-        win = sliding_window_view(xp, (3, 3), axis=(1, 2))          # (2, 21, 21, 3, 3)
-        return win.transpose(1, 2, 0, 3, 4).reshape(S * S, 18)       # rows: positions; cols: (channel, ky, kx)
-
-    @staticmethod
-    def _cols2(a1):
-        win = sliding_window_view(a1, (3, 3), axis=(1, 2))[:, ::2, ::2]   # (8, 10, 10, 3, 3)
-        return win.transpose(1, 2, 0, 3, 4).reshape(100, 72)
-
     def step(self, x):
         p = self.p
-        c1 = self._cols1(x)
-        z1 = c1 @ p["K1"].reshape(8, 18).T + p["b1"]                 # (441, 8)
-        a1 = np.maximum(z1, 0.0).T.reshape(8, S, S)
-        c2 = self._cols2(a1)
-        z2 = c2 @ p["K2"].reshape(8, 72).T + p["b2"]                 # (100, 8)
-        a2 = np.maximum(z2, 0.0).ravel()                             # (800,), position-major
-        h = np.tanh(p["Wf"] @ a2 + p["bf"])
-        self.cache.append((c1, z1, c2, z2, a2))
+        a = x.reshape(2, S, S)
+        layers = []
+        for i, (ci, co, st, pd) in enumerate(LAYERS, 1):
+            cols, Ho, Wo = _cols(a, st, pd)
+            z = cols @ p[f"K{i}"].reshape(co, ci * 9).T + p[f"b{i}"]
+            layers.append((cols, z, a.shape, Ho, Wo))
+            a = np.maximum(z, 0.0).T.reshape(co, Ho, Wo)
+        flat = a.ravel()                                          # channel-major
+        h = np.tanh(p["Wf"] @ flat + p["bf"])
+        self.cache.append((layers, flat))
         return None, h, p["Wa"] @ h + p["ba"], float(p["Wv"] @ h + p["bv"][0])
 
     def backward(self, xs, hps, hs, dlogits, dvals):
         p = self.p
         g = {k: np.zeros_like(v) for k, v in p.items()}
-        K2m = p["K2"].reshape(8, 72)
         for t in range(len(hs)):
-            c1, z1, c2, z2, a2 = self.cache[t]
+            layers, flat = self.cache[t]
             h = hs[t]
             g["Wa"] += np.outer(dlogits[t], h)
             g["ba"] += dlogits[t]
@@ -108,19 +123,17 @@ class ConvNet:
             g["bv"] += dvals[t]
             dh = p["Wa"].T @ dlogits[t] + dvals[t] * p["Wv"]
             dpre = dh * (1.0 - h ** 2)
-            g["Wf"] += np.outer(dpre, a2)
+            g["Wf"] += np.outer(dpre, flat)
             g["bf"] += dpre
-            dz2 = (p["Wf"].T @ dpre).reshape(100, 8) * (z2 > 0)
-            g["K2"] += (dz2.T @ c2).reshape(8, 8, 3, 3)
-            g["b2"] += dz2.sum(0)
-            dc2 = (dz2 @ K2m).reshape(10, 10, 8, 3, 3)               # back to the 8 x 21 x 21 map
-            da1 = np.zeros((8, S, S))
-            for ky in range(3):
-                for kx in range(3):
-                    da1[:, ky:ky + 19:2, kx:kx + 19:2] += dc2[:, :, :, ky, kx].transpose(2, 0, 1)
-            dz1 = da1.reshape(8, S * S).T * (z1 > 0)                 # (441, 8)
-            g["K1"] += (dz1.T @ c1).reshape(8, 2, 3, 3)
-            g["b1"] += dz1.sum(0)
+            da = (p["Wf"].T @ dpre)
+            for i in range(len(LAYERS), 0, -1):
+                ci, co, st, pd = LAYERS[i - 1]
+                cols, z, in_shape, Ho, Wo = layers[i - 1]
+                dz = da.reshape(co, Ho * Wo).T * (z > 0)              # (positions, co)
+                g[f"K{i}"] += (dz.T @ cols).reshape(co, ci, 3, 3)
+                g[f"b{i}"] += dz.sum(0)
+                if i > 1:
+                    da = _uncols(dz @ p[f"K{i}"].reshape(co, ci * 9), ci, in_shape[1], in_shape[2], Ho, Wo, st, pd)
         return g
 
     def apply(self, g):
