@@ -1,0 +1,8 @@
+every layout's label and shortest path recomputed: yes
+no test layout is a learning layout: yes
+every adversarial layout defeats at least one of W, W2, H1, H2: yes
+B solves every test layout on its shortest path: yes
+gradients equal finite differences (F, 363 -> 64): yes (worst rel. 1.6e-08)
+gradients equal finite differences (R, untruncated, 363 -> 64): yes (worst rel. 1.6e-06)
+the same seed gives the same result twice (R, 200 episodes): yes
+All: PASS
