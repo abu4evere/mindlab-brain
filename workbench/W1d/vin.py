@@ -43,14 +43,19 @@ def uncols(d):
 
 
 class VIN:
-    def __init__(self, seed, K, mode="max"):
+    def __init__(self, seed, K, mode="max", plus=False):
         r = np.random.default_rng(seed)
         self.K = K
         self.mode = mode                                     # "max" (VIN) or "mean" (Vm: v = tanh(mean of q))
+        # W1e: the propagation filter masked to a plus (the cell and its 4 neighbours; diagonals fixed at 0)
+        self.mask = np.ones((A, 1, 3, 3))
+        if plus:
+            self.mask[:, :, [0, 0, 2, 2], [0, 2, 0, 2]] = 0.0
         self.rec = False
         self.p = {"Wr": r.normal(0, 0.3, (1, 2, 3, 3)), "br": np.zeros(1),
                   "Wq": r.normal(0, 0.3, (A, 1, 3, 3)), "Wv": r.normal(0, 0.3, (A, 1, 3, 3)),
                   "Wo": r.normal(0, 0.3, (5, A)), "bo": np.zeros(5), "wv": r.normal(0, 0.1, A), "bv": np.zeros(1)}
+        self.p["Wv"] = self.p["Wv"] * self.mask
         self.reset()
 
     def reset(self):
@@ -113,6 +118,7 @@ class VIN:
             else:
                 dq[:] = (dv_map * (1.0 - am ** 2) / A)[:, None]
         dRq += dq
+        g["Wv"] *= self.mask
         g["Wq"] += (dRq.T @ c_r).reshape(A, 1, 3, 3)
         dr = uncols(dRq @ p["Wq"].reshape(A, 9)).ravel()
         g["Wr"] += (dr @ c_x).reshape(1, 2, 3, 3)

@@ -1,0 +1,5 @@
+V+: the diagonal propagation weights start and stay 0 after learning: yes
+V is W1d's VIN unchanged (same start weights): yes
+V+ gradients equal finite differences: yes (worst rel. 7.6e-07; 1 nudges skipped for flipping a max)
+the same seed gives the same result twice (V+, 40 episodes): yes
+All: PASS
