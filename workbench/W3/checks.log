@@ -1,0 +1,11 @@
+PASS 1 map writer writes only the view  (0 cells outside the view changed)
+PASS 2 batched planner equals one map at a time  (max |diff| 1.33e-15)
+PASS 3 numerical gradient (drive-weighted map)  (worst rel err 3.42e-08; |g| Ws 97.3 Wf 58.8 Wc 131)
+PASS 4 death bound holds  (min(continuation - die now) = 0)
+PASS 5 test lands and relocations identical across brains
+PASS 6 weights unchanged by testing
+PASS 7 Script reads only the map memory  (attributes ['E', 'F', 'm_food', 'm_seen', 'm_wall', 'pos', 'shelter_known', 'u'])
+PASS 8 same seed gives the same result; D3i's link stays fixed; D3's link learns  (same True, D3i fixed True, D3 Ws moved True)
+PASS 8b drive levels per brain (D2 no c; Dc no s, f; the lesion zeroes c only)
+PASS 9 Rand and Script reproduce their calibration numbers  (R 200: {'Script': 0.9, 'Rand': 0.0} vs {'R': 200, 'Script': 0.9, 'Rand': 0.0})
+All: PASS
