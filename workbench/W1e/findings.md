@@ -33,3 +33,21 @@
 ## Next
 - **Exploratory (labelled, after the data):** V+ at 500,000 episodes, 4 seeds, to see where training levels off.
 - **W2** (partial view plus remembered map) uses V+ as its planner; draft updated.
+
+## Exploratory (after the data, labelled; not part of the frozen readings): V+ at 500,000 episodes
+Seeds 1–4 (`explore/`), compared with the same four seeds at 30,000 and 150,000:
+
+| | 30,000 | 150,000 | 500,000 |
+|---|---|---|---|
+| efficient detour | 0.21 | 0.55 | **0.70** (seeds: 0.66, 0.83, 0.52, 0.78) |
+| pocket | 0.08 | 0.25 | 0.42 |
+| held-out detour | 0.16 | 0.42 | **0.64** |
+| control | 0.87 | 0.95 | 0.97 |
+| moving food | 0.62 | 0.81 | 0.88 |
+| value-map correlation | 0.77 | 0.87 | 0.90 |
+
+- **Still rising, more slowly.** Two of four seeds pass 0.78; none reaches W1b's "looks ahead" line on every part
+  (pockets 0.42 against 0.70).
+- Held-out shapes rise with it (0.64), so this is not memorising the 400 learning maps.
+- **The assistant's reading:** V+ is a planner that improves with practice and has not levelled off. The starting
+  brain's planner should be trained long (500,000 or more). Pockets (dead ends) are the last thing it learns.
