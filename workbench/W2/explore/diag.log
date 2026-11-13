@@ -1,0 +1,12 @@
+4 Counter({None: 47, 'away': 21, 'toward': 12})
+toward 12 known barrier, gap side 0.85, other side 0.89
+away 21 known barrier, gap side 0.92, other side 0.19
+none 47 known barrier, gap side 0.94, other side 0.77
+6 Counter({None: 48, 'away': 24, 'toward': 8})
+toward 8 known barrier, gap side 0.89, other side 0.83
+away 24 known barrier, gap side 0.92, other side 0.28
+none 48 known barrier, gap side 0.93, other side 0.78
+1 Counter({'toward': 42, 'away': 30, None: 8})
+toward 42 known barrier, gap side 0.91, other side 0.87
+away 30 known barrier, gap side 0.93, other side 0.23
+none 8 known barrier, gap side 0.97, other side 0.88
