@@ -54,3 +54,4 @@ acl and cradle so overall 5 project works"):
 ## Log
 - 2026-11-11: started. Three plans, drafts, not frozen: `workbench/plan.md`, `imagine/plan.md`, `scorecard/plan.md`.
 - 2026-11-11: GPT's five ideas (pasted by the creator) folded in, labelled as GPT; the first workbench experiment is alone vs with others.
+- 2026-11-13: W3 (drives only) council (GPT, Gemini, DeepSeek; two rounds), frozen (W3-frozen), built, checks All: PASS, calibration R = 200, launched (jobs_w3.py; 32 runs x 800,000 steps + tests; about 14-18 hours).
