@@ -35,3 +35,15 @@ or "navigates"; all "mixed". Both frozen comparisons pass.
    - (a) the same VIN with a longer budget (100,000–300,000 episodes) and more maps (is it just training?);
    - (b) a convolutional front-end feeding the VIN (perception and planning together);
    - (c) move on to memory and maps under a partial view (W2), and come back.
+
+## Exploratory (after the data, labelled; not part of the frozen readings)
+- **One seed trained 150,000 episodes** instead of 30,000 (`explore/`):
+  - control 0.92, empty room **1.00** (it navigates);
+  - efficient detour 0.25, pocket 0.31;
+  - moving food 0.58;
+  - value-map correlation 0.83 (the same seed at 30,000: 0.78, 0.14, –, 0.77).
+- So more training helps, but slowly, and it does not close the gap to 0.80.
+- **A likely structural cause (the assistant's reading, to test):** the VIN's 3 × 3 filters let value flow diagonally,
+  cutting across a wall's corner, while the agent moves only in 4 directions. That distorts the distances exactly at
+  a barrier's ends, where the short-way choice is made. A VIN whose filters are plus-shaped (the 4 moves only) is the
+  candidate for W1e.
