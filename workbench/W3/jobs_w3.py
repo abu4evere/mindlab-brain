@@ -44,7 +44,17 @@ def job(kind, seed):
     return rc
 
 
+def stay_awake():
+    """Ask Windows not to sleep while this queue runs (released when the process ends; no setting is changed)."""
+    try:
+        import ctypes
+        ctypes.windll.kernel32.SetThreadExecutionState(0x80000000 | 0x00000001)   # ES_CONTINUOUS | ES_SYSTEM_REQUIRED
+    except Exception as e:                                                       # noqa: BLE001
+        note(f"stay-awake request failed: {e}")
+
+
 if __name__ == "__main__":
+    stay_awake()
     OUT.mkdir(exist_ok=True)
     if not (OUT / "test_Script.json").exists():
         note("refs")
