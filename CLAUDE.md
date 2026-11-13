@@ -1,6 +1,6 @@
 # Mind Lab: the brain workbench, the imagining brain, and the scorecard (started 11 November 2026)
 
-**Handoff (13 November 2026, account switch):** read `D:cl\docs\HANDOFF_2026-11-13.md` first; it covers all three projects and where the brain stands.
+**Handoff (13 November 2026, account switch):** read `D:\acl\docs\HANDOFF_2026-11-13.md` first; it covers all three projects and where the brain stands.
 
 **The creator's goal:**
 - **First:** an autonomous cognitive mind ("to emerge or to be built").
