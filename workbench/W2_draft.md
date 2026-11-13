@@ -4,9 +4,8 @@
 11 × 11 area to see. W2 asks whether the planner still finds the short way round when it sees only a small window,
 and whether a remembered map is what makes the difference.
 
-**Depends on W1e:** the planner used here is whichever of V and V+ W1e shows is better (named before this plan is
-frozen). If neither takes the efficient detour well, W2 still measures what memory adds, relative to the full-view
-planner as the ceiling.
+**The planner (from W1e):** V+, the plus-shaped VIN, trained 150,000 episodes (W1e: efficient detour 0.54, value map 0.88,
+against V 0.35 and 0.73). P below is V+ with the full view, at the same budget.
 
 ## The world (W1b's, with a partial view)
 - The same 11 × 11 area, layouts, moves, 60 steps, and "efficient" (within 1.15 × the shortest path).
@@ -31,7 +30,7 @@ planner as the ceiling.
 
 - The map writer in M is fixed (it stores what is seen; it does not decide anything). Everything that chooses moves
   is learned, imitating Bp as W1b–W1e imitated B.
-- Same seeds (16), budget (30,000 episodes), learning settings and checks as W1e.
+- Learning settings and checks as W1e; 16 seeds; 150,000 episodes (V+ at 30,000 is too young to plan).
 
 ## Measures
 1. Efficient detour success, new rooms and familiar rooms separately (control layouts, empty rooms, held-out shapes
