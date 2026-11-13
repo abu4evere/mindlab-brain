@@ -1,0 +1,12 @@
+the batched planner equals one map at a time: yes
+V+'s diagonal propagation weights stay 0: yes
+M: gradients equal finite differences (worst rel. 1.0e-06; 1 max flips skipped): yes
+R: gradients equal finite differences (worst rel. 1.4e-08; 0 max flips skipped): yes
+every tour covers 60% of the open cells, never enters the start's 3 x 3, and moves one cell at a time: yes
+every test detour: B0, H2, W2 fail it in a new room; Bp is efficient in the familiar room: yes
+look-alike pairs: the same start, food and view; different gaps; each tour sees its gap: yes
+M-shuffle partners are other layouts: yes
+M: the same seed gives the same result twice (30 episodes): yes
+M0: the same seed gives the same result twice (30 episodes): yes
+R: the same seed gives the same result twice (30 episodes): yes
+All: PASS
