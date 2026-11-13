@@ -1,5 +1,5 @@
-"""W3's job queue: the reference brains, then 32 training runs (D3, D2, Dc, D3i x seeds 1-8, 800,000 steps each;
-IMPLEMENTATION.md, pre-data correction 3), each followed by its test (and the D3- lesion test for D3). At most 4 at
+"""W3's job queue: the reference brains, then 32 training runs (D3, D2, Dc, D3i x seeds 1-8, 2,000,000 steps each;
+IMPLEMENTATION.md: the frozen 2,000,000 steps, restored by the creator), each followed by its test (and the D3- lesion test for D3). At most 4 at
 once, at Idle priority. Resumable: a run whose test file exists is skipped.
 
   python jobs_w3.py
@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).parent
 OUT = HERE / "output"
-STEPS = 800_000
+STEPS = 2_000_000
 WORKERS = 4
 IDLE = 0x00000040                                     # IDLE_PRIORITY_CLASS (Windows)
 LOG = HERE / "jobs.log"

@@ -32,3 +32,9 @@
    measured speed (before any data) means more than 14 hours, the step budget is cut to fit").
    - **The measured speed:** 7.4 ms per training step with 4 runs at once (6 cores; NumPy single-threaded).
    - 32 runs × 2,000,000 would take about 33 hours. 32 × 800,000 takes about 13 hours.
+4. **Correction 3 is withdrawn: back to the frozen 2,000,000 steps.**
+   - The creator, 13 November 2026 (about 15:03), in the Claude Code chat: "you can actually run full plan in needed 33
+     hours in my pc thats fine".
+   - The 800,000-step queue had run for about 5 minutes. It was stopped before any learned brain had finished or been
+     tested. Only the reference brains (Rand and Script) had been tested, and their numbers are unaffected.
+   - The queue was relaunched at 2,000,000 steps per run, the same for every brain.
