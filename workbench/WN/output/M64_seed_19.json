@@ -1,0 +1,1 @@
+{"brain": "M64", "seed": 19, "tests": {"7": {"success": 0.0, "partial": 0.25}, "15": {"success": 0.0, "partial": 0.25}, "30": {"success": 0.0, "partial": 0.25}, "60": {"success": 0.8333333333333334, "partial": 0.9166666666666666}}, "show_tests": {"30": {"success": 1.0, "partial": 1.0}}, "sizes": {"7": 64, "15": 64, "30": 64, "60": 64}, "cpu_secs": 1.42}

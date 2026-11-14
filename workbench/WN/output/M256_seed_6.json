@@ -1,0 +1,1 @@
+{"brain": "M256", "seed": 6, "tests": {"7": {"success": 0.0, "partial": 0.0}, "15": {"success": 0.0, "partial": 0.0}, "30": {"success": 0.0, "partial": 0.0}, "60": {"success": 1.0, "partial": 1.0}}, "show_tests": {"30": {"success": 1.0, "partial": 1.0}}, "sizes": {"7": 256, "15": 256, "30": 256, "60": 256}, "cpu_secs": 6.02}
