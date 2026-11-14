@@ -1,0 +1,1 @@
+{"tests": {"7": {"success": 0.0, "partial": 0.16666666666666666}, "15": {"success": 0.0, "partial": 0.16666666666666666}, "30": {"success": 0.0, "partial": 0.16666666666666666}, "60": {"success": 1.0, "partial": 1.0}}, "show_tests": {"30": {"success": 1.0, "partial": 1.0}}, "food": 1519, "final_n": 119, "brain": "E1", "seed": 1039}
