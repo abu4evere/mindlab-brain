@@ -1,0 +1,12 @@
+PASS M32 seed 1 reproduces WS Bm (days 7,15,30,60 and after a showing at 30)
+PASS M32 seed 2 reproduces WS Bm (days 7,15,30,60 and after a showing at 30)
+PASS gradients n=8 recurrent=True (worst relative error 4.2e-08)
+PASS gradients n=64 recurrent=True (worst relative error 4.6e-08)
+PASS gradients n=8 recurrent=False (worst relative error 1.1e-08)
+PASS gradients n=128 recurrent=False (worst relative error 3.0e-08)
+PASS growth 16->32->64->128 leaves the act scores unchanged
+PASS new neurons' outgoing weights start at zero
+PASS G sizes at days 7, 15, 30, 60 are 16, 32, 128, 128
+PASS same seed twice gives the same results
+PASS F-n after-showing test uses no showing prefix
+All: PASS
