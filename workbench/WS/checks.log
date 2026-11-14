@@ -1,0 +1,10 @@
+each box's 2 lid pairs differ: PASS
+non-memory brains never see a showing in their input: PASS
+Bm sees showings only as showing steps (flag set exactly when a shown act is fed): PASS
+Br and Brm replay 4 showings each night of days 1-30, the others none: PASS
+Bu's total copy amount equals Br's: PASS (330.000 vs 330.000)
+Bp never learns from reward (only copy-rate updates): PASS
+Bx's showings are random (mostly not the right pairs): PASS (539 of 540 differ)
+gradients through time equal finite differences: PASS (worst rel. 2.4e-08)
+the same seed gives the same result twice: PASS
+All: PASS
