@@ -1,0 +1,1 @@
+python wt.py evolve 50 1 2 > evo.out 2>&1 && python wt.py evolve 20 1 2 >> evo.out 2>&1 && python wt.py final 50 > final.out 2>&1 && python wt.py final 20 >> final.out 2>&1 && python analyse_wt.py > analyse.out 2>&1; echo finished >> final.out

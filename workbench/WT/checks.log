@@ -1,0 +1,7 @@
+PASS p = 1 reproduces WE's child (food, tests)
+PASS p = 0: no showings
+PASS p = 0.2 presence rate about 0.2 (0.200)
+PASS the same world gives the same absences to every brain
+PASS p = 0.5 shows over 30 days about 270 (275)
+PASS same child twice is the same
+All: PASS
