@@ -1,0 +1,10 @@
+PASS GA schedule reproduces WG's GA seed 1
+PASS no schedule reproduces WG's M32 seed 1
+PASS food is within 0..2160
+PASS schedule 16 -> 128 over days 8..24: born 16, last 128, steps rise
+PASS g = 0 means no growth
+PASS one-day growth jumps at once to the final size
+PASS clamped genes stay in range; sizes 4..256
+PASS generation 0 has 32 genomes in range
+PASS same child twice gives the same food and size
+All: PASS
