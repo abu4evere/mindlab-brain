@@ -1,0 +1,12 @@
+PASS M32 seed 1 equals WN's
+PASS G seed 1 equals WN's
+PASS awake_in growth 16->128 leaves the act scores unchanged
+PASS awake_in: new outgoing zero
+PASS awake_in: new incoming scale about 0.1 (sd 0.099)
+PASS awake growth changes the act scores
+PASS awake: new outgoing scale about 0.1 (sd 0.093)
+PASS GA32 sizes 8, 16, 32, 32 at days 7, 15, 30, 60
+PASS same seed twice gives the same results
+PASS GF sizes 16, 32, 128, 128
+PASS M128 has no added neurons
+All: PASS
