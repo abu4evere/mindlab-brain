@@ -13,6 +13,7 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 | **memory** | a short window of recent things (or a recurrent state) | Cradle C1: needed to keep up with routines; a window is as good as recurrence there | proven in Cradle |
 | **copying** | an imitation step toward what others are seen doing | Cradle C2: watching alone teaches no method; copying does (×3) | proven in Cradle |
 | **feelings** | an inborn reluctance to harm (on the choice); hunger, rest, love of one's child | ACL NB3: the reluctance ended the killing; learned feelings did not | proven in ACL |
+| **sequence memory** | a learned recurrent state that carries what was just shown through the try | WS: deferred imitation 0.91 vs 0.43; skill after teaching stops 0.92 vs 0.54; nightly replay = only extra copying | proven in the workshop |
 | **drives** | survival, comfort, curiosity (the creator's three) as the only motives | – | to test (Mind Lab "drives only") |
 
 ## What ACL needs for it
