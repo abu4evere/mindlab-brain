@@ -1,0 +1,8 @@
+PASS 60 kinds, each with 2 different lid codes in range
+PASS kinds of day 1 are 0,1; day 30 are 58,59; day 0 and 31 none
+PASS every kind gets an immediate test (60)
+PASS retention 1 day for kinds of days 1-29 (58); 7 days for days 1-23 (46)
+PASS food within its maximum (34 <= 784)
+PASS same child twice is the same
+FAIL the three arms give different lives
+FAILED: ['the three arms give different lives']
