@@ -1,0 +1,9 @@
+PASS no bad kinds: Naive = WR's LTYR at day 30 (seed 1001, size 32)
+PASS same pair, opened -> 1
+PASS same pair, failed -> 0
+PASS different pair, opened -> 0
+PASS different pair, failed -> no update
+PASS pilot: trust at day 30 lower on bad kinds than good ([0.0, 0.0, 0.0, 1.0, 1.0, 1.0])
+PASS same child twice is the same
+PASS Alone never trusts-updates (trust stays 1.0)
+All: PASS
