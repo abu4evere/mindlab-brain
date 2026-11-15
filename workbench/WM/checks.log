@@ -1,0 +1,14 @@
+PASS Base-128 reproduces WC's M128 seed 1001 (food and every test)
+PASS Base-32 reproduces WC's M32 seed 1001 (food and every test)
+PASS blocked pairs never chosen (a fully blocked first act, and one blocked pair)
+PASS surprise trace after 1, 1, 0: u = 0.108 (expected 0.108)
+PASS SU: surprise rises in the changing world (max u 0.46 > 0.2)
+PASS LSi network has 39 inputs and keeps the base 29 columns
+PASS LSi sense of a failed (1, 3) try
+PASS LSi sense with no try yet is zeros
+PASS Base: same child twice is the same
+PASS SU: same child twice is the same
+PASS TB: same child twice is the same
+PASS LSi: same child twice is the same
+PASS SUTB: same child twice is the same
+All: PASS
