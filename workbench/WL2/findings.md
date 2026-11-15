@@ -57,3 +57,11 @@ recompute.
 
 ## Limits
 - One task, with repeated showings of the same boxes; fixed noise levels.
+
+## Note from the literature (15 November 2026, appended; abstracts only, `D:\acl\docs\research\mindlab_sources_2026-11-15.md`)
+- **For:** Elman (1993) found that starting with limited memory helped recurrent networks learn complex sentences.
+  Newport's "less is more" makes a similar argument about children.
+- **Against:** Rohde and Plaut (1999) found that limits on memory or input were not needed, and hindered learning,
+  once the language was made more natural.
+- **So the forgetting gain here may depend on the task:** the same few boxes are shown again and again. It should be
+  tested in a richer task before it becomes a design rule.
