@@ -1,0 +1,9 @@
+PASS no change, p = 0.5 reproduces WT's child food
+PASS no change, p = 1 reproduces WE's child food
+PASS new codes differ from the old on every lid; a kind's two lids differ
+PASS new codes are the same each time for a world
+PASS by day 60 every kind runs on its new code
+PASS stale habit measured only on changed kinds
+PASS tests at days 30, 33, 38, 45, 48, 53, 60
+PASS same child twice is the same
+All: PASS
