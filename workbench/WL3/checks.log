@@ -1,0 +1,8 @@
+PASS K6L2 L0-32 reproduces WL2
+PASS K6L2 Linf-32 reproduces WL2
+PASS K24L2: 24 kinds, 2 lids each, 72 tries a day
+PASS K6L3: 6 kinds, 3 different lids each
+PASS K6L3: a showing has 6 steps
+PASS K6L3 child runs; tests at 7, 15, 30, 60
+PASS same child twice is the same
+All: PASS
