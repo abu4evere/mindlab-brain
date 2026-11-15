@@ -57,6 +57,15 @@ x = wm.extra(last, 2, 0)
 check("LSi sense of a failed (1, 3) try", list(x) == [0, 1, 0, 0, 0, 0, 0, 1, 0, 1])
 check("LSi sense with no try yet is zeros", not wm.extra(last, 2, 1).any())
 
+# 4b. correction 1: TB runs through a full life on many seeds (a lid whose 16 pairs all failed starts its search again)
+ok = True
+for sd in range(1001, 1013):
+    try:
+        wm.run_child("TB", 32, sd)
+    except ValueError:
+        ok = False
+check("TB completes 12 full lives without an all-blocked lid", ok)
+
 # 5. every arm runs, and the same child twice is the same
 for arm in wm.ARMS:
     r1, r2 = wm.run_child(arm, 32, 1002), wm.run_child(arm, 32, 1002)

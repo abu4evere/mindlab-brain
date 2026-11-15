@@ -163,6 +163,8 @@ def run_child(arm, n, seed):
                     tabu[k][j].clear()
                 else:
                     tabu[k][j].add((a1, a2))
+                    if len(tabu[k][j]) == ws.ACTS * ws.ACTS:      # correction 1: every pair failed -> search again
+                        tabu[k][j].clear()
             if su:
                 r = opened / ws.LIDS
                 u[k] = 0.7 * u[k] + 0.3 * max(0.0, e[k] - r)

@@ -6,6 +6,7 @@ PASS SU: surprise rises in the changing world (max u 0.46 > 0.2)
 PASS LSi network has 39 inputs and keeps the base 29 columns
 PASS LSi sense of a failed (1, 3) try
 PASS LSi sense with no try yet is zeros
+PASS TB completes 12 full lives without an all-blocked lid
 PASS Base: same child twice is the same
 PASS SU: same child twice is the same
 PASS TB: same child twice is the same

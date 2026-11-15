@@ -16,3 +16,13 @@
 - **Tests:** greedy, with no blocking and no temperature.
 - Run on GitHub's machines (`run.yml`): one job per arm and size (10 jobs), each running 48 children.
   Checks: All: PASS (`checks.log`).
+
+## Correction 1 (14 November 2026, before any TB or SUTB data was seen)
+- **What happened:** the first cloud run of TB and SUTB crashed. All 4 jobs failed with "Probabilities contain NaN".
+  - A pair that failed under a lid's old code stays listed. After the change it can be exactly the new right pair.
+  - Once every other pair failed too, all 16 were blocked.
+- **The frozen plan did not say** what happens when every pair is listed.
+- **Fix:** when all 16 pairs of a lid are listed, the list clears and the search starts again.
+- **A new check** runs TB through 12 full lives without the problem.
+- Base, SU and LSi are unchanged and their cloud results stand; they were downloaded but not looked at before this fix.
+- The partial TB and SUTB files (12 children) were deleted unread, and those 4 jobs were run again.
