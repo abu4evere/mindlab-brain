@@ -55,3 +55,14 @@ acl and cradle so overall 5 project works"):
 - 2026-11-11: started. Three plans, drafts, not frozen: `workbench/plan.md`, `imagine/plan.md`, `scorecard/plan.md`.
 - 2026-11-11: GPT's five ideas (pasted by the creator) folded in, labelled as GPT; the first workbench experiment is alone vs with others.
 - 2026-11-13: W3 (drives only) council (GPT, Gemini, DeepSeek; two rounds), frozen (W3-frozen), built, checks All: PASS, calibration R = 200, launched (jobs_w3.py; 32 runs x 800,000 steps + tests; about 14-18 hours).
+
+## Cloud runs (since 14 November 2026)
+Public repo **github.com/abu4evere/mindlab** (the creator made it on 14 November). The workflow `.github/workflows/run.yml`
+runs one study command on GitHub's machines: checks first (it stops unless they print All: PASS), then the command,
+then the chosen paths saved as an artifact.
+- Example: `gh workflow run run.yml -R abu4evere/mindlab -f name=WN -f dir=workbench/WN -f checks=checks_wn.py -f command="python run_all.py" -f save="output checks.log"`
+- `gh` is at `C:\Users\User\gh\bin\gh.exe`.
+- The first test (run 43670938233) passed WN's checks in the cloud, including M32 reproducing WS's saved local
+  children exactly (the same numbers on Linux as on the PC).
+- Long runs go to the cloud, so the creator's PC stays free. One job is limited to about 6 hours; split longer
+  studies into jobs.
