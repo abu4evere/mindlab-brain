@@ -1,0 +1,13 @@
+PASS L0-32 reproduces WL
+PASS L0-128 reproduces WL
+PASS L2-32 reproduces WL
+PASS L2-128 reproduces WL
+PASS W8: 4 showing steps + 8 silent waits
+PASS NS: 4 noisy showing steps, no wait
+PASS NP and L0: the plain showing
+PASS Linf: a blank memory
+PASS NP: no noise when off, noise when on
+PASS same child twice is the same (NP)
+PASS all six arms give different lives
+PASS Linf: after-showing test equals a plain test at day 30 setup (blank memory)
+All: PASS
