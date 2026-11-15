@@ -40,3 +40,13 @@ handoff, recomputes are for ACL and Cradle). n = 48 per brain.
 - **Next:**
   - return to Cradle's cumulative question (C2-K) with this brain (memory, full-rate copy), as the creator agreed;
   - and Mind Lab W4 (the parts together).
+
+## Correction 1 (15 November 2026, appended after WL2)
+- WL2's Linf child is recurrent, but its memory is wiped before each try, so nothing is carried over from the
+  showing. It reached own skill 1.000 by day 30 (sizes 32 and 128).
+- In an exploratory check (seeds 1–4), the same child without recurrence reached 0.50–0.83.
+- **So the memory child's advantage in own skill over B0 here (day 60) can come from the loop within the try, not
+  from holding the showing.**
+- **What still stands:** using a showing in the moment needs the held memory (deferred imitation, 0.913 against
+  0.427).
+- See `../WL2/findings.md`.
