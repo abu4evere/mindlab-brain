@@ -1,0 +1,9 @@
+PASS rule code from arg-maxes
+PASS same looks in both worlds
+PASS RULE codes follow the looks
+PASS RAND codes: 2 different pairs per kind
+PASS a day: 72 tries on the 24 practised kinds only
+PASS tests at 15, 30, 60 with practised and held-out shares
+PASS same child twice is the same
+INFO share of noisy encounters whose look's arg-max code differs from the kind's code: 0.272
+All: PASS
