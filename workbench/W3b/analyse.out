@@ -1,0 +1,83 @@
+D:\mindlab\workbench\W3b\analyse_w3b.py:58: RuntimeWarning: Mean of empty slice
+  means = np.nanmean(v[idx], axis=1)
+D:\mindlab\workbench\W3b\analyse_w3b.py:59: RuntimeWarning: Mean of empty slice
+  return float(np.nanmean(v)), float(np.percentile(means, 2.5)), float(np.percentile(means, 97.5))
+# W3b analysis (the frozen analysis, analyse_w3b.py)
+
+Per run: the mean over its 50 test lives; intervals: bootstrap over the training seeds (10,000 draws, seed 20261115); differences paired by seed. n = runs x 50 lives.
+
+## Step 0: the diagnostic (W3's saved weights; 8 seeds x 50 lives)
+
+| brain | (a) learned head | (b) greedy value walk | (c) one-step look-ahead | planner-vs-head agreement | hungry steps: sWs / cWc / W0 / fWf (mean abs part) | food cells minus rest |
+|---|---|---|---|---|---|---|
+| D3i (n = 8) | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.079 [0.044, 0.117] | 0.009 / 0.551 / 0.875 / 0.002 | 0.623 [0.328, 0.877] |
+| D3 (n = 8) | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 0.123 [0.089, 0.164] | 0.297 / 0.719 / 0.614 / 0.845 | 0.184 [-0.254, 0.588] |
+
+**Step 0 reading (D3i):** NEITHER ALONE (head: (b) or (c) >= 0.50 with (a) about 0; values: (b) and (c) < 0.10 and the food cells' reward not above the rest).
+
+## The arms
+
+| arm | runs | survived to 3,000 | survived to 1,000 | lifespan | known@end | found share | hungry | exhausted |
+|---|---|---|---|---|---|---|---|---|
+| D3 | 8 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 203.855 [190.875, 217.606] | 0.527 [0.446, 0.612] | nan [nan, nan] | 0.201 [0.180, 0.224] | 0.451 [0.417, 0.484] |
+| Y | 8 | 0.000 [0.000, 0.000] | 0.003 [0.000, 0.007] | 220.280 [203.252, 234.989] | 0.646 [0.556, 0.709] | 1.000 [nan, nan] | 0.174 [0.155, 0.194] | 0.454 [0.416, 0.490] |
+| FR | 8 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 217.510 [198.950, 234.325] | 0.611 [0.515, 0.694] | 1.000 [nan, nan] | 0.180 [0.167, 0.194] | 0.351 [0.287, 0.412] |
+| YFR | 8 | 0.000 [0.000, 0.000] | 0.010 [0.003, 0.020] | 248.215 [216.184, 296.645] | 0.630 [0.588, 0.691] | 0.933 [nan, nan] | 0.186 [0.170, 0.203] | 0.329 [0.240, 0.413] |
+| RR | 8 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 192.103 [185.159, 198.657] | 0.305 [0.267, 0.342] | nan [nan, nan] | 0.270 [0.263, 0.278] | 0.432 [0.416, 0.449] |
+| F | 8 | 0.000 [0.000, 0.000] | 0.000 [0.000, 0.000] | 205.130 [189.675, 219.603] | 0.498 [0.432, 0.565] | nan [nan, nan] | 0.167 [0.147, 0.191] | 0.324 [0.311, 0.337] |
+
+## Readings (primary survival to 3,000; every learned survival is 0 -> readings 2 and 3 on lifespan: True)
+
+1. **A learned brain lives** (Y, FR or YFR: survival mean >= 0.50 and lower bound >= 0.30): **NO**
+2. **Y − D3 on lifespan:** 16.425 [-3.745, 32.988] (n = 8 seed pairs) -> NO
+2. **FR − D3 on lifespan:** 13.655 [-12.285, 38.268] (n = 8 seed pairs) -> NO
+2. **YFR − D3 on lifespan:** 44.360 [14.005, 89.072] (n = 8 seed pairs) -> YES
+3. **Content, not compute** (FR − RR on lifespan): 25.407 [8.902, 39.996] (n = 8) -> YES
+4. **The ceiling is reachable** (D3+F survival 0.000 [0.000, 0.000] >= 0.50): **NO**
+5. **Survival to 1,000** (secondary):
+   - Y − D3: 0.003 [0.000, 0.007] (n = 8)
+   - FR − D3: 0.000 [0.000, 0.000] (n = 8)
+   - YFR − D3: 0.010 [0.003, 0.020] (n = 8)
+   - FR − RR: 0.000 [0.000, 0.000] (n = 8)
+
+## Secondary: YFR − Y, YFR − FR, Y − RR (lifespan and survival)
+- YFR − Y, survived: 0.000 [0.000, 0.000] (n = 8)
+- YFR − Y, lifespan: 27.935 [-11.453, 89.667] (n = 8)
+- YFR − FR, survived: 0.000 [0.000, 0.000] (n = 8)
+- YFR − FR, lifespan: 30.705 [-14.073, 95.037] (n = 8)
+- Y − RR, survived: 0.000 [0.000, 0.000] (n = 8)
+- Y − RR, lifespan: 28.177 [10.862, 43.950] (n = 8)
+
+## Compute and events (per run: total updates; events and replays per life)
+- Y seed 1: updates {'ac': 36716, 'y': 11060, 'replay': 0}; lives 10142; events/life 1.09; replays/life 0.00; training lifespan first 200 lives 166 -> last 200 223
+- Y seed 2: updates {'ac': 36326, 'y': 8506, 'replay': 0}; lives 9954; events/life 0.85; replays/life 0.00; training lifespan first 200 lives 189 -> last 200 209
+- Y seed 3: updates {'ac': 36413, 'y': 9211, 'replay': 0}; lives 9481; events/life 0.97; replays/life 0.00; training lifespan first 200 lives 169 -> last 200 235
+- Y seed 4: updates {'ac': 36909, 'y': 9748, 'replay': 0}; lives 10328; events/life 0.94; replays/life 0.00; training lifespan first 200 lives 150 -> last 200 226
+- Y seed 5: updates {'ac': 36232, 'y': 13163, 'replay': 0}; lives 9577; events/life 1.37; replays/life 0.00; training lifespan first 200 lives 168 -> last 200 221
+- Y seed 6: updates {'ac': 36605, 'y': 10342, 'replay': 0}; lives 9726; events/life 1.06; replays/life 0.00; training lifespan first 200 lives 166 -> last 200 248
+- Y seed 7: updates {'ac': 36348, 'y': 11031, 'replay': 0}; lives 9471; events/life 1.16; replays/life 0.00; training lifespan first 200 lives 167 -> last 200 237
+- Y seed 8: updates {'ac': 37337, 'y': 4964, 'replay': 0}; lives 10626; events/life 0.47; replays/life 0.00; training lifespan first 200 lives 167 -> last 200 181
+- FR seed 1: updates {'ac': 36216, 'y': 0, 'replay': 67848}; lives 9310; events/life 1.39; replays/life 7.29; training lifespan first 200 lives 168 -> last 200 257
+- FR seed 2: updates {'ac': 36316, 'y': 0, 'replay': 13169}; lives 9670; events/life 1.00; replays/life 1.36; training lifespan first 200 lives 189 -> last 200 206
+- FR seed 3: updates {'ac': 36038, 'y': 0, 'replay': 25154}; lives 9537; events/life 1.30; replays/life 2.64; training lifespan first 200 lives 171 -> last 200 233
+- FR seed 4: updates {'ac': 37260, 'y': 0, 'replay': 20314}; lives 10446; events/life 0.69; replays/life 1.94; training lifespan first 200 lives 150 -> last 200 222
+- FR seed 5: updates {'ac': 36891, 'y': 0, 'replay': 11108}; lives 10225; events/life 0.80; replays/life 1.09; training lifespan first 200 lives 164 -> last 200 203
+- FR seed 6: updates {'ac': 37660, 'y': 0, 'replay': 12248}; lives 10844; events/life 0.75; replays/life 1.13; training lifespan first 200 lives 168 -> last 200 197
+- FR seed 7: updates {'ac': 36458, 'y': 0, 'replay': 29425}; lives 9599; events/life 1.11; replays/life 3.07; training lifespan first 200 lives 170 -> last 200 209
+- FR seed 8: updates {'ac': 37185, 'y': 0, 'replay': 10406}; lives 10757; events/life 0.58; replays/life 0.97; training lifespan first 200 lives 166 -> last 200 175
+- YFR seed 1: updates {'ac': 36670, 'y': 7112, 'replay': 32450}; lives 10153; events/life 0.70; replays/life 3.20; training lifespan first 200 lives 167 -> last 200 214
+- YFR seed 2: updates {'ac': 35858, 'y': 7782, 'replay': 21396}; lives 9038; events/life 0.86; replays/life 2.37; training lifespan first 200 lives 194 -> last 200 233
+- YFR seed 3: updates {'ac': 35854, 'y': 9453, 'replay': 94832}; lives 9660; events/life 0.98; replays/life 9.82; training lifespan first 200 lives 171 -> last 200 211
+- YFR seed 4: updates {'ac': 36284, 'y': 10612, 'replay': 10439}; lives 9142; events/life 1.16; replays/life 1.14; training lifespan first 200 lives 150 -> last 200 243
+- YFR seed 5: updates {'ac': 36090, 'y': 9687, 'replay': 51796}; lives 9576; events/life 1.01; replays/life 5.41; training lifespan first 200 lives 176 -> last 200 208
+- YFR seed 6: updates {'ac': 37076, 'y': 6906, 'replay': 24564}; lives 10056; events/life 0.69; replays/life 2.44; training lifespan first 200 lives 166 -> last 200 244
+- YFR seed 7: updates {'ac': 35482, 'y': 11676, 'replay': 199152}; lives 8384; events/life 1.39; replays/life 23.75; training lifespan first 200 lives 174 -> last 200 246
+- YFR seed 8: updates {'ac': 36043, 'y': 11704, 'replay': 53442}; lives 8864; events/life 1.32; replays/life 6.03; training lifespan first 200 lives 167 -> last 200 420
+- RR seed 1: updates {'ac': 37407, 'y': 0, 'replay': 6586}; lives 10579; events/life 0.00; replays/life 0.62; training lifespan first 200 lives 165 -> last 200 198
+- RR seed 2: updates {'ac': 37671, 'y': 0, 'replay': 6912}; lives 10734; events/life 0.00; replays/life 0.64; training lifespan first 200 lives 189 -> last 200 181
+- RR seed 3: updates {'ac': 37781, 'y': 0, 'replay': 10048}; lives 10830; events/life 0.00; replays/life 0.93; training lifespan first 200 lives 165 -> last 200 198
+- RR seed 4: updates {'ac': 37968, 'y': 0, 'replay': 7314}; lives 11040; events/life 0.00; replays/life 0.66; training lifespan first 200 lives 150 -> last 200 181
+- RR seed 5: updates {'ac': 38116, 'y': 0, 'replay': 7555}; lives 11394; events/life 0.00; replays/life 0.66; training lifespan first 200 lives 167 -> last 200 178
+- RR seed 6: updates {'ac': 37587, 'y': 0, 'replay': 6351}; lives 10860; events/life 0.00; replays/life 0.58; training lifespan first 200 lives 165 -> last 200 195
+- RR seed 7: updates {'ac': 37459, 'y': 0, 'replay': 9847}; lives 10476; events/life 0.00; replays/life 0.94; training lifespan first 200 lives 172 -> last 200 193
+- RR seed 8: updates {'ac': 38099, 'y': 0, 'replay': 6873}; lives 11336; events/life 0.00; replays/life 0.61; training lifespan first 200 lives 164 -> last 200 180
