@@ -16,9 +16,11 @@ on:
       checks: {description: "checks script inside dir (empty = none)", required: false, default: ""}
       command: {description: "run command inside dir", required: true}
       save: {description: "paths inside dir to save", required: true, default: "output"}
+      resume_run_id: {description: "a previous run whose artifact is downloaded into dir first (resume a paused run)", required: false, default: ""}
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   run:
@@ -30,6 +32,11 @@ jobs:
         with:
           python-version: "3.14"
       - run: python -m pip install -q "numpy==2.5.3"
+      - name: resume
+        if: inputs.resume_run_id != ''
+        working-directory: ${{ inputs.dir }}
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: gh run download ${{ inputs.resume_run_id }} -R ${{ github.repository }} -D /tmp/prev && cp -r /tmp/prev/*/output . 2>/dev/null || cp -r /tmp/prev/output . ; ls output | head
       - name: checks
         if: inputs.checks != ''
         working-directory: ${{ inputs.dir }}

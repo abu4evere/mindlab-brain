@@ -1,0 +1,20 @@
+PASS D3 (no parts) reproduces W3's training at life 20 (step 3102 = 3102; norms equal)
+PASS w3b.test('D3', 1) equals W3's test_D3_1.json
+PASS split run = unsplit run (YFR seed 3; updates {'ac': 119, 'y': 8, 'replay': 1})
+PASS Y fires on a meal when hungry (weight 3.00, need s)
+PASS Y does not fire on a plain step
+PASS Y does not fire when the need is low
+PASS Y does not fire in the warm-up
+PASS window: 5 since the previous event -> 5 records; 30 since -> 15
+PASS window weights: w0 at the latest step, x0.9 per step back
+PASS FR: at most 64 replays per life (max 0); replays 0
+PASS RR: windows pushed contiguously (one per 15 steps: 1333 expected) and all weights 1.0; replays 0
+PASS replay only on the shelter cell, under the cap, with a non-empty store
+PASS F walks when hungry (E 100 -> action 0, a move toward the place) and lets the brain act when not (E 140)
+PASS greedy walk picks the highest-value open neighbour
+PASS greedy walk stays on a flat map
+PASS look-ahead walk picks the neighbour that sees the best cell
+PASS test lands identical across calls
+PASS same seed twice is the same (Y seed 2, 2,000 steps; Y updates 7; 5.8 ms/step at Idle)
+PASS weights-unchanged assertion present in test
+All: PASS

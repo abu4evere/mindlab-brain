@@ -142,3 +142,8 @@ one's successes" from "extra updates while resting".
 - Reading 2 (each part lifts lifespan with an interval above 0): about 55%.
 - Reading 3 (FR beats random replay): about 45%.
 - Reading 4 (the ceiling D3+F ≥ 0.50): about 60%.
+
+## Pre-data correction 1 (15 November 2026, before any code ran; `IMPLEMENTATION.md`)
+"The need is high" for Y's events and F's trigger is **s ≥ 0.2 (E < 120) and f ≥ 0.4 (F > 80)**, W3's Script's own
+calibrated lines, instead of 0.8. In W3's body 0.8 means energy ≤ 30, a few steps from death; the council's generic
+rule was mistranslated. Nothing else changes.

@@ -1,0 +1,35 @@
+W3b-step0-D3i	workbench/W3b	checks_w3b.py	python w3b.py step0 D3i 1 && python w3b.py step0 D3i 2 && python w3b.py step0 D3i 3 && python w3b.py step0 D3i 4 && python w3b.py step0 D3i 5 && python w3b.py step0 D3i 6 && python w3b.py step0 D3i 7 && python w3b.py step0 D3i 8	output checks.log
+W3b-step0-D3	workbench/W3b	checks_w3b.py	python w3b.py step0 D3 1 && python w3b.py step0 D3 2 && python w3b.py step0 D3 3 && python w3b.py step0 D3 4 && python w3b.py step0 D3 5 && python w3b.py step0 D3 6 && python w3b.py step0 D3 7 && python w3b.py step0 D3 8	output checks.log
+W3b-Y-1	workbench/W3b	checks_w3b.py	python w3b.py run Y 1 4.5	output checks.log
+W3b-Y-2	workbench/W3b	checks_w3b.py	python w3b.py run Y 2 4.5	output checks.log
+W3b-Y-3	workbench/W3b	checks_w3b.py	python w3b.py run Y 3 4.5	output checks.log
+W3b-Y-4	workbench/W3b	checks_w3b.py	python w3b.py run Y 4 4.5	output checks.log
+W3b-Y-5	workbench/W3b	checks_w3b.py	python w3b.py run Y 5 4.5	output checks.log
+W3b-Y-6	workbench/W3b	checks_w3b.py	python w3b.py run Y 6 4.5	output checks.log
+W3b-Y-7	workbench/W3b	checks_w3b.py	python w3b.py run Y 7 4.5	output checks.log
+W3b-Y-8	workbench/W3b	checks_w3b.py	python w3b.py run Y 8 4.5	output checks.log
+W3b-FR-1	workbench/W3b	checks_w3b.py	python w3b.py run FR 1 4.5	output checks.log
+W3b-FR-2	workbench/W3b	checks_w3b.py	python w3b.py run FR 2 4.5	output checks.log
+W3b-FR-3	workbench/W3b	checks_w3b.py	python w3b.py run FR 3 4.5	output checks.log
+W3b-FR-4	workbench/W3b	checks_w3b.py	python w3b.py run FR 4 4.5	output checks.log
+W3b-FR-5	workbench/W3b	checks_w3b.py	python w3b.py run FR 5 4.5	output checks.log
+W3b-FR-6	workbench/W3b	checks_w3b.py	python w3b.py run FR 6 4.5	output checks.log
+W3b-FR-7	workbench/W3b	checks_w3b.py	python w3b.py run FR 7 4.5	output checks.log
+W3b-FR-8	workbench/W3b	checks_w3b.py	python w3b.py run FR 8 4.5	output checks.log
+W3b-YFR-1	workbench/W3b	checks_w3b.py	python w3b.py run YFR 1 4.5	output checks.log
+W3b-YFR-2	workbench/W3b	checks_w3b.py	python w3b.py run YFR 2 4.5	output checks.log
+W3b-YFR-3	workbench/W3b	checks_w3b.py	python w3b.py run YFR 3 4.5	output checks.log
+W3b-YFR-4	workbench/W3b	checks_w3b.py	python w3b.py run YFR 4 4.5	output checks.log
+W3b-YFR-5	workbench/W3b	checks_w3b.py	python w3b.py run YFR 5 4.5	output checks.log
+W3b-YFR-6	workbench/W3b	checks_w3b.py	python w3b.py run YFR 6 4.5	output checks.log
+W3b-YFR-7	workbench/W3b	checks_w3b.py	python w3b.py run YFR 7 4.5	output checks.log
+W3b-YFR-8	workbench/W3b	checks_w3b.py	python w3b.py run YFR 8 4.5	output checks.log
+W3b-RR-1	workbench/W3b	checks_w3b.py	python w3b.py run RR 1 4.5	output checks.log
+W3b-RR-2	workbench/W3b	checks_w3b.py	python w3b.py run RR 2 4.5	output checks.log
+W3b-RR-3	workbench/W3b	checks_w3b.py	python w3b.py run RR 3 4.5	output checks.log
+W3b-RR-4	workbench/W3b	checks_w3b.py	python w3b.py run RR 4 4.5	output checks.log
+W3b-RR-5	workbench/W3b	checks_w3b.py	python w3b.py run RR 5 4.5	output checks.log
+W3b-RR-6	workbench/W3b	checks_w3b.py	python w3b.py run RR 6 4.5	output checks.log
+W3b-RR-7	workbench/W3b	checks_w3b.py	python w3b.py run RR 7 4.5	output checks.log
+W3b-RR-8	workbench/W3b	checks_w3b.py	python w3b.py run RR 8 4.5	output checks.log
+W3b-F	workbench/W3b	checks_w3b.py	python w3b.py test F 1 && python w3b.py test F 2 && python w3b.py test F 3 && python w3b.py test F 4 && python w3b.py test F 5 && python w3b.py test F 6 && python w3b.py test F 7 && python w3b.py test F 8	output checks.log
