@@ -62,3 +62,13 @@ locally at Idle: 2 evolution runs × 30 generations × 32 children, then 5 brain
   - the same evolution with a teacher who is sometimes absent;
   - the same with a longer life after the teaching;
   - the same with a cost for neurons.
+
+## Correction 1 (14 November 2026, appended after WT)
+- WT repeated this evolution with the teacher present on only half the tries, or on one in five.
+- Evolution again chose big brains, born at 141–218 neurons. In those worlds the big brains were also the best at
+  owning the skill:
+  - at p = 0.2, own skill at day 60 was E 0.86–0.88 against GA 0.61 and M32 0.48;
+  - M128's own skill at day 30 was 0.66 at p = 0.5, against 0.05 here.
+- **So the reading in section 3 above ("this world pays the copier") is incomplete.** What made the copier here was
+  big size **together with** a teacher on every try. Big size alone is not a copier.
+- See `../WT/findings.md`.

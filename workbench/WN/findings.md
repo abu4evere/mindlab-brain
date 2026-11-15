@@ -58,3 +58,12 @@ data, IMPLEMENTATION.md correction 1). Run 14 November 2026, 12:47–12:56, loca
 - **Next questions (each needs the creator's OK):**
   - growth with new neurons that start awake (or that grow connections, as a child's brain does);
   - whether evolved starting wiring helps.
+
+## Correction 1 (14 November 2026, appended after WT)
+"Best at 32 neurons" holds in this setting, where a teacher shows every try on days 1–30. In WT, with the teacher
+present on only some tries:
+- **teacher on 1 try in 5, own skill at day 60:** M32 0.476, M128 0.826, and evolved brains of about 215 neurons
+  0.86–0.88;
+- **teacher on half the tries:** M32 0.712, M128 0.882.
+
+With scarce teaching, more neurons learn better. See `../WT/findings.md`.
