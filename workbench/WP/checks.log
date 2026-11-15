@@ -1,0 +1,13 @@
+PASS alone: small children 1-5 unaffected by child 0's size
+PASS alone: no watching recorded
+PASS small child c starts with the same weights in any group
+PASS grown-up shows = the world's presence draws on days 1-30 (127 = 127)
+PASS never watches itself
+PASS watching in both phases
+PASS trust stays in [0, 1]
+PASS watch: nothing opened -> nothing held
+PASS watch: one lid opened -> 2 memory steps
+PASS watch: both opened -> 4 memory steps
+PASS change world tested at days 30, 45, 60
+PASS same group twice is the same
+All: PASS
