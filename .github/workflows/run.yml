@@ -1,0 +1,51 @@
+name: run
+
+# Runs one Mind Lab command on GitHub's machines, so the creator's PC can stay off.
+#   dir:     the study folder (e.g. workbench/WN)
+#   checks:  the study's checks script, run first; nothing else runs unless it prints "All: PASS" (empty = none)
+#   command: the run command, executed inside dir
+#   save:    the paths (inside dir, space-separated) saved as the artifact "<name>-results"
+# Run: gh workflow run run.yml -R abu4evere/mindlab -f name=WN -f dir=workbench/WN -f checks=checks_wn.py
+#        -f command="python run_all.py" -f save="output checks.log"
+
+on:
+  workflow_dispatch:
+    inputs:
+      name: {description: "short study name", required: true}
+      dir: {description: "study folder", required: true}
+      checks: {description: "checks script inside dir (empty = none)", required: false, default: ""}
+      command: {description: "run command inside dir", required: true}
+      save: {description: "paths inside dir to save", required: true, default: "output"}
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+      - run: python -m pip install -q "numpy==2.5.3"
+      - name: checks
+        if: inputs.checks != ''
+        working-directory: ${{ inputs.dir }}
+        run: |
+          python -VV; python -c "import numpy; print('numpy', numpy.__version__)"
+          python ${{ inputs.checks }} | tee checks.log
+          grep -q "All: PASS" checks.log
+      - name: run
+        working-directory: ${{ inputs.dir }}
+        run: ${{ inputs.command }}
+      - name: collect
+        if: always()
+        working-directory: ${{ inputs.dir }}
+        run: mkdir -p /tmp/res && for p in ${{ inputs.save }}; do [ -e "$p" ] && cp -r "$p" /tmp/res/ || true; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.name }}-results
+          path: /tmp/res/
