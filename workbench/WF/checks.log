@@ -1,0 +1,10 @@
+PASS Base-32 reproduces WY
+PASS TBYS-32 reproduces WY
+PASS wf.try_box = wm.try_box without extras
+PASS forced pairs are done (both lids open)
+PASS FM sense of a fresh (3, 0)
+PASS FM sense empty is zeros
+PASS RP replays (638)
+PASS same child twice is the same (WSLS)
+PASS FMin runs a full life with its 9 extra senses
+All: PASS
