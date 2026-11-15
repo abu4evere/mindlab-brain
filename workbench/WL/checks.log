@@ -1,0 +1,10 @@
+PASS L0-32 seed 1 reproduces WN's M32
+PASS L0-32 seed 2 reproduces WN's M32
+PASS L0-128 seed 1 reproduces WN's M128
+PASS L0-128 seed 2 reproduces WN's M128
+PASS gradients through noisy wait steps (worst relative error 1.9e-06)
+PASS L1 has 4 wait steps, L2 has 8
+PASS L2 noise sd about 0.6 (0.595)
+PASS same child twice is the same
+PASS the leak changes the child
+All: PASS
