@@ -1,0 +1,1 @@
+{"world": "RULE", "arm": "L2", "n": 128, "seed": 9, "tests": {"15": {"practised": 0.5, "heldout": 0.0}, "30": {"practised": 0.5, "heldout": 0.0}, "60": {"practised": 1.0, "heldout": 0.0}}, "food": 5591}

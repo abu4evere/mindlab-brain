@@ -1,0 +1,1 @@
+{"world": "RAND", "arm": "L0", "n": 128, "seed": 7, "tests": {"15": {"practised": 0.08333333333333333, "heldout": 0.0}, "30": {"practised": 0.0, "heldout": 0.0}, "60": {"practised": 0.5833333333333334, "heldout": 0.0}}, "food": 5511}
