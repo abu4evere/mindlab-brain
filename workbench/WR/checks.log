@@ -1,0 +1,20 @@
+PASS change Base-32 reproduces WY's Base32 (tests, food)
+PASS change TY-32 reproduces WY's TBYS32 (tests, food)
+PASS change TYR-32 reproduces WF's RP32 (tests, food, replays)
+PASS change TYR-128 reproduces WF's RP128 (tests, food, replays)
+PASS stable L0-32 reproduces WL2's L0 (tests, food, show30)
+PASS stable L0-128 reproduces WL2's L0 (tests, food, show30)
+PASS stable L-32 reproduces WL2's Linf (tests, food, show30)
+PASS stable L-128 reproduces WL2's Linf (tests, food, show30)
+PASS L gives an empty prefix
+PASS without L the prefix is the 4 showing steps
+PASS T: only the unblocked pair is chosen on a blocked lid (20 draws)
+PASS Y: self-copy raises the copied act
+PASS R: replays happen in LTYR (648)
+PASS Y: self-copies happen in LTYR (680)
+PASS no replay without R (LTY)
+PASS no self-copy without Y (LTR)
+PASS same child twice is the same (LTYR)
+PASS eight changing-world arms give eight different lives
+PASS four stable-world arms give four different lives
+All: PASS
