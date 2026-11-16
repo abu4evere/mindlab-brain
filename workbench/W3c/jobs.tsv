@@ -1,0 +1,35 @@
+W3c-step0-a	workbench/W3c	checks_w3c.py	python w3c.py step0 1 && python w3c.py step0 2 && python w3c.py step0 3 && python w3c.py step0 4	output checks.log
+W3c-step0-b	workbench/W3c	checks_w3c.py	python w3c.py step0 5 && python w3c.py step0 6 && python w3c.py step0 7 && python w3c.py step0 8	output checks.log
+W3c-F2	workbench/W3c	checks_w3c.py	python w3c.py f2 1 && python w3c.py f2 2 && python w3c.py f2 3 && python w3c.py f2 4 && python w3c.py f2 5 && python w3c.py f2 6 && python w3c.py f2 7 && python w3c.py f2 8	output checks.log
+W3c-G-1	workbench/W3c	checks_w3c.py	python w3c.py run G 1 4.5	output checks.log
+W3c-G-2	workbench/W3c	checks_w3c.py	python w3c.py run G 2 4.5	output checks.log
+W3c-G-3	workbench/W3c	checks_w3c.py	python w3c.py run G 3 4.5	output checks.log
+W3c-G-4	workbench/W3c	checks_w3c.py	python w3c.py run G 4 4.5	output checks.log
+W3c-G-5	workbench/W3c	checks_w3c.py	python w3c.py run G 5 4.5	output checks.log
+W3c-G-6	workbench/W3c	checks_w3c.py	python w3c.py run G 6 4.5	output checks.log
+W3c-G-7	workbench/W3c	checks_w3c.py	python w3c.py run G 7 4.5	output checks.log
+W3c-G-8	workbench/W3c	checks_w3c.py	python w3c.py run G 8 4.5	output checks.log
+W3c-GYFR-1	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 1 4.5	output checks.log
+W3c-GYFR-2	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 2 4.5	output checks.log
+W3c-GYFR-3	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 3 4.5	output checks.log
+W3c-GYFR-4	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 4 4.5	output checks.log
+W3c-GYFR-5	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 5 4.5	output checks.log
+W3c-GYFR-6	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 6 4.5	output checks.log
+W3c-GYFR-7	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 7 4.5	output checks.log
+W3c-GYFR-8	workbench/W3c	checks_w3c.py	python w3c.py run GYFR 8 4.5	output checks.log
+W3c-Gi-1	workbench/W3c	checks_w3c.py	python w3c.py run Gi 1 4.5	output checks.log
+W3c-Gi-2	workbench/W3c	checks_w3c.py	python w3c.py run Gi 2 4.5	output checks.log
+W3c-Gi-3	workbench/W3c	checks_w3c.py	python w3c.py run Gi 3 4.5	output checks.log
+W3c-Gi-4	workbench/W3c	checks_w3c.py	python w3c.py run Gi 4 4.5	output checks.log
+W3c-Gi-5	workbench/W3c	checks_w3c.py	python w3c.py run Gi 5 4.5	output checks.log
+W3c-Gi-6	workbench/W3c	checks_w3c.py	python w3c.py run Gi 6 4.5	output checks.log
+W3c-Gi-7	workbench/W3c	checks_w3c.py	python w3c.py run Gi 7 4.5	output checks.log
+W3c-Gi-8	workbench/W3c	checks_w3c.py	python w3c.py run Gi 8 4.5	output checks.log
+W3c-Z0-1	workbench/W3c	checks_w3c.py	python w3c.py run Z0 1 4.5	output checks.log
+W3c-Z0-2	workbench/W3c	checks_w3c.py	python w3c.py run Z0 2 4.5	output checks.log
+W3c-Z0-3	workbench/W3c	checks_w3c.py	python w3c.py run Z0 3 4.5	output checks.log
+W3c-Z0-4	workbench/W3c	checks_w3c.py	python w3c.py run Z0 4 4.5	output checks.log
+W3c-Z0-5	workbench/W3c	checks_w3c.py	python w3c.py run Z0 5 4.5	output checks.log
+W3c-Z0-6	workbench/W3c	checks_w3c.py	python w3c.py run Z0 6 4.5	output checks.log
+W3c-Z0-7	workbench/W3c	checks_w3c.py	python w3c.py run Z0 7 4.5	output checks.log
+W3c-Z0-8	workbench/W3c	checks_w3c.py	python w3c.py run Z0 8 4.5	output checks.log

@@ -1,0 +1,12 @@
+PASS gate off reproduces W3's planner
+PASS gate on, no need (g = 0): equal to ungated
+PASS starving (g = 1): W0 and Wc have no effect on the plan
+PASS gated gradients match finite differences (worst relative error 3.1e-08)
+PASS Z0: W0 starts at zero
+PASS Gi: the designer's links stay fixed through training
+PASS Gi: the gate is on
+PASS G: a split run equals an unsplit run
+PASS G: the same seed twice is the same
+PASS GYFR runs with the parts on (its updates logged)
+PASS F2's hungry walks head for remembered full food (121 walks checked)
+All: PASS
