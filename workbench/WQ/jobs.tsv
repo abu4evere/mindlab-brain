@@ -1,0 +1,10 @@
+WQ-D2-still	workbench/WQ	checks_wq.py	python wq.py run D2 still output	output checks.log
+WQ-D2-living	workbench/WQ	checks_wq.py	python wq.py run D2 living output	output checks.log
+WQ-D3-still	workbench/WQ	checks_wq.py	python wq.py run D3 still output	output checks.log
+WQ-D3-living	workbench/WQ	checks_wq.py	python wq.py run D3 living output	output checks.log
+WQ-Dc-still	workbench/WQ	checks_wq.py	python wq.py run Dc still output	output checks.log
+WQ-Dc-living	workbench/WQ	checks_wq.py	python wq.py run Dc living output	output checks.log
+WQ-GYFR-still	workbench/WQ	checks_wq.py	python wq.py run GYFR still output	output checks.log
+WQ-GYFR-living	workbench/WQ	checks_wq.py	python wq.py run GYFR living output	output checks.log
+WQ-Rand	workbench/WQ	checks_wq.py	python wq.py run Rand still output	output checks.log
+WQ-Script	workbench/WQ	checks_wq.py	python wq.py run Script still output	output checks.log

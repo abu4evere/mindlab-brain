@@ -1,0 +1,10 @@
+PASS needs always met and no death over a full stay
+PASS nothing eaten, nothing moved: food and patches unchanged
+PASS same stay twice is the same
+PASS 10 windows; activity in [0,1]; reach 1..225; pattern positive
+PASS still: the stored weights are untouched (a fresh load is used per stay)
+PASS living: the weights change during the stay
+PASS D2 living stay completes
+PASS Rand stay runs
+PASS Script stay runs
+All: PASS
