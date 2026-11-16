@@ -19,6 +19,7 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 | **"that worked!"** | learn strongly from one's own surprising success | WY: first learning +0.13 to +0.15; food much higher | proven in the box task |
 | **don't repeat a failure** | a short list of what just failed, avoided while searching | WM: finds new answers (food up) but alone keeps none | engineered; works with the fast memory |
 | **fast memory + rest replay** | a store of what just worked, replayed at night into the slow network | WF: relearning after a change 0.45–0.51 vs 0.06–0.12; acting from the store (engineered) about 1.00; WR: all four parts together fit, relearning 0.44 | proven in the box task; the first real learning from mistakes |
+| **need gate (W3c)** | a strong need damps the base map and curiosity in the reward map | W3c: no gain alone (G − D3 lifespan +4.5); worse with given links (Gi − D3i −21.6); the recipe still helps (GYFR − G +104); one GYFR seed lived full lives (5 of 50); fair ceiling (remembered full food) lives 3.3× longer but survives 0.055 | **failed as built**; next: a need-specific gain and better exploring |
 
 ## What ACL needs for it
 - **A map input:** each week, a small egocentric grid of the person's surroundings (food, water, people, kin, danger),
