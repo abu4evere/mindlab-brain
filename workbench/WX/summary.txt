@@ -1,0 +1,11 @@
+seed deaths noFood knownNotReached exhaustion meals first_meal tired known500 lifespan meals/100steps
+1 50 0.88 0.18 0.82 12.3 26 0.34 0.74 415 2.39
+2 30 0.83 0.23 0.47 57.3 18 0.15 0.94 1528 3.13
+3 44 0.80 0.32 0.66 31.4 19 0.27 0.87 883 2.92
+4 45 0.71 0.33 0.47 36.0 33 0.23 0.87 1005 2.74
+5 40 0.88 0.23 0.82 36.4 23 0.27 0.87 992 2.98
+6 50 0.76 0.28 0.26 7.5 19 0.15 0.82 307 2.18
+7 40 0.82 0.30 0.70 41.6 22 0.23 0.92 1119 3.17
+8 50 0.74 0.26 0.82 4.0 35 0.37 0.59 201 1.83
+mean over seeds {'no_food_known': 0.802, 'food_known_not_reached': 0.266, 'exhaustion': 0.627, 'meals': 28.318, 'first_meal': 24.367, 'tired': 0.251, 'known500': 0.827, 'meals_per_100': 2.668}
+Script: deaths 2 meals 105.4 first_meal 20 tired 0.02 known500 1.0 meals/100 3.56
