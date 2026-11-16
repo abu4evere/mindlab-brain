@@ -16,10 +16,12 @@ LOG = W / "manage.log"
 
 
 def gh(*a):
-    r = subprocess.run([GH, *a], capture_output=True, text=True, encoding="utf-8")
-    if r.returncode != 0:
-        raise RuntimeError(r.stderr)
-    return r.stdout
+    for attempt in range(10):                      # network blips (13:15 on 16 Nov killed the manager): retry
+        r = subprocess.run([GH, *a], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode == 0:
+            return r.stdout
+        time.sleep(60)
+    raise RuntimeError(r.stderr)
 
 
 def log(msg):

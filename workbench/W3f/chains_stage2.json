@@ -1,0 +1,98 @@
+{
+ "W3f-CH2-1": {
+  "runs": [
+   "43923874352"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-2": {
+  "runs": [
+   "43923884581"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-3": {
+  "runs": [
+   "43923894619"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-4": {
+  "runs": [
+   "43923904241"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-5": {
+  "runs": [
+   "43923912897"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-6": {
+  "runs": [
+   "43923924289"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-7": {
+  "runs": [
+   "43923934589"
+  ],
+  "state": "finished"
+ },
+ "W3f-CH2-8": {
+  "runs": [
+   "43923945754"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-1": {
+  "runs": [
+   "43923956257"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-2": {
+  "runs": [
+   "43923965819"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-3": {
+  "runs": [
+   "43923976700"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-4": {
+  "runs": [
+   "43923987293"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-5": {
+  "runs": [
+   "43923998284"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-6": {
+  "runs": [
+   "43924008552"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-7": {
+  "runs": [
+   "43924019444"
+  ],
+  "state": "finished"
+ },
+ "W3f-RN2-8": {
+  "runs": [
+   "43924029084"
+  ],
+  "state": "finished"
+ }
+}
