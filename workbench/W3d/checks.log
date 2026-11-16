@@ -1,0 +1,10 @@
+PASS no parent reproduces W3b's D3 training exactly
+PASS P weight: 0.5 at 0, 0.25 at 200k, 0 at 400k and after
+PASS PA weight 0.5 always
+PASS P copies only during childhood, every 4th step (500 copies; expected 500)
+PASS PA copies every 4th step for the whole run (750 copies; expected 750)
+PASS the parent changes learning (P differs from no parent, same seed)
+PASS the parent is W3's Script acting on a MapView
+PASS PYFR: a split run equals an unsplit run
+PASS PYFR: the same seed twice is the same
+All: PASS
