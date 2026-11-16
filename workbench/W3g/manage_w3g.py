@@ -1,5 +1,5 @@
-"""Watch W3g's cloud jobs, resume paused training runs, collect finished outputs into workbench/W3f/output.
-State in W3f/chains.json (name -> list of run ids). Logs to W3f/manage.log. Orchestration only; no study code."""
+"""Watch W3g's cloud jobs, resume paused training runs, collect finished outputs into workbench/W3g/output.
+State in W3g/chains.json (name -> list of run ids). Logs to W3g/manage.log. Orchestration only; no study code."""
 import json
 import shutil
 import subprocess
