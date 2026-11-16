@@ -6,3 +6,11 @@ W3e-G2-5	workbench/W3e	checks_w3e.py	python w3e.py run G2 5 4.5	output checks.lo
 W3e-G2-6	workbench/W3e	checks_w3e.py	python w3e.py run G2 6 4.5	output checks.log
 W3e-G2-7	workbench/W3e	checks_w3e.py	python w3e.py run G2 7 4.5	output checks.log
 W3e-G2-8	workbench/W3e	checks_w3e.py	python w3e.py run G2 8 4.5	output checks.log
+W3e-G3-1	workbench/W3e	checks_w3e.py	python w3e.py run G3 1 4.5	output checks.log
+W3e-G3-2	workbench/W3e	checks_w3e.py	python w3e.py run G3 2 4.5	output checks.log
+W3e-G3-3	workbench/W3e	checks_w3e.py	python w3e.py run G3 3 4.5	output checks.log
+W3e-G3-4	workbench/W3e	checks_w3e.py	python w3e.py run G3 4 4.5	output checks.log
+W3e-G3-5	workbench/W3e	checks_w3e.py	python w3e.py run G3 5 4.5	output checks.log
+W3e-G3-6	workbench/W3e	checks_w3e.py	python w3e.py run G3 6 4.5	output checks.log
+W3e-G3-7	workbench/W3e	checks_w3e.py	python w3e.py run G3 7 4.5	output checks.log
+W3e-G3-8	workbench/W3e	checks_w3e.py	python w3e.py run G3 8 4.5	output checks.log
