@@ -37,3 +37,11 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 3. **W3:** the drives only (survival, comfort, curiosity), no task reward: does the brain keep pushing on its own? **Done 15 November: no** (W3/findings.md). The box-task recipe (14–15 November: WL2, WY, WM, WF, WR) is the candidate fix (W3b, with the creator).
 4. **W4:** the parts together in one brain on a small food world with others (sharing, copying, restraint).
 5. **The ACL validity test** (frozen; council; recompute). If it passes, the Long World starts with this brain.
+
+## When the brain goes to ACL (the creator, 16 November 2026)
+"we are not gonna test it on acl yet because we gotta make sure when we put new brain to acl we gotta see big benefit from new one compared to old one".
+- So the ACL exam waits until Mind Lab shows the new brain clearly ahead, not only in abilities but in staying alive.
+- The assistant's proposed readiness bar (for the creator to confirm):
+  - in W3's world, a learned brain survives full lives at least 0.80 (Script: 0.96; today: 0.14 at best);
+  - it relearns after a change;
+  - it learns from others across generations without decaying.
