@@ -1,0 +1,9 @@
+PASS no parent reproduces W3b's YFR training exactly
+PASS copies every 4th step during childhood (500; expected 500)
+PASS the parent's weights never change
+PASS the learned parent changes learning (differs from no parent)
+PASS parent_act is the parent's argmax
+PASS a split run equals an unsplit run
+PASS the same seed twice is the same
+PASS fidelity of the parent with itself is 1.0 (1.0; 1447 states)
+All: PASS
