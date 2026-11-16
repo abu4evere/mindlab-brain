@@ -45,3 +45,11 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
   - in W3's world, a learned brain survives full lives at least 0.80 (Script: 0.96; today: 0.14 at best);
   - it relearns after a change;
   - it learns from others across generations without decaying.
+
+## Pain (the creator, 16 November 2026)
+"i think for growth there should be suffering also at least for some period maybe when we move one agent to another we will remove pain but i think for beginning there should be pain".
+- **The decision:** the growing brain has pain during its development (a body signal of harm that does not kill), so that it can learn to avoid harm, and fear may follow. Pain may be removed later, when a brain moves into another body or world.
+- **Practice:** pain is a teacher, not a punishment:
+  - kept proportional to real harm;
+  - logged in every study;
+  - measured for what it teaches (avoidance, one-shot learning, fear, learning by watching).
