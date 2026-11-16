@@ -1,0 +1,10 @@
+PASS imagined walls are the remembered walls (inside the border)
+PASS imagined food sits on imagined-open cells, away from the shelter
+PASS the imagination does not read unseen true walls (40 unseen true walls exist)
+PASS a dream leaves the real room untouched
+PASS a dream lasts at most 200 steps (170)
+PASS learning happens in a dream
+PASS L reproduces WQ's GYFR living stay (room 900001)
+PASS IM dreams 19 times (19)
+PASS IM: the same seed twice is the same
+All: PASS
