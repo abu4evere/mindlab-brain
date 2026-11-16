@@ -1,0 +1,7 @@
+PASS the 6th channel's weights start at zero; channels 1-5 equal W3's draw
+PASS channel held at zero reproduces W3d's PYFR training (allclose; bit-exact: False)
+PASS the channel marks exactly the cells eaten at (4 cells)
+PASS a split run equals an unsplit run
+PASS the same seed twice is the same
+PASS the brain learns to use the new channel (its weights move from zero)
+All: PASS

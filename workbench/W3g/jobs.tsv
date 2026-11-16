@@ -1,0 +1,8 @@
+W3g-FM-1	workbench/W3g	checks_w3g.py	python w3g.py run 1 4.5	output checks.log
+W3g-FM-2	workbench/W3g	checks_w3g.py	python w3g.py run 2 4.5	output checks.log
+W3g-FM-3	workbench/W3g	checks_w3g.py	python w3g.py run 3 4.5	output checks.log
+W3g-FM-4	workbench/W3g	checks_w3g.py	python w3g.py run 4 4.5	output checks.log
+W3g-FM-5	workbench/W3g	checks_w3g.py	python w3g.py run 5 4.5	output checks.log
+W3g-FM-6	workbench/W3g	checks_w3g.py	python w3g.py run 6 4.5	output checks.log
+W3g-FM-7	workbench/W3g	checks_w3g.py	python w3g.py run 7 4.5	output checks.log
+W3g-FM-8	workbench/W3g	checks_w3g.py	python w3g.py run 8 4.5	output checks.log
