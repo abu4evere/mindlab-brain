@@ -1,0 +1,8 @@
+PASS IM reproduces WI's IM seed 1 (windows True, dreams True, after-room lives True)
+PASS IM tracks 19 random blocks
+PASS a question's cells read as unknown (uncertainty > 0.99) unless walls
+PASS the dream's best patch lies on imagined-open cells
+PASS IQ poses questions (17, at most 19)
+PASS IQ: the same seed twice is the same
+PASS IQ differs from IM in the room (the questions act)
+All: PASS

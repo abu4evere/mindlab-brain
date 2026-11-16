@@ -1,0 +1,2 @@
+WG2-IM	workbench/WG2	checks_wg2.py	for s in 1 2 3 4 5 6 7 8; do python wg2.py run IM $s output; done	output checks.log
+WG2-IQ	workbench/WG2	checks_wg2.py	for s in 1 2 3 4 5 6 7 8; do python wg2.py run IQ $s output; done	output checks.log
