@@ -1,0 +1,16 @@
+W3f-CH2-1	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 1 4.5	output checks.log
+W3f-CH2-2	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 2 4.5	output checks.log
+W3f-CH2-3	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 3 4.5	output checks.log
+W3f-CH2-4	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 4 4.5	output checks.log
+W3f-CH2-5	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 5 4.5	output checks.log
+W3f-CH2-6	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 6 4.5	output checks.log
+W3f-CH2-7	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 7 4.5	output checks.log
+W3f-CH2-8	workbench/W3f	checks_w3f.py	python w3f.py run CH 2 8 4.5	output checks.log
+W3f-RN2-1	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 1 4.5	output checks.log
+W3f-RN2-2	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 2 4.5	output checks.log
+W3f-RN2-3	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 3 4.5	output checks.log
+W3f-RN2-4	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 4 4.5	output checks.log
+W3f-RN2-5	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 5 4.5	output checks.log
+W3f-RN2-6	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 6 4.5	output checks.log
+W3f-RN2-7	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 7 4.5	output checks.log
+W3f-RN2-8	workbench/W3f	checks_w3f.py	python w3f.py run RN 2 8 4.5	output checks.log
