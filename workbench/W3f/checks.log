@@ -1,0 +1,9 @@
+PASS generation-1 pools: 8 values, the same for CH and RN ([319, 798, 309, 259, 177, 234, 594, 193])
+PASS CH picks the most visibly successful of the 4 adults met
+PASS RN picks one of the same 4 (distinct adults picked: 8)
+PASS adult_act is the adult's argmax
+PASS no childhood reproduces W3b's YFR training exactly
+PASS copies every 4th step during childhood (500; expected 500)
+PASS adults never change
+PASS a split run equals an unsplit run
+All: PASS
