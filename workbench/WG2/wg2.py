@@ -7,11 +7,13 @@ memory. Arm IM (re-run, it must reproduce WI) tracks random blocks the same way 
 from __future__ import annotations
 
 import json
+import os
 import sys
 import zlib
 from pathlib import Path
 
-import numpy as np
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")   # added after the run (findings, caution 2)
+import numpy as np  # noqa: E402
 
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE.parent / "WI"))
