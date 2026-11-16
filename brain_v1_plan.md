@@ -20,6 +20,7 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 | **don't repeat a failure** | a short list of what just failed, avoided while searching | WM: finds new answers (food up) but alone keeps none | engineered; works with the fast memory |
 | **fast memory + rest replay** | a store of what just worked, replayed at night into the slow network | WF: relearning after a change 0.45–0.51 vs 0.06–0.12; acting from the store (engineered) about 1.00; WR: all four parts together fit, relearning 0.44 | proven in the box task; the first real learning from mistakes |
 | **need gate (W3c)** | a strong need damps the base map and curiosity in the reward map | W3c: no gain alone (G − D3 lifespan +4.5); worse with given links (Gi − D3i −21.6); the recipe still helps (GYFR − G +104); one GYFR seed lived full lives (5 of 50); fair ceiling (remembered full food) lives 3.3× longer but survives 0.055 | **failed as built**; next: a need-specific gain and better exploring |
+| **a parent's childhood** | a fair parent (sees only what the child sees) shows the move; copied every 4th step, fading out over childhood | W3d: with the recipe (PYFR) lifespan 806 vs 204, survival 0.128, to 1,000 steps 0.243; parent alone 388; parent forever 272 | **the first rung where learned brains mostly live long**; next: dose/length, and a learned parent (generations) |
 
 ## What ACL needs for it
 - **A map input:** each week, a small egocentric grid of the person's surroundings (food, water, people, kin, danger),
