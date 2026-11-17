@@ -1,0 +1,14 @@
+PASS fades: 0.5 to 0 over each arm's fade; CV keeps 0.05 after it (C4 1.2M, C2 2.4M)
+PASS snapshots: the fade end, then every 400,000 steps (CK: 1.2M, 1.6M, 2.0M, 2.4M; C2: 2.4M to 3.6M)
+PASS CK: the learning rate is 0.01 before the fade snapshot and x0.1 after (449 updates)
+PASS the learning rate is restored after a CK run
+PASS CK's end-of-fade snapshot equals C's (CF is C's own brain at the fade end)
+PASS a split run equals an unsplit run (CV)
+PASS the same seed twice is the same (CV)
+PASS CV copies after the fade (750 copies in 3,000 steps; 750 expected)
+PASS drift: a brain against itself 0 ([0.0, 0.0]); against another brain > 0 ([0.99, 1.0]); parent agreement in [0, 1]
+All: PASS
+
+real	1m59.641s
+user	0m0.000s
+sys	0m0.000s
