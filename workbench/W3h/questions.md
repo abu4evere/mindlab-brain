@@ -74,3 +74,17 @@ The other measures are reported with intervals, with no gate.
 - Reading 2: about 35%.
 - Reading 3: about 50%.
 - Reading 4: about 50%.
+
+## Amendment 1 (16 November 2026, about 22:15; after the calibration, before any brain was trained)
+**The frozen calibration found no setting.** At every harm, the careful Script survived 0.84 (2 patches) or 0.74
+(3 patches), never ≥ 0.90.
+- **The cause:** on the calibration lands, W3's Script survives only 0.90 with no thorns at all (W3's own calibration
+  chose R as the first value with Script ≥ 0.90). So a careful parent could reach 0.90 only if thorns cost nothing.
+  The bar was set without knowing this.
+- **The rule's purpose** was that a safe life stays possible.
+- **The amended rule:** the first setting with a thorn-blind Script ≤ 0.60 and a careful Script **within 0.10 of the
+  no-thorn Script** on the same lands.
+- **The rows already measured** (deterministic, `calib_h.json` after the re-run):
+  - 2 patches: harm 4 gives blind 0.72 and careful 0.84; harm 6 gives blind 0.40 and careful 0.84.
+  - So the amended rule chooses **2 patches, harm 6** (pain at a thorn step = 0.75).
+- **Learned brains played no part.** The re-run records the no-thorn reference.

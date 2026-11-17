@@ -1,0 +1,24 @@
+{
+ "patches": 2,
+ "harm": 6,
+ "R": 200,
+ "no_thorns": 0.9,
+ "rows": [
+  {
+   "patches": 2,
+   "harm": 4,
+   "blind": 0.72,
+   "blind_thorn_per_1000": 43.12725680407883,
+   "careful": 0.84,
+   "careful_thorn_per_1000": 0.0
+  },
+  {
+   "patches": 2,
+   "harm": 6,
+   "blind": 0.4,
+   "blind_thorn_per_1000": 43.82176890389929,
+   "careful": 0.84,
+   "careful_thorn_per_1000": 0.0
+  }
+ ]
+}
