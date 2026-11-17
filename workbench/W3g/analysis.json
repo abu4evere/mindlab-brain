@@ -1,0 +1,44 @@
+{
+ "FM": {
+  "lifespan": [
+   653.725,
+   418.395,
+   890.677
+  ],
+  "survived": [
+   0.073,
+   0.025,
+   0.12
+  ]
+ },
+ "PYFR": {
+  "lifespan": [
+   806.322,
+   512.072,
+   1098.139
+  ],
+  "survived": [
+   0.128,
+   0.05,
+   0.225
+  ]
+ },
+ "FM-PYFR": {
+  "lifespan": [
+   -152.598,
+   -315.508,
+   -2.8
+  ],
+  "survived": [
+   -0.055,
+   -0.12,
+   0.0
+  ]
+ },
+ "FM death labels": {
+  "no_food_known": 0.774,
+  "food_known_not_reached": 0.305,
+  "exhaustion": 0.523
+ },
+ "FM deaths": 371
+}
