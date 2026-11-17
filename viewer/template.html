@@ -1,0 +1,347 @@
+<title>Child of the Field</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#EDF0E9; --panel:#F8F9F5; --ink:#1C2521; --muted:#5B675F; --line:#CDD4CA;
+  --accent:#3446A0; --accent-ink:#FFFFFF;
+  --ground:#FBFCF8; --wall:#2A332F; --fog:#C9D0C6; --unknown:#B3BCB1;
+  --food:#3E8E2D; --food-mem:#8DC27B; --shelter:#3446A0; --brain:#E39B16; --brain-edge:#1C2521;
+  --want:52,70,160;
+  --hunger:#C2412D; --tired:#7B57B5; --curious:#1F8A8A; --good:#3E8E2D;
+  --disp:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#111714; --panel:#18201C; --ink:#E3EAE4; --muted:#93A299; --line:#2C3631;
+    --accent:#8FA0F0; --accent-ink:#111714;
+    --ground:#1F2924; --wall:#71827A; --fog:#2A342F; --unknown:#36423C;
+    --food:#67BC4E; --food-mem:#3D6F31; --shelter:#8FA0F0; --brain:#F2B13A; --brain-edge:#0B0F0D;
+    --want:143,160,240;
+    --hunger:#E2654F; --tired:#A887DA; --curious:#4BB8B8; --good:#67BC4E;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#111714; --panel:#18201C; --ink:#E3EAE4; --muted:#93A299; --line:#2C3631;
+  --accent:#8FA0F0; --accent-ink:#111714;
+  --ground:#1F2924; --wall:#71827A; --fog:#2A342F; --unknown:#36423C;
+  --food:#67BC4E; --food-mem:#3D6F31; --shelter:#8FA0F0; --brain:#F2B13A; --brain-edge:#0B0F0D;
+  --want:143,160,240;
+  --hunger:#E2654F; --tired:#A887DA; --curious:#4BB8B8; --good:#67BC4E;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;padding-inline:16px;padding-block:20px 40px}
+.wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
+h1{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.05;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);max-width:62ch;margin:6px 0 0}
+.brainid{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right}
+.brainid b{color:var(--ink);font-weight:500}
+.lives{display:flex;flex-wrap:wrap;gap:8px}
+.life{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer;display:flex;flex-direction:column;gap:2px;text-align:left;min-width:150px}
+.life .t{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.life .o{font-weight:600;font-size:14px}
+.life[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.life:focus-visible,.btn:focus-visible,select:focus-visible,input:focus-visible,.ev:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.chip{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:1px 7px;border-radius:99px;margin-left:6px;vertical-align:1px}
+.chip.ok{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}
+.chip.dead{background:color-mix(in srgb,var(--hunger) 16%,transparent);color:var(--hunger)}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 300px;gap:16px;align-items:start}
+@media (max-width:1000px){.stage{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.side{grid-column:1/-1}}
+@media (max-width:640px){.stage{grid-template-columns:minmax(0,1fr)}}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+figcaption .n{font-family:var(--disp);font-weight:500;font-size:17px}
+figcaption .h{font-size:12.5px;color:var(--muted)}
+canvas.land{width:100%;aspect-ratio:1/1;max-width:100%;border-radius:6px;background:var(--ground);display:block;border:1px solid var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--muted)}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.side{display:flex;flex-direction:column;gap:14px}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.box h2{font-family:var(--body);font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.clock{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.clock b{font-size:22px;color:var(--ink);font-weight:500}
+.meter{display:grid;grid-template-columns:78px 1fr 46px;align-items:center;gap:8px;font-size:13px}
+.bar{height:8px;border-radius:4px;background:var(--fog);overflow:hidden}
+.bar>span{display:block;height:100%;border-radius:4px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:12.5px;text-align:right}
+.acts{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:end;height:74px}
+.act{display:flex;flex-direction:column;align-items:center;gap:3px;height:100%;justify-content:flex-end}
+.act span.b{width:100%;background:color-mix(in srgb,var(--accent) 35%,transparent);border-radius:3px 3px 0 0;min-height:2px}
+.act.on span.b{background:var(--accent)}
+.act em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.act.on em{color:var(--ink);font-weight:500}
+.note{font-size:13px;color:var(--muted);margin:0}
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.btn{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);min-width:84px;font-weight:600}
+select{font:inherit;font-size:14px;padding:5px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.scrub{display:flex;flex-direction:column;gap:4px}
+input[type=range]{width:100%;accent-color:var(--accent)}
+canvas.tl{width:100%;height:64px;display:block;border-radius:6px;background:var(--panel);border:1px solid var(--line)}
+.tlkey{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--muted)}
+.tlkey i{display:inline-block;width:14px;height:3px;margin-right:5px;vertical-align:3px}
+.events{max-height:230px;overflow:auto;display:flex;flex-direction:column;gap:2px;margin:0;padding:0;list-style:none}
+.ev{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:13px;padding:3px 6px;border-radius:4px;cursor:pointer;background:none;border:0;color:var(--ink);text-align:left;font-family:inherit}
+.ev:hover{background:var(--fog)}
+.ev .s{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.ev.now{background:color-mix(in srgb,var(--accent) 14%,transparent)}
+.about{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;font-size:14px;color:var(--muted)}
+.about p{margin:0}
+.about b{color:var(--ink);font-weight:600}
+</style>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Child of the Field</h1>
+      <p class="sub">Watch one learned brain live on a 15 × 15 land. Left: the land as it really is. Right: what the brain remembers, and where its planner wants to go (the blue glow). It sees only the 3 × 3 cells around it.</p>
+    </div>
+    <div class="brainid">Mind Lab · W3d<br><b>PYFR, seed 2</b> · raised by a parent<br>test: 20 of 50 lives to 3,000 steps</div>
+  </header>
+
+  <div class="lives" id="lives" role="group" aria-label="Choose a life"></div>
+
+  <div class="stage">
+    <figure>
+      <figcaption><span class="n">The land</span><span class="h">what is really there</span></figcaption>
+      <canvas class="land" id="cv-world" aria-label="The land as it really is"></canvas>
+      <div class="legend"><span><i style="background:var(--wall)"></i>wall</span><span><i style="background:var(--food)"></i>food (full)</span><span><i style="background:var(--shelter)"></i>shelter</span><span><i style="background:var(--brain)"></i>the brain</span></div>
+    </figure>
+    <figure>
+      <figcaption><span class="n">Its mind</span><span class="h">memory and wanting</span></figcaption>
+      <canvas class="land" id="cv-mind" aria-label="What the brain remembers and where it wants to go"></canvas>
+      <div class="legend"><span><i style="background:var(--unknown)"></i>never seen</span><span><i style="background:var(--fog)"></i>seen long ago</span><span><i style="background:var(--food-mem)"></i>remembered food</span><span><i style="background:rgba(var(--want),.75)"></i>wants to go</span></div>
+    </figure>
+    <div class="side">
+      <div class="box">
+        <h2>Body</h2>
+        <div class="clock">step <b id="t">0</b> <span id="tmax">/ 3,000</span></div>
+        <div class="meter"><span>Energy</span><div class="bar"><span id="bE" style="background:var(--good)"></span></div><span class="num" id="nE">150</span></div>
+        <div class="meter"><span>Fatigue</span><div class="bar"><span id="bF" style="background:var(--tired)"></span></div><span class="num" id="nF">0</span></div>
+      </div>
+      <div class="box">
+        <h2>Feelings it acts on</h2>
+        <div class="meter"><span>Hunger</span><div class="bar"><span id="bs" style="background:var(--hunger)"></span></div><span class="num" id="ns">0</span></div>
+        <div class="meter"><span>Tiredness</span><div class="bar"><span id="bf" style="background:var(--tired)"></span></div><span class="num" id="nf">0</span></div>
+        <div class="meter"><span>Curiosity</span><div class="bar"><span id="bc" style="background:var(--curious)"></span></div><span class="num" id="nc">0</span></div>
+      </div>
+      <div class="box">
+        <h2>Its choice this step</h2>
+        <div class="acts" id="acts"></div>
+        <p class="note" id="say"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="controls">
+      <button class="btn primary" id="play" type="button">Play</button>
+      <button class="btn" id="back" type="button" aria-label="Step back">◀ step</button>
+      <button class="btn" id="fwd" type="button" aria-label="Step forward">step ▶</button>
+      <label for="speed" class="note">Speed</label>
+      <select id="speed"><option value="4">slow</option><option value="15" selected>normal</option><option value="60">fast</option><option value="240">very fast</option></select>
+    </div>
+    <div class="scrub">
+      <input type="range" id="scrub" min="0" max="0" value="0" aria-label="Step in this life">
+      <canvas class="tl" id="cv-tl" aria-label="Energy over the life, with meals and moves of food"></canvas>
+      <div class="tlkey"><span><i style="background:var(--good)"></i>energy</span><span><i style="background:var(--tired)"></i>fatigue</span><span><i style="background:var(--food)"></i>a meal</span><span><i style="background:var(--hunger)"></i>a food patch moved</span></div>
+    </div>
+  </div>
+
+  <div class="stage" style="grid-template-columns:minmax(0,2fr) minmax(0,1fr)">
+    <div class="box">
+      <h2>What happened (click to jump)</h2>
+      <ul class="events" id="events"></ul>
+    </div>
+    <div class="about">
+      <p><b>The world.</b> Three 2 × 2 food patches regrow 200 steps after eating, and each moves twice per life. Energy falls by 1 each step; a meal gives 30. Fatigue rises outside the shelter and falls fast inside it.</p>
+      <p><b>The brain.</b> A planner on its own map memory, raised by a fading parent (copying it every 4th step for its first 400,000 steps), then learning from its feelings alone. Nobody gives it the rule "go to food when hungry".</p>
+      <p><b>What to watch.</b> Remembered food that is really gone, the blue glow pulling toward old patches, and hunger rising while it searches. Most deaths come when it knows of no food.</p>
+    </div>
+  </div>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(function(){
+const D = JSON.parse(document.getElementById('data').textContent);
+const N = 15, DIG = '0123456789abcdefghijklmnopqrstuvwxyz';
+const ACT = ['north','south','east','west','stay'], ARR = ['↑','↓','→','←','·'];
+const $ = id => document.getElementById(id);
+let L, life = 0, t = 0, playing = false, last = 0, acc = 0, lastSeen = null, events = [];
+
+function css(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+
+function prepare(i){
+  life = i; L = D.lives[i]; t = 0;
+  const T = L.steps.length;
+  // last-seen step per cell at each frame (frame k = before action k): Int16Array(T*225), -1 = never
+  lastSeen = new Int16Array(T * 225);
+  let cur = new Int16Array(225).fill(-1);
+  for (const c of L.first_seen) cur[c] = 0;
+  for (let k = 0; k < T; k++){
+    const p = L.steps[k].p;
+    for (let dy=-1; dy<=1; dy++) for (let dx=-1; dx<=1; dx++){
+      const x=p[0]+dx, y=p[1]+dy; if (x>=0&&x<N&&y>=0&&y<N) cur[y*N+x] = k;
+    }
+    lastSeen.set(cur, k*225);
+  }
+  L.wallset = new Set(L.walls);
+  events = [];
+  let prevHungry = false, prevTired = false, atShelter = false;
+  for (let k = 0; k < T; k++){
+    const s = L.steps[k];
+    if (s.ate) events.push([k, `ate at (${s.p[0]}, ${s.p[1]}) · energy ${Math.round(s.E)} → ${Math.min(200, Math.round(s.E) - 1 + 30)}`, 'meal']);
+    if (s.rel) for (const r of s.rel) events.push([k, `a food patch moved to (${r.corner[0]}, ${r.corner[1]}); it does not know yet`, 'rel']);
+    const h = s.E < 50; if (h && !prevHungry) events.push([k, 'very hungry (energy below 50)', 'warn']); prevHungry = h;
+    const f = s.F > 100; if (f && !prevTired) events.push([k, 'exhausted (fatigue above 100): moves cost double', 'warn']); prevTired = f;
+    const sh = s.p[0] === L.shelter[0] && s.p[1] === L.shelter[1];
+    if (sh && !atShelter) events.push([k, 'went into the shelter to rest', 'rest']); atShelter = sh;
+  }
+  events.push([T-1, L.survived ? 'lived the full 3,000 steps' : `died at step ${T}: ${L.cause}`, 'end']);
+  $('scrub').max = T - 1; $('tmax').textContent = '/ ' + T.toLocaleString();
+  const ul = $('events'); ul.innerHTML = '';
+  for (const [k, txt] of events){
+    const li = document.createElement('li');
+    const b = document.createElement('button'); b.className = 'ev'; b.type = 'button'; b.dataset.k = k;
+    b.innerHTML = `<span class="s">${k}</span><span></span>`; b.lastChild.textContent = txt;
+    b.addEventListener('click', () => { pause(); go(k); });
+    li.appendChild(b); ul.appendChild(li);
+  }
+  document.querySelectorAll('.life').forEach((b, j) => b.setAttribute('aria-pressed', j === i));
+  drawTimeline(); go(0);
+}
+
+function sizeCanvas(cv){
+  const r = cv.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
+  const w = Math.max(10, Math.round(r.width * dpr)), h = Math.max(10, Math.round(r.height * dpr));
+  if (cv.width !== w || cv.height !== h){ cv.width = w; cv.height = h; }
+  return [cv.getContext('2d'), w, h];
+}
+
+function cellRect(ctx, x, y, s, inset, color){ ctx.fillStyle = color; ctx.fillRect(x*s+inset, y*s+inset, s-2*inset, s-2*inset); }
+
+function drawBrain(ctx, p, s, a){
+  const cx = (p[0]+.5)*s, cy = (p[1]+.5)*s, r = s*.32;
+  ctx.fillStyle = css('--brain'); ctx.strokeStyle = css('--brain-edge'); ctx.lineWidth = Math.max(1.5, s*.06);
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+  if (a < 4){
+    const d = [[0,-1],[0,1],[1,0],[-1,0]][a];
+    ctx.beginPath(); ctx.moveTo(cx + d[0]*r*1.1, cy + d[1]*r*1.1); ctx.lineTo(cx + d[0]*s*.62, cy + d[1]*s*.62); ctx.stroke();
+  }
+  ctx.strokeStyle = css('--brain'); ctx.globalAlpha = .55; ctx.lineWidth = Math.max(1, s*.04); ctx.setLineDash([s*.12, s*.1]);
+  ctx.strokeRect((p[0]-1)*s+1, (p[1]-1)*s+1, 3*s-2, 3*s-2); ctx.setLineDash([]); ctx.globalAlpha = 1;
+}
+
+function draw(){
+  const st = L.steps[t], prev = t > 0 ? L.steps[t-1] : null;
+  const trueFood = new Set(prev ? prev.tf : st.tf);
+  const memFood = new Set(prev ? prev.mf : st.tf.filter(c => lastSeen[c] >= 0));
+  const ls = lastSeen.subarray(t*225, t*225+225);
+  const shelterIdx = L.shelter[1]*N + L.shelter[0];
+  // world
+  let [ctx, w] = sizeCanvas($('cv-world')); const s = w / N;
+  ctx.fillStyle = css('--ground'); ctx.fillRect(0, 0, w, w);
+  for (let i = 0; i < 225; i++){
+    const x = i % N, y = (i / N) | 0;
+    if (L.wallset.has(i)) cellRect(ctx, x, y, s, 0, css('--wall'));
+    else if (trueFood.has(i)) cellRect(ctx, x, y, s, s*.12, css('--food'));
+    else if (i === shelterIdx) cellRect(ctx, x, y, s, s*.1, css('--shelter'));
+  }
+  drawGrid(ctx, w, s); drawBrain(ctx, st.p, s, st.a);
+  // mind
+  [ctx, w] = sizeCanvas($('cv-mind'));
+  ctx.fillStyle = css('--ground'); ctx.fillRect(0, 0, w, w);
+  const want = css('--want');
+  for (let i = 0; i < 225; i++){
+    const x = i % N, y = (i / N) | 0, seen = ls[i] >= 0;
+    if (!seen){ cellRect(ctx, x, y, s, 0, css('--unknown')); continue; }
+    if (L.wallset.has(i)){ cellRect(ctx, x, y, s, 0, css('--wall')); continue; }
+    const age = t - ls[i], u = 1 - Math.exp(-age / 200);
+    ctx.fillStyle = css('--fog'); ctx.globalAlpha = Math.min(1, u * 1.1); ctx.fillRect(x*s, y*s, s, s); ctx.globalAlpha = 1;
+    const ch = st.v[i]; if (ch !== '.'){ const q = DIG.indexOf(ch) / 35; ctx.fillStyle = `rgba(${want},${(q*q*.8).toFixed(3)})`; ctx.fillRect(x*s, y*s, s, s); }
+    if (memFood.has(i)) cellRect(ctx, x, y, s, s*.12, css('--food-mem'));
+    if (i === shelterIdx) cellRect(ctx, x, y, s, s*.1, css('--shelter'));
+  }
+  drawGrid(ctx, w, s); drawBrain(ctx, st.p, s, st.a);
+  // side panel
+  $('t').textContent = t.toLocaleString();
+  setBar('bE', 'nE', st.E / 200, Math.round(st.E)); setBar('bF', 'nF', Math.min(1, st.F / 200), Math.round(st.F));
+  setBar('bs', 'ns', st.lev[0], st.lev[0].toFixed(2)); setBar('bf', 'nf', st.lev[1], st.lev[1].toFixed(2)); setBar('bc', 'nc', st.lev[2], st.lev[2].toFixed(2));
+  const acts = $('acts'); acts.innerHTML = '';
+  st.pi.forEach((p, j) => {
+    const d = document.createElement('div'); d.className = 'act' + (j === st.a ? ' on' : '');
+    d.innerHTML = `<span class="b" style="height:${Math.max(2, p*56)}px"></span><em>${ARR[j]} ${Math.round(p*100)}%</em>`;
+    acts.appendChild(d);
+  });
+  const known = memFood.size, real = [...memFood].filter(c => trueFood.has(c)).length;
+  $('say').textContent = `Goes ${ACT[st.a]}. It remembers ${known} food cell${known === 1 ? '' : 's'}` + (known ? `, ${real} still really full.` : '.');
+  $('scrub').value = t;
+  document.querySelectorAll('.ev').forEach(b => b.classList.toggle('now', +b.dataset.k === t));
+  drawCursor();
+}
+
+function drawGrid(ctx, w, s){
+  ctx.strokeStyle = css('--line'); ctx.globalAlpha = .55; ctx.lineWidth = 1; ctx.beginPath();
+  for (let i = 1; i < N; i++){ ctx.moveTo(i*s, 0); ctx.lineTo(i*s, w); ctx.moveTo(0, i*s); ctx.lineTo(w, i*s); }
+  ctx.stroke(); ctx.globalAlpha = 1;
+}
+
+function setBar(b, n, f, txt){ $(b).style.width = (Math.max(0, Math.min(1, f)) * 100).toFixed(1) + '%'; $(n).textContent = txt; }
+
+let tlImage = null;
+function drawTimeline(){
+  const [ctx, w, h] = sizeCanvas($('cv-tl')), T = L.steps.length, X = k => k / 2999 * w;
+  ctx.fillStyle = css('--panel'); ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = css('--fog'); ctx.fillRect(X(T), 0, w - X(T), h);
+  const line = (key, max, col) => { ctx.strokeStyle = col; ctx.lineWidth = 1.5 * (window.devicePixelRatio || 1); ctx.beginPath();
+    L.steps.forEach((s, k) => { const y = h - 4 - Math.min(1, s[key] / max) * (h - 12); k ? ctx.lineTo(X(k), y) : ctx.moveTo(X(k), y); }); ctx.stroke(); };
+  line('F', 200, css('--tired')); line('E', 200, css('--good'));
+  L.steps.forEach((s, k) => {
+    if (s.ate){ ctx.fillStyle = css('--food'); ctx.fillRect(X(k), 0, Math.max(1, w/1500), 6); }
+    if (s.rel){ ctx.fillStyle = css('--hunger'); ctx.fillRect(X(k) - 1, 0, 2.5, h); }
+  });
+  tlImage = ctx.getImageData(0, 0, w, h);
+}
+function drawCursor(){
+  const cv = $('cv-tl'), ctx = cv.getContext('2d');
+  if (!tlImage || tlImage.width !== cv.width) drawTimeline();
+  ctx.putImageData(tlImage, 0, 0);
+  const x = t / 2999 * cv.width; ctx.fillStyle = css('--ink'); ctx.fillRect(x - 1, 0, 2, cv.height);
+}
+
+function go(k){ t = Math.max(0, Math.min(L.steps.length - 1, k)); draw(); }
+function pause(){ playing = false; $('play').textContent = 'Play'; }
+function loop(ts){
+  if (playing){
+    const sp = +$('speed').value; acc += (ts - last) / 1000 * sp; last = ts;
+    const n = Math.floor(acc); if (n > 0){ acc -= n; if (t >= L.steps.length - 1) pause(); else go(t + n); }
+  } else last = ts;
+  requestAnimationFrame(loop);
+}
+
+const lv = $('lives');
+D.lives.forEach((l, i) => {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'life'; b.setAttribute('aria-pressed', 'false');
+  b.innerHTML = `<span class="t">land ${l.land}</span><span class="o"></span>`;
+  b.querySelector('.o').innerHTML = l.survived ? `${l.lifespan.toLocaleString()} steps<span class="chip ok">lived</span>` : `${l.lifespan.toLocaleString()} steps<span class="chip dead">died</span>`;
+  b.addEventListener('click', () => { pause(); prepare(i); });
+  lv.appendChild(b);
+});
+$('play').addEventListener('click', () => { playing = !playing; if (playing && t >= L.steps.length - 1) go(0); $('play').textContent = playing ? 'Pause' : 'Play'; });
+$('back').addEventListener('click', () => { pause(); go(t - 1); });
+$('fwd').addEventListener('click', () => { pause(); go(t + 1); });
+$('scrub').addEventListener('input', e => { pause(); go(+e.target.value); });
+window.addEventListener('resize', () => { tlImage = null; draw(); });
+new MutationObserver(() => { tlImage = null; draw(); }).observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { tlImage = null; draw(); });
+prepare(0);
+requestAnimationFrame(loop);
+})();
+</script>

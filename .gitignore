@@ -1,3 +1,5 @@
 scorecard/sources/*.pdf
 scorecard/sources/*.txt
 __pycache__/
+viewer/life_viewer.html
+viewer/lives_*.json
