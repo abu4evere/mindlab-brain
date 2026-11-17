@@ -1,0 +1,25 @@
+W3i-L-1	workbench/W3i	checks_w3i.py	python w3i.py run L 1 4.5	output checks.log
+W3i-L-2	workbench/W3i	checks_w3i.py	python w3i.py run L 2 4.5	output checks.log
+W3i-L-3	workbench/W3i	checks_w3i.py	python w3i.py run L 3 4.5	output checks.log
+W3i-L-4	workbench/W3i	checks_w3i.py	python w3i.py run L 4 4.5	output checks.log
+W3i-L-5	workbench/W3i	checks_w3i.py	python w3i.py run L 5 4.5	output checks.log
+W3i-L-6	workbench/W3i	checks_w3i.py	python w3i.py run L 6 4.5	output checks.log
+W3i-L-7	workbench/W3i	checks_w3i.py	python w3i.py run L 7 4.5	output checks.log
+W3i-L-8	workbench/W3i	checks_w3i.py	python w3i.py run L 8 4.5	output checks.log
+W3i-LC-1	workbench/W3i	checks_w3i.py	python w3i.py run LC 1 4.5	output checks.log
+W3i-LC-2	workbench/W3i	checks_w3i.py	python w3i.py run LC 2 4.5	output checks.log
+W3i-LC-3	workbench/W3i	checks_w3i.py	python w3i.py run LC 3 4.5	output checks.log
+W3i-LC-4	workbench/W3i	checks_w3i.py	python w3i.py run LC 4 4.5	output checks.log
+W3i-LC-5	workbench/W3i	checks_w3i.py	python w3i.py run LC 5 4.5	output checks.log
+W3i-LC-6	workbench/W3i	checks_w3i.py	python w3i.py run LC 6 4.5	output checks.log
+W3i-LC-7	workbench/W3i	checks_w3i.py	python w3i.py run LC 7 4.5	output checks.log
+W3i-LC-8	workbench/W3i	checks_w3i.py	python w3i.py run LC 8 4.5	output checks.log
+W3i-C-1	workbench/W3i	checks_w3i.py	python w3i.py run C 1 4.5	output checks.log
+W3i-C-2	workbench/W3i	checks_w3i.py	python w3i.py run C 2 4.5	output checks.log
+W3i-C-3	workbench/W3i	checks_w3i.py	python w3i.py run C 3 4.5	output checks.log
+W3i-C-4	workbench/W3i	checks_w3i.py	python w3i.py run C 4 4.5	output checks.log
+W3i-C-5	workbench/W3i	checks_w3i.py	python w3i.py run C 5 4.5	output checks.log
+W3i-C-6	workbench/W3i	checks_w3i.py	python w3i.py run C 6 4.5	output checks.log
+W3i-C-7	workbench/W3i	checks_w3i.py	python w3i.py run C 7 4.5	output checks.log
+W3i-C-8	workbench/W3i	checks_w3i.py	python w3i.py run C 8 4.5	output checks.log
+W3i-R-1	workbench/W3i	checks_w3i.py	python w3i.py repro 1 4.5	output checks.log

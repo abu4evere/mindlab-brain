@@ -1,0 +1,13 @@
+PASS the counters do not change W3's world
+PASS stale arrivals: counted when remembered full and really empty; not for a meal; not when not remembered
+PASS the fade: 0.5 at 0, 0.25 halfway, 0 from the arm's fade on (L 400k, LC 1.2M, C 1.2M, PYFR 400k)
+PASS nothing scheduled on the total steps: learning rate, entropy and clip are constants
+PASS a split run equals an unsplit run
+PASS the same seed twice is the same
+PASS a snapshot does not change the run (snapshot files: ['LC_4_0M.npz', 'test_LC_4_0M.json'])
+PASS the staged run equals the plain W3d loop
+All: PASS
+
+real	1m17.256s
+user	0m0.000s
+sys	0m0.015s
