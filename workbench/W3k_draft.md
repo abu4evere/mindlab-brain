@@ -1,0 +1,49 @@
+# W3k: a longer childhood still, and keeping the adult's best. (DRAFT, 18 November 2026)
+
+**Why (W3j, W3i):**
+- **The best brain yet** is W3j's C2: a 2.4M-step fading childhood within 4.0M steps. Lifespan 1,594, survival 0.363,
+  fresh lands 0.380. A longer childhood is the strongest lever, three times over (W3d, W3i, W3j).
+- **Every brain peaks 0.4 to 0.8M steps after its childhood ends, then declines** (C2: 1,832 at 2.8M, 1,594 at 4.0M).
+  Learning alone first helps (the brain frozen at the end of childhood is worse), then wears away the parent's lesson.
+- **What did not stop the decline (W3j):** a slower learning rate (CK) and a quietly lingering parent (CV, much worse).
+- **Seed noise is huge:** cloud runs are not bit-identical, and one tiny numerical difference halved a brain's lifespan.
+
+## Arms (C2's settings unless stated; 12 seeds; GitHub's machines; every run logs its processor)
+| arm | change from C2 (4.0M steps, 2.4M fade) | question |
+|---|---|---|
+| **R2** | none: C2 again, with W3k's code | the reference, run fresh (not cited) |
+| **C3** | 5.2M steps, **3.6M fade** (the same 1.6M alone as C2) | does a still longer childhood keep helping? |
+| **CS** | after the fade, the brain keeps a copy of itself whenever its own recent lives (the last 100 training lives) are the longest so far; its final brain is that copy | "keep the best self": does choosing its own peak, judged only by its own lives, beat the end of training? |
+| **CR** | after the fade, every 4th step, one copy step (weight 0.05) toward a parent example stored during childhood | "remember the parent": does replaying the parent's lessons, instead of a live parent (CV), hold them? |
+
+- **CS** uses only what the brain itself experienced (its training lives, with learning on), never a test. It is the
+  simplest form of "noticing that you were better before". Training runs to the same 4.0M steps either way.
+- **CR** stores up to 20,000 of the parent's (situation, move) examples, sampled evenly across the childhood. After the
+  fade the parent is gone; only the stored examples are replayed.
+
+## Measures (as W3j)
+Lifespan; survival to 3,000 and to 1,000; fresh-land survival; drift from the end-of-fade brain; agreement with the
+parent; snapshots every 400,000 steps after the fade. **New:** for CS, the step its kept copy comes from; for every run,
+the processor model and the numerical library in use.
+
+## Readings (to be frozen; paired by seed where the runs share a start; 95% bootstrap over 12 seeds)
+1. **Primary, "keeping the best self holds the peak":** CS − R2 on lifespan, lower bound above 0.
+2. **Secondary:**
+   - "Longer still helps": C3 − R2;
+   - "Replaying the parent holds the lesson": CR − R2;
+   - each with its interval, read with the same rule.
+3. **Toward the bar:** the best arm's fresh-land survival against 0.80.
+
+## Open questions for the council
+1. Is choosing the best copy by the brain's own training lives fair, or is it a hidden test? (The training lives are
+   noisy and are lived while learning.)
+2. CV (a live parent at 0.05) hurt badly. Should CR's replay weight be lower still, or is replay different enough from a
+   live parent to keep 0.05?
+3. C3 adds 1.2M steps of childhood. Is "the same time alone" (1.6M) the right thing to hold equal, or total steps?
+4. Is 12 seeds enough, given that one numerical difference halved a brain's lifespan?
+
+## The assistant's prior
+- CS helps (reading 1): about 55%.
+- C3 helps: about 45%.
+- CR helps: about 25% (CV's failure).
+- Any arm reaches 0.80 on fresh lands: about 3%.
