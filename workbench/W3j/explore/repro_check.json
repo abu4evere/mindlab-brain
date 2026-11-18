@@ -1,0 +1,8 @@
+{
+ "reproduced_mean_lifespan": 796.92,
+ "w3i_mean_lifespan": 1547.06,
+ "reproduced_survived": 0.12,
+ "w3i_survived": 0.34,
+ "same_lifespan_on_lands": 3,
+ "lands": 50
+}
