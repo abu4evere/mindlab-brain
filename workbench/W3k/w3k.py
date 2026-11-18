@@ -5,7 +5,8 @@ W3d's training with a parent (as W3j's C2), plus three things, added at anchors 
     advance). They never change training: R2, CS and CY are one run ("R").
   - CR: in the second half of the fade, the parent's examples are kept (reservoir, at most 20,000); after the fade,
     every 4th step, one is replayed as a copy step at weight 0.05.
-  - Numerical determinism: OpenBLAS's Haswell kernels and NumPy without AVX-512 paths, set before numpy loads.
+  - Numerical determinism: OpenBLAS's Zen kernels and NumPy without AVX-512 paths, set before numpy loads; only on
+    processors verified to train bit-identically (amendment 2).
 
   python w3k.py run RUN SEED [HOURS]     RUN in R, C3, CR (train in stages, resumable; then the tests)
   python w3k.py det NAME SEED [HOURS]    the determinism job: run "R" again into output/NAME_<seed>*, then compare
@@ -14,8 +15,22 @@ from __future__ import annotations
 
 import os
 
-# the same numerical path on every machine (Intel and AMD runners): set before numpy is loaded anywhere
-os.environ["OPENBLAS_CORETYPE"] = "Haswell"
+def _cpu():
+    try:
+        return next(l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name"))
+    except (OSError, StopIteration):
+        import platform
+        return platform.processor()
+
+
+CPU = _cpu()
+# Amendment 2: the processors verified (tools/diag_seg.py, 18 Nov) to train bit-identically with these settings are
+# GitHub's Intel Xeons (6975P, 6973P, 8370C) and AMD EPYC 7763. The newer AMD EPYCs (9V74, 9V45) crash with any forced
+# OpenBLAS core and differ without one: a job that lands there hands itself back (wrong_machine.flag) and is re-queued.
+GOOD_MACHINE = ("Intel" in CPU) or ("EPYC 7" in CPU) or not os.path.exists("/proc/cpuinfo")
+# the same numerical path on every verified machine: set before numpy is loaded anywhere
+if GOOD_MACHINE:
+    os.environ["OPENBLAS_CORETYPE"] = "Zen"
 os.environ["NPY_DISABLE_CPU_FEATURES"] = "AVX512_SPR AVX512_ICL X86_V4"   # amendment 1: all AVX-512 groups
 os.environ["OPENBLAS_NUM_THREADS"] = os.environ["OMP_NUM_THREADS"] = os.environ["MKL_NUM_THREADS"] = "1"
 
@@ -208,11 +223,7 @@ def train_staged(run, seed, hours=4.5, name=None, snapshot_at=None):
 
 def machine(name, seed):
     """The processor and the numerical library this run used (the determinism record)."""
-    cpu = ""
-    try:
-        cpu = next(l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name"))
-    except (OSError, StopIteration):
-        cpu = platform.processor()
+    cpu = CPU
     from numpy._core._multiarray_umath import __cpu_features__, __cpu_dispatch__, __cpu_targets_info__
     rec = {"cpu": cpu, "machine": platform.machine(), "python": platform.python_version(), "numpy": np.__version__,
            "env": {k: os.environ.get(k) for k in ("OPENBLAS_CORETYPE", "NPY_DISABLE_CPU_FEATURES", "OPENBLAS_NUM_THREADS")},
@@ -255,7 +266,22 @@ def test_brain(label, path, seed, snap):
     (OUT / f"drift_{label}.json").write_text(json.dumps(drift_and_parent(net, snap, W.TEST_SEEDS, R3.regrowth())))
 
 
+def right_machine():
+    """On an unverified processor, leave a flag (the manager re-queues the job, keeping any checkpoint) and stop."""
+    OUT.mkdir(exist_ok=True)
+    flag = OUT / "wrong_machine.flag"
+    if not GOOD_MACHINE:
+        flag.write_text(CPU)
+        print("wrong machine:", CPU, flush=True)
+        return False
+    if flag.exists():
+        flag.unlink()
+    return True
+
+
 def run(run_name, seed, hours):
+    if not right_machine():
+        return
     configure(run_name, seed)
     machine(run_name, seed)
     if train_staged(run_name, seed, hours):
@@ -272,6 +298,8 @@ def run(run_name, seed, hours):
 def det(name, seed, hours):
     """The determinism job: run "R" trained again under another name (no snapshots, no tests). The comparison with
     R's own weights is made by the analysis, once both have finished."""
+    if not right_machine():
+        return
     configure("R", seed)
     machine(name, seed)
     if train_staged("R", seed, hours, name=name, snapshot_at=()):

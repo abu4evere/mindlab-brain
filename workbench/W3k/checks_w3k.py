@@ -42,9 +42,9 @@ def short(run, fade, steps, seed):
 # 0. the numerical settings, set before numpy loaded
 from numpy._core._multiarray_umath import __cpu_targets_info__  # noqa: E402
 in_use = sorted({v["current"] for fn in __cpu_targets_info__.values() for v in fn.values()})
-check(f"determinism settings in place before numpy loads (OpenBLAS Haswell; numpy's paths in use {in_use}, none "
-      f"AVX-512; 1 thread)",
-      os.environ.get("OPENBLAS_CORETYPE") == "Haswell"
+check(f"determinism settings in place before numpy loads (OpenBLAS Zen on a verified machine: {w3k.GOOD_MACHINE}; "
+      f"numpy's paths in use {in_use}, none AVX-512; 1 thread)",
+      os.environ.get("OPENBLAS_CORETYPE") == ("Zen" if w3k.GOOD_MACHINE else None)
       and os.environ.get("NPY_DISABLE_CPU_FEATURES") == "AVX512_SPR AVX512_ICL X86_V4"
       and not any(t.startswith(("X86_V4", "AVX512")) for t in in_use) and os.environ.get("OPENBLAS_NUM_THREADS") == "1")
 
@@ -156,6 +156,8 @@ check("drift: a brain against itself 0; against another brain > 0; parent agreem
 w3k.machine("check", 0)
 rec = __import__("json").loads((tmp / "machine_check_0.json").read_text())[-1]
 check(f"the machine record ({rec['cpu'][:40]}; numpy {rec['numpy']}; {rec['env']})",
-      rec["env"]["OPENBLAS_CORETYPE"] == "Haswell" and rec["numpy"])
+      rec["env"]["OPENBLAS_CORETYPE"] == ("Zen" if w3k.GOOD_MACHINE else None) and rec["numpy"])
+ok_flag = w3k.right_machine() == w3k.GOOD_MACHINE and (tmp / "wrong_machine.flag").exists() != w3k.GOOD_MACHINE
+check(f"an unverified processor hands the job back with a flag (this machine verified: {w3k.GOOD_MACHINE})", ok_flag)
 shutil.rmtree(tmp)
 print("All: PASS" if not fails else f"FAILED: {fails}")

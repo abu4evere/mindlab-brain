@@ -57,7 +57,7 @@ while True:
         outs = list(dest.rglob("output"))
         files = [p for o in outs for p in o.iterdir()] if outs else []
         names = {p.name for p in files}
-        ckpt = any(n.endswith(".ckpt.pkl") for n in names)
+        ckpt = any(n.endswith(".ckpt.pkl") for n in names) or "wrong_machine.flag" in names   # amendment 2: re-queue
         if st["conclusion"] != "success":
             chains[name]["state"] = "failed"
             log(f"{name} run {rid} concluded {st['conclusion']}")

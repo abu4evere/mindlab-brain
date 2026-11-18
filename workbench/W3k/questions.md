@@ -80,3 +80,14 @@ stop it. And cloud runs were not bit-identical, which made seed noise huge.
 - **The change:** numpy is told to switch off all three AVX-512 groups (`NPY_DISABLE_CPU_FEATURES="AVX512_SPR
   AVX512_ICL X86_V4"`), and the check now reads the code paths numpy actually *uses*, requiring none of them to be
   AVX-512. Every run also records those paths. Nothing else changes.
+
+## Amendment 2 (18 November 2026, before any data; the relaunch stopped at the checks on some machines)
+- **What happened:** on AMD EPYC 9V74 machines the checks crashed (segmentation fault). Diagnostic jobs
+  (`tools/diag_seg.py`) on 18 runners showed:
+  - forcing OpenBLAS's Haswell (or Zen) core crashes AMD EPYC 9V74 and 9V45;
+  - with OpenBLAS's **Zen** core and numpy's AVX-512 paths off, a short training gives **identical weights** on Intel
+    Xeon 6975P, 6973P and 8370C and AMD EPYC 7763;
+  - the 9V74 and 9V45 give different weights with every safe setting tried.
+- **The change:** OpenBLAS's core is Zen (not Haswell). Jobs run only on the verified processors: a job that lands on any
+  other hands itself back (a flag file, keeping its checkpoint), and the manager queues it again. The determinism job
+  still tests the result. Nothing else changes.
