@@ -40,10 +40,13 @@ def short(run, fade, steps, seed):
 
 
 # 0. the numerical settings, set before numpy loaded
-from numpy._core._multiarray_umath import __cpu_dispatch__  # noqa: E402
-check("determinism settings in place before numpy loads (OpenBLAS Haswell; no X86_V4 dispatch; 1 thread)",
-      os.environ.get("OPENBLAS_CORETYPE") == "Haswell" and os.environ.get("NPY_DISABLE_CPU_FEATURES") == "X86_V4"
-      and "X86_V4" not in __cpu_dispatch__ and os.environ.get("OPENBLAS_NUM_THREADS") == "1")
+from numpy._core._multiarray_umath import __cpu_targets_info__  # noqa: E402
+in_use = sorted({v["current"] for fn in __cpu_targets_info__.values() for v in fn.values()})
+check(f"determinism settings in place before numpy loads (OpenBLAS Haswell; numpy's paths in use {in_use}, none "
+      f"AVX-512; 1 thread)",
+      os.environ.get("OPENBLAS_CORETYPE") == "Haswell"
+      and os.environ.get("NPY_DISABLE_CPU_FEATURES") == "AVX512_SPR AVX512_ICL X86_V4"
+      and not any(t.startswith(("X86_V4", "AVX512")) for t in in_use) and os.environ.get("OPENBLAS_NUM_THREADS") == "1")
 
 # 1. the schedules: R and CR fade over 2.4M of 4.0M; C3 over 3.6M of 5.2M; CY's step drawn as stated
 ok = True

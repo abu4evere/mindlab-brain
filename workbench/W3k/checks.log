@@ -1,4 +1,4 @@
-PASS determinism settings in place before numpy loads (OpenBLAS Haswell; no X86_V4 dispatch; 1 thread)
+PASS determinism settings in place before numpy loads (OpenBLAS Haswell; numpy's paths in use ['X86_V3', 'baseline(X86_V2)'], none AVX-512; 1 thread)
 PASS schedules: fades 0.5 to 0 (R, CR over 2.4M; C3 over 3.6M of 5.2M); snapshots; CY's step drawn in advance (seed 1: 2864025)
 PASS a stored map is exact (uint8, 1125 bytes)
 PASS the hooks do not change training (R with hooks equals W3d's training without them)
@@ -11,5 +11,5 @@ PASS CR replays after the fade every 4th step (375, expected 375) at weight 0.05
 PASS R: a split run equals an unsplit run (with the hooks' state); the same seed twice is the same
 PASS CR: a split run equals an unsplit run (with the hooks' state); the same seed twice is the same
 PASS drift: a brain against itself 0; against another brain > 0; parent agreement in [0, 1]
-PASS the machine record (Intel64 Family 6 Model 186 Stepping 3, G; numpy 2.5.3; {'OPENBLAS_CORETYPE': 'Haswell', 'NPY_DISABLE_CPU_FEATURES': 'X86_V4', 'OPENBLAS_NUM_THREADS': '1'})
+PASS the machine record (Intel64 Family 6 Model 186 Stepping 3, G; numpy 2.5.3; {'OPENBLAS_CORETYPE': 'Haswell', 'NPY_DISABLE_CPU_FEATURES': 'AVX512_SPR AVX512_ICL X86_V4', 'OPENBLAS_NUM_THREADS': '1'})
 All: PASS

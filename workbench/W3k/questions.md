@@ -72,3 +72,11 @@ stop it. And cloud runs were not bit-identical, which made seed noise huge.
 - CR − R2 above 0: about 25%.
 - Any arm reaches 0.80 on fresh lands: about 3%.
 - The determinism job is bit-identical: about 60%.
+
+## Amendment 1 (18 November 2026, before any data; the first 50 jobs all stopped at the checks)
+- **What happened:** on GitHub's Linux machines the determinism check failed, so no job trained. The check looked for
+  "X86_V4" in numpy's list of *compiled* code paths, which on Linux always contains it (and two further AVX-512
+  groups, AVX512_ICL and AVX512_SPR), whatever the processor. A diagnostic job confirmed this.
+- **The change:** numpy is told to switch off all three AVX-512 groups (`NPY_DISABLE_CPU_FEATURES="AVX512_SPR
+  AVX512_ICL X86_V4"`), and the check now reads the code paths numpy actually *uses*, requiring none of them to be
+  AVX-512. Every run also records those paths. Nothing else changes.

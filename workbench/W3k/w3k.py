@@ -16,7 +16,7 @@ import os
 
 # the same numerical path on every machine (Intel and AMD runners): set before numpy is loaded anywhere
 os.environ["OPENBLAS_CORETYPE"] = "Haswell"
-os.environ["NPY_DISABLE_CPU_FEATURES"] = "X86_V4"
+os.environ["NPY_DISABLE_CPU_FEATURES"] = "AVX512_SPR AVX512_ICL X86_V4"   # amendment 1: all AVX-512 groups
 os.environ["OPENBLAS_NUM_THREADS"] = os.environ["OMP_NUM_THREADS"] = os.environ["MKL_NUM_THREADS"] = "1"
 
 import json  # noqa: E402
@@ -213,10 +213,11 @@ def machine(name, seed):
         cpu = next(l.split(":", 1)[1].strip() for l in open("/proc/cpuinfo") if l.startswith("model name"))
     except (OSError, StopIteration):
         cpu = platform.processor()
-    from numpy._core._multiarray_umath import __cpu_features__, __cpu_dispatch__
+    from numpy._core._multiarray_umath import __cpu_features__, __cpu_dispatch__, __cpu_targets_info__
     rec = {"cpu": cpu, "machine": platform.machine(), "python": platform.python_version(), "numpy": np.__version__,
            "env": {k: os.environ.get(k) for k in ("OPENBLAS_CORETYPE", "NPY_DISABLE_CPU_FEATURES", "OPENBLAS_NUM_THREADS")},
            "cpu_dispatch": list(__cpu_dispatch__),
+           "targets_in_use": sorted({v["current"] for fn in __cpu_targets_info__.values() for v in fn.values()}),
            "avx512": bool(__cpu_features__.get("AVX512F")), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
     p = OUT / f"machine_{name}_{seed}.json"
     old = json.loads(p.read_text()) if p.exists() else []
