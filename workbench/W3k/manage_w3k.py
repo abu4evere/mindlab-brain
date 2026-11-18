@@ -58,10 +58,13 @@ while True:
         files = [p for o in outs for p in o.iterdir()] if outs else []
         names = {p.name for p in files}
         ckpt = any(n.endswith(".ckpt.pkl") for n in names) or "wrong_machine.flag" in names   # amendment 2: re-queue
-        if st["conclusion"] != "success":
+        retry = st["conclusion"] == "cancelled" and chains[name].get("retries", 0) < 3   # a lost runner: try again
+        if retry:
+            chains[name]["retries"] = chains[name].get("retries", 0) + 1
+        if st["conclusion"] != "success" and not retry:
             chains[name]["state"] = "failed"
             log(f"{name} run {rid} concluded {st['conclusion']}")
-        elif ckpt:
+        elif ckpt or retry:
             d, checks, cmd, save = jobs[name]
             before = {r["databaseId"] for r in json.loads(gh("run", "list", "-R", REPO, "-w", "run.yml", "-L", "5",
                                                             "--json", "databaseId"))}
@@ -77,7 +80,7 @@ while True:
                     new = str(max(fresh))
                     break
             chains[name]["runs"].append(new)
-            log(f"{name} paused in run {rid}; resumed as {new}")
+            log(f"{name} {'cancelled (retry ' + str(chains[name]['retries']) + ')' if retry else 'paused'} in run {rid}; resumed as {new}")
         else:
             (W / "output").mkdir(exist_ok=True)
             for p in files:
