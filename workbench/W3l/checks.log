@@ -1,0 +1,11 @@
+PASS determinism settings in place before numpy loads (verified machine: True; paths ['X86_V3', 'baseline(X86_V2)'])
+PASS schedules: C3 3.6M of 5.2M; C5 4.8M of 6.4M; snapshots; CY's steps drawn in advance (seed 20261191 + run seed)
+PASS the hooks do not change training (C3 with hooks equals W3d's training without them)
+PASS CS keeps the copy its rule names (recomputed 2596; kept 2596)
+PASS CY is the brain at the first life boundary after its step (2200 -> 2362)
+PASS run C3 gives its end, CS and CY copies and the fade snapshot (C3_4, C3_CS_4, C3_CY_4, C3_4_1k)
+PASS the end equals the unstaged run; the CS copy equals the copy kept in the unstaged run
+PASS C5: a split run equals an unsplit run (with the copies' state); the same seed twice is the same
+PASS outputs go to W3l/output
+PASS an unverified processor hands the job back with a flag (this machine verified: True)
+All: PASS
