@@ -17,7 +17,11 @@ LOG = W / "manage.log"
 
 def gh(*a):
     for attempt in range(10):                      # network blips (13:15 on 16 Nov killed the manager): retry
-        r = subprocess.run([GH, *a], capture_output=True, text=True, encoding="utf-8")
+        try:      # a call that hangs (19 Nov: the manager froze for 6 hours) is cut off and retried
+            r = subprocess.run([GH, *a], capture_output=True, text=True, encoding="utf-8", timeout=600)
+        except subprocess.TimeoutExpired:
+            time.sleep(30)
+            continue
         if r.returncode == 0:
             return r.stdout
         time.sleep(60)
