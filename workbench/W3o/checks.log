@@ -1,0 +1,11 @@
+PASS determinism settings in place before numpy loads (paths ['X86_V3', 'baseline(X86_V2)'])
+PASS arms: W3n's HR body and schedule (2.4M fade of 4.0M), sleep and hunger reflexes; CY as W3n's; the eyes set
+PASS sorted eyes: W3o's training equals W3n's HR bit for bit
+PASS colours: each layer on for [2, 2, 2] kinds; the sorted layers come back exactly [True]; no colour layer equals a sorted one; unseen and staleness the same; the body acts the same with any eyes [(0, True), (0, True), (0, True)]
+PASS RV: 6 different dealings of the colours over 60 lands; the same land, the same colours; RE fixed (1)
+PASS RE differs from HR [True]; RV differs from RE [True]; split = unsplit [True]; repeatable [True]
+done RE 7
+swap done RE 7
+PASS a staged RE run saves its copies and runs every test, plus the swap test (missing: []); swap exchanges the wall and food colours; lifespans [239, 1017] vs swapped [232, 1329]; eyes and body back; nothing new in W3n's folder from W3o ([])
+All: PASS
+exit 0

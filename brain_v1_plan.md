@@ -54,6 +54,13 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
   - it relearns after a change;
   - it learns from others across generations without decaying.
 
+## One ACL comparison, then back to the brain (the creator, 20 November 2026)
+"when it comes to second one i think we will test this brain inside acl once to compare current brain data with last acl brain data and then we will go back to brain itself again by stoping acl".
+- **The decision:** the best Mind Lab brain (W3n's winner, once W3n's findings are final) goes into ACL **once**, to compare its data with the last ACL brain's data. Then ACL stops again and the work returns to the brain itself.
+- This is the creator's call; it replaces the 16 November wait-for-the-bar rule for this one comparison.
+- It is a frozen study like any other (plan, the creator's sign-off on the plan, checks, recompute). ACL's nature stays frozen (v17): only the people's brain changes.
+- Before that comes the "raw eyes" test (W3o, the creator: "yes u can go ahead with first one"): does the brain still work when its world is not sorted into wall, food and shelter layers for it?
+
 ## Pain (the creator, 16 November 2026)
 "i think for growth there should be suffering also at least for some period maybe when we move one agent to another we will remove pain but i think for beginning there should be pain".
 - **The decision:** the growing brain has pain during its development (a body signal of harm that does not kill), so that it can learn to avoid harm, and fear may follow. Pain may be removed later, when a brain moves into another body or world.
