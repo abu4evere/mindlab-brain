@@ -1,0 +1,11 @@
+PASS determinism settings in place before numpy loads (verified machine: True; paths ['X86_V3', 'baseline(X86_V2)'])
+PASS schedules: SL and UR are W3k's run R (2.4M fade of 4.0M); CY drawn in advance (seed 20261201 + run seed); the arm's part set
+PASS parts off: W3m's training equals W3k's run R bit for bit
+PASS the urge: [0.0, 0.0, 0.375, 0.75, 0.75] at F = 0, 90, 145, 200, 260; 0 when off
+PASS the reflex: silent below the line; at the line walks to the shelter (17 steps, arrived True), holds there; hunger lets go; lets go at F 0; off never acts
+PASS SR: never moves the brain away from the shelter; holds it there once it arrives tired; lets go at F 0
+PASS SL: the reflex took over 216 of 6000 training steps; training differs from R; split = unsplit; the same seed twice is the same
+PASS UR: training differs from R; no step forced (0)
+done SL 7
+PASS a staged SL run saves its copies and tests SL, SLS, SLY and SLS-off; the reflex acts in the tests (27 of 398 steps) and not in SLS-off (0)
+All: PASS
