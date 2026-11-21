@@ -61,6 +61,17 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 - It is a frozen study like any other (plan, the creator's sign-off on the plan, checks, recompute). ACL's nature stays frozen (v17): only the people's brain changes.
 - Before that comes the "raw eyes" test (W3o, the creator: "yes u can go ahead with first one"): does the brain still work when its world is not sorted into wall, food and shelter layers for it?
 
+## The Bob Profile goal (the creator, 20 November 2026)
+"from this scale we should aim at least getting 60+ overall and each one at least 10+".
+- The scale: five abilities, 20 points each: learning (unfamiliar tasks), reasoning (multi-step problems), memory
+  (long-term recall), generalization (new situations), autonomy (own goals). The assistant's anchor: 20 = adult-human
+  level in that ability.
+- The assistant's rating of the living brain (W3n's HRS, 20 Nov): learning 3, reasoning 3, memory 2, generalization 3,
+  autonomy 2, about 13/100 (a judgment, not a measurement). The old 32-neuron Memory Child: about 5.
+- **The goal:** at least 60 overall and at least 10 in each ability.
+- To make it a measurement, not an opinion, each ability needs fixed tests with anchored levels (the scorecard's job),
+  run the same way on every brain.
+
 ## Pain (the creator, 16 November 2026)
 "i think for growth there should be suffering also at least for some period maybe when we move one agent to another we will remove pain but i think for beginning there should be pain".
 - **The decision:** the growing brain has pain during its development (a body signal of harm that does not kill), so that it can learn to avoid harm, and fear may follow. Pain may be removed later, when a brain moves into another body or world.
