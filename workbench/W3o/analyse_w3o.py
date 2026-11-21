@@ -38,6 +38,7 @@ def mean(xs):
 def summ(path):
     L = json.loads(path.read_text())
     return {"lifespan": mean([l["lifespan"] for l in L]), "survived": mean([l["survived"] for l in L]),
+            "deaths_per_1000": mean([1000.0 * (1.0 - l["survived"]) / max(1, l["lifespan"]) for l in L]),
             "hungry": mean([l["hungry"] for l in L]), "exhausted": mean([l["exhausted"] for l in L])}
 
 
@@ -75,9 +76,11 @@ def main():
     def diff(a, b, level):
         return ci(life[a] - life[b], level)
 
-    prim = {"RES − HRS": diff("RES", "HRS", 97.5), "RVS − HRS": diff("RVS", "HRS", 97.5)}
-    sec = {k: diff(*k.split(" − "), 95) for k in ("RES-bare − HRS-bare", "RVS-bare − HRS-bare", "RE − HR", "RV − HR",
-                                                       "RVS − RES", "RES-swap − RES", "RVS-swap − RVS")}
+    prim = {"RES-bare − HRS-bare": diff("RES-bare", "HRS-bare", 97.5), "RES − HRS": diff("RES", "HRS", 97.5)}
+    ceiling = {k: diff(*k.split(" − "), 95) for k in ("RVS-bare − HRS-bare", "RVS − HRS")}
+    sec = {k: diff(*k.split(" − "), 95) for k in ("RE − HR", "RV − HR", "RVS − RES", "RES-swap − RES")}
+    res["ceiling_RV"] = ceiling
+    res["deaths_per_1000"] = {a: ci([x["deaths_per_1000"] for x in S[a]]) for a in ARMS}
     res.update(primary=prim, secondary=sec,
                seeds_positive={k: int((life[k.split(" − ")[0]] - life[k.split(" − ")[1]] > 0).sum()) for k in prim})
 
@@ -89,17 +92,21 @@ def main():
         return "small: within the margin" if t[1] > MARGIN else "unclear (the interval reaches below −200)"
     res["verdicts"] = {k: verdict(v) for k, v in prim.items()}
     L += ["", "## Readings (lifespan on the test lands, paired by seed with W3n's HR)", "",
-          "**1. Primary (97.5% intervals, Bonferroni; margin −200 steps):**"]
+          "**1. Primary, RE (97.5% intervals, Bonferroni; margin −200 steps):**"]
     for k, v in prim.items():
         L.append(f"- **{k}:** {f3(v)} -> **{res['verdicts'][k]}**; {res['seeds_positive'][k]} of {N} seeds above 0")
-    L.append("**2. Secondary (95%):**")
+    L.append("**2. RV, the ceiling test (95%):**")
+    for k, v in ceiling.items():
+        L.append(f"- {k}: {f3(v)}")
+    L.append("**3. Secondary (95%):**")
     for k, v in sec.items():
         L.append(f"- {k}: {f3(v)}" + (" (the manipulation check: expected below 0)" if k == "RES-swap − RES" else ""))
     sw = sec["RES-swap − RES"]
     res["manipulation_check"] = bool(sw[2] < 0)
     L.append(f"- Manipulation check passed (RE's brain uses what the colours mean): **{'yes' if sw[2] < 0 else 'NO'}**")
-    L += ["**3. Toward the bar (fresh-land survival, 0.80):** " + "; ".join(
-        f"{a} {f3(res['table'][a]['fresh'])}" for a in ("HRS", "RES", "RVS")), ""]
+    L.append("- Deaths per 1,000 steps: " + "; ".join(f"{a} {f3(res['deaths_per_1000'][a])}" for a in ARMS))
+    L += ["**4. Toward the bar (fresh-land survival, 0.80):** " + "; ".join(
+        f"{a} {f3(res['table'][a]['fresh'])}" for a in ("HRS", "RES", "RVS", "HRS-bare", "RES-bare", "RVS-bare")), ""]
     (HERE / "analysis.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
     (HERE / "analysis.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))

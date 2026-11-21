@@ -3,8 +3,8 @@
 **Status:** draft; to be frozen as git tag `W3o-frozen` after the council.
 - **Sign-off:** the creator, 20 Nov 2026, on the living-brain picture ("so our current brain more specialized for its
   own world right ... does that mean we ain't building itself"), choosing this test: "yes u can go ahead with first one".
-- **Council:** GPT and Gemini, asked neutrally (`../W3o_council_2026-11-20.md`); the Chrome extension was not connected
-  when this draft was written.
+- **Council:** GPT and Gemini, asked neutrally (`../W3o_council_2026-11-20.md`). Gemini answered (taken: bare co-primary,
+  RV framed as a ceiling test, swap check on RE only, deaths per 1,000 steps); GPT to follow.
 - **Exploratory,** in the W3 series. **Local runs only** (the PC; never GitHub Actions).
 
 ## Why
@@ -29,13 +29,21 @@ sorting itself is ours. A baby does not get a "food" layer; it sees colours and 
 - Seeds 1–8 per arm (16 runs of 4.0M steps, about 14 hours each on the PC, up to 7–8 at once, after W3n's runs).
 
 ## Readings (`analyse_w3o.py`, frozen; paired by seed with W3n's HR; bootstrap over 8 seeds, numpy seed 20261220)
-1. **Two primary readings (Bonferroni, 97.5%), on test-land lifespan:** **RES − HRS** and **RVS − HRS**.
+1. **Two primary readings, both on RE (Bonferroni, 97.5%), on test-land lifespan** (Gemini: the reflexes read the
+   sorted memory and could carry a blind brain, so the brain alone is co-primary):
+   - **RES-bare − HRS-bare** (both reflexes off: can the brain see through mixed colours by itself?);
+   - **RES − HRS** (its real life, reflexes on).
    - Margin fixed now: a loss is **small** if the interval's lower bound is above −200 steps; **real** if its upper bound
      is below 0.
-2. **Secondary (95%):** RES-bare − HRS-bare and RVS-bare − HRS-bare (the brain alone); RE − HR and RV − HR (the ends);
-   RVS − RES; **the manipulation check, RES-swap − RES** (expected below 0; if it is not, RE's brain is not using
-   the colours and its result says little about eyes).
-3. Fresh-land survival of RES and RVS against the 0.80 bar, with intervals.
+2. **RV is a ceiling test, not a fair test** (Gemini): a fixed linear 3 × 3 first layer gives every colour the same
+   average meaning across lands, so RV asks whether anything else (shape, place, the planner) can make up for it. Its
+   readings, RVS-bare − HRS-bare and RVS − HRS, are reported at 95%, expected to be a large loss.
+3. **Secondary (95%):** RE − HR and RV − HR (the ends); RVS − RES; **the manipulation check, RES-swap − RES** (RE only:
+   expected below 0; if it is not, RE's brain is not using the colours and its result says little about eyes);
+   deaths per 1,000 steps for every arm (lifespan is capped at 3,000).
+4. Fresh-land survival of RES and RVS (reflexes on and bare) against the 0.80 bar, with intervals.
+5. **Machines:** runs on the PC and on the Google Cloud VM do not train bit-identically (Windows and Linux; the same
+   code trains identically again on the same machine). Each run's machine is recorded; every run is a valid sample.
 
 ## Validity (hard stops)
 Checks All: PASS before data (`checks_w3o.py`: settings; arms; sorted eyes = W3n's HR bit for bit; the colour layers
@@ -44,7 +52,7 @@ colour orders and the same land always the same; RE and RV train differently, sp
 run saves its copies and runs every test including swap, and writes nothing into W3n's folder).
 
 ## The assistant's prior
-- RES − HRS lower bound above −200 (mixed colours cost little): about 65%.
+- RES − HRS lower bound above −200 (mixed colours cost little): about 65% (Gemini 55%); bare, about 50%.
 - RVS − HRS upper bound below 0 (changing colours cost a real loss): about 75%.
 - RES-swap − RES below 0 (the brain uses colours): about 80%.
 - RVS fresh-land survival at or above 0.80: about 15%.
