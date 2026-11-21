@@ -1,10 +1,12 @@
 # W3o: raw eyes (plan, to be frozen before any study data)
 
-**Status:** draft; to be frozen as git tag `W3o-frozen` after the council.
+**Frozen** as git tag `W3o-frozen` (20 Nov 2026), after the council.
 - **Sign-off:** the creator, 20 Nov 2026, on the living-brain picture ("so our current brain more specialized for its
   own world right ... does that mean we ain't building itself"), choosing this test: "yes u can go ahead with first one".
 - **Council:** GPT and Gemini, asked neutrally (`../W3o_council_2026-11-20.md`). Gemini answered (taken: bare co-primary,
-  RV framed as a ceiling test, swap check on RE only, deaths per 1,000 steps); GPT to follow.
+  RV framed as a ceiling test, swap check on RE only, deaths per 1,000 steps). GPT answered (taken: the probe of
+  object-directed moves, the swap defined exactly, median and early deaths; named: the parent also reads sorted memory,
+  a second privileged channel; 8 seeds are a pilot, an important comparison may be extended later).
 - **Exploratory,** in the W3 series. **Local runs only** (the PC; never GitHub Actions).
 
 ## Why
@@ -40,7 +42,14 @@ sorting itself is ours. A baby does not get a "food" layer; it sees colours and 
    readings, RVS-bare − HRS-bare and RVS − HRS, are reported at 95%, expected to be a large loss.
 3. **Secondary (95%):** RE − HR and RV − HR (the ends); RVS − RES; **the manipulation check, RES-swap − RES** (RE only:
    expected below 0; if it is not, RE's brain is not using the colours and its result says little about eyes);
-   deaths per 1,000 steps for every arm (lifespan is capped at 3,000).
+   deaths per 1,000 steps, median lifespan and deaths before step 1,000 for every arm (lifespan is capped at 3,000);
+   **the probe** (GPT; `probe_w3o.py`, frozen): with the map memory fully known and no reflex, on the 50 test lands, the
+   share of first moves toward the nearest food when hungry (energy 60) and toward the shelter when tired (tiredness
+   150), for HRS, RES, RVS and RES-swap; RES − HRS and RVS − HRS per state (paired by seed). Checked on W3n's HRS before
+   any W3o data: toward food 0.87 (chance 0.29), toward the shelter 0.76 (chance 0.35), 7 seeds.
+   - **The swap, exactly:** at test only, the colour code of wall and of food are exchanged (food cells shown as 110,
+     walls as 011; the shelter unchanged). It is a check for RE only: RV is trained on changing colours, so it may
+     rightly ignore a swap (GPT, Gemini).
 4. Fresh-land survival of RES and RVS (reflexes on and bare) against the 0.80 bar, with intervals.
 5. **Machines:** runs on the PC and on the Google Cloud VM do not train bit-identically (Windows and Linux; the same
    code trains identically again on the same machine). Each run's machine is recorded; every run is a valid sample.
@@ -55,4 +64,5 @@ run saves its copies and runs every test including swap, and writes nothing into
 - RES − HRS lower bound above −200 (mixed colours cost little): about 65% (Gemini 55%); bare, about 50%.
 - RVS − HRS upper bound below 0 (changing colours cost a real loss): about 75%.
 - RES-swap − RES below 0 (the brain uses colours): about 80%.
-- RVS fresh-land survival at or above 0.80: about 15%.
+- RVS fresh-land survival at or above 0.80: about 15% (Gemini 5% bare / 45% reflexes on; GPT 25%).
+- GPT: RE costs little 75%, RV a real loss 85%, swap passes 65%. Gemini: 55%, 92% (bare), 85%.

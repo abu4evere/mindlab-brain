@@ -38,6 +38,7 @@ def mean(xs):
 def summ(path):
     L = json.loads(path.read_text())
     return {"lifespan": mean([l["lifespan"] for l in L]), "survived": mean([l["survived"] for l in L]),
+            "to1000": mean([float(l["lifespan"] >= 1000) for l in L]),
             "deaths_per_1000": mean([1000.0 * (1.0 - l["survived"]) / max(1, l["lifespan"]) for l in L]),
             "hungry": mean([l["hungry"] for l in L]), "exhausted": mean([l["exhausted"] for l in L])}
 
@@ -107,6 +108,22 @@ def main():
     L.append("- Deaths per 1,000 steps: " + "; ".join(f"{a} {f3(res['deaths_per_1000'][a])}" for a in ARMS))
     L += ["**4. Toward the bar (fresh-land survival, 0.80):** " + "; ".join(
         f"{a} {f3(res['table'][a]['fresh'])}" for a in ("HRS", "RES", "RVS", "HRS-bare", "RES-bare", "RVS-bare")), ""]
+    L.append("- Median lifespan: " + "; ".join(f"{a} {float(np.median(life[a])):.0f}" for a in ARMS))
+    L.append("- Share of lives past step 1,000: " + "; ".join(
+        f"{a} {np.mean([x['to1000'] for x in S[a]]):.3f}" for a in ARMS))
+    pj = HERE / "probe.json"
+    if pj.exists():                                   # the probe (probe_w3o.py, frozen): first moves toward what it needs
+        P = json.loads(pj.read_text())
+        res["probe"] = {}
+        L += ["", "**The probe** (no reflex, memory fully known; share of first moves toward food when hungry, toward the "
+              "shelter when tired):"]
+        for st in ("hungry", "tired"):
+            tw = {b: np.array([P[b][str(s)][st]["toward"] for s in SEEDS]) for b in P}
+            ch = np.mean([P["HRS"][str(s)][st]["chance"] for s in SEEDS])
+            d = {f"{b} − HRS": ci(tw[b] - tw["HRS"]) for b in ("RES", "RVS", "RES-swap")}
+            res["probe"][st] = {"means": {b: float(v.mean()) for b, v in tw.items()}, "chance": float(ch), "diff": d}
+            L.append(f"- {st}: " + "; ".join(f"{b} {v.mean():.3f}" for b, v in tw.items()) + f" (chance {ch:.3f}); "
+                     + "; ".join(f"{k} {f3(v)}" for k, v in d.items()))
     (HERE / "analysis.json").write_text(json.dumps(res, indent=1), encoding="utf-8")
     (HERE / "analysis.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
