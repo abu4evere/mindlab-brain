@@ -44,6 +44,13 @@ def shift_back(d, dx, dy):
     return out[:, 1:-1, 1:-1]
 
 
+def add_shifted(dst, d, dx, dy):
+    """dst += shift_back(d, dx, dy), without building the shifted copy (the same additions, element by element)."""
+    tx, sx = slice(max(0, dx), N + min(0, dx)), slice(max(0, -dx), N + min(0, -dx))
+    ty, sy = slice(max(0, dy), N + min(0, dy)), slice(max(0, -dy), N + min(0, -dy))
+    dst[:, ty, tx] += d[:, sy, sx]
+
+
 class MoveVIN(B.DriveVIN):
     def __init__(self, seed, fixed_map=False):
         r = np.random.default_rng(seed)
@@ -63,10 +70,17 @@ class MoveVIN(B.DriveVIN):
         pas = sig(c_x @ p["Wp"].reshape(-1) + p["bp"][0]).reshape(T, N, N)
         gam = float(sig(p["g"][0]))
         pn = [shift_in(pas, dx, dy) for dx, dy in MOVES]
+        qn = [1 - x for x in pn]
         v, trace = r, []
+        vp = np.zeros((T, N + 2, N + 2))
         for _ in range(K):
-            m = [pn[a] * shift_in(v, *MOVES[a]) + (1 - pn[a]) * v for a in range(4)] + [v]
-            q = r[None] + gam * np.stack(m)                                   # (5, T, N, N)
+            vp[:, 1:-1, 1:-1] = v                         # one padded copy per round; the 4 neighbours are views of it
+            m = [pn[a] * vp[:, 1 + dy:1 + dy + N, 1 + dx:1 + dx + N] + qn[a] * v
+                 for a, (dx, dy) in enumerate(MOVES)] + [v]
+            q = np.empty((5, T, N, N))
+            for a in range(5):
+                np.multiply(gam, m[a], out=q[a])
+                q[a] += r
             am = q.argmax(0)
             trace.append((v, m, am))
             v = np.take_along_axis(q, am[None], 0)[0]
@@ -103,10 +117,11 @@ class MoveVIN(B.DriveVIN):
             dgam += float(sum((dq_k[a] * m[a]).sum() for a in range(5)))
             dm = gam * dq_k
             dvp = dm[4].copy()
+            vpp = np.pad(v_prev, ((0, 0), (1, 1), (1, 1)))
             for a, (dx, dy) in enumerate(MOVES):
                 dvp += dm[a] * (1 - pn[a])
-                dvp += shift_back(dm[a] * pn[a], dx, dy)
-                dpas += shift_back(dm[a] * (shift_in(v_prev, dx, dy) - v_prev), dx, dy)
+                add_shifted(dvp, dm[a] * pn[a], dx, dy)
+                add_shifted(dpas, dm[a] * (vpp[:, 1 + dy:1 + dy + N, 1 + dx:1 + dx + N] - v_prev), dx, dy)
             dvn = dvp
         dr += dvn                                                             # v_0 = r
         g["g"] += dgam * gam * (1 - gam)
