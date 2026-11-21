@@ -1,0 +1,10 @@
+PASS determinism settings in place (paths ['X86_V3', 'baseline(X86_V2)'])
+PASS MV: W3n's HR body, 4.0M steps with a 2.4M fade, sleep and hunger reflexes; the recipe builds a MoveVIN (MoveVIN, 236 numbers)
+PASS MoveVIN's gradients match finite differences ({'W0': '9.1e-10', 'br': '4.3e-11', 'Ws': '5.1e-10', 'Wf': '1.3e-09', 'Wc': '1.9e-09', 'Wp': '1.8e-08', 'bp': '7.1e-11', 'g': '1.5e-10', 'lb': '1.2e-10', 'bo': '5.2e-10', 'wv': '3.8e-10', 'bv': '1.8e-11'})
+PASS the fast MoveVIN equals the reference, bit for bit
+PASS capacity: hand-set weights solve the detours (R2 {'success': 1.0, 'cases': 36} R5d {'success': 1.0, 'cases': 8} M2 {'success': 1.0, 'cases': 50})
+PASS MV trains a MoveVIN [MoveVIN], it moves from its start [True], split = unsplit [True], repeatable [True]; HR still trains a DriveVIN [DriveVIN]
+done MV 7
+PASS a staged MV run saves its copies and runs every test (missing []); the kept copy loads as MoveVIN; nothing new in W3n's folder from W3p ([])
+All: PASS
+exit 0
