@@ -69,6 +69,9 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 - The assistant's rating of the living brain (W3n's HRS, 20 Nov): learning 3, reasoning 3, memory 2, generalization 3,
   autonomy 2, about 13/100 (a judgment, not a measurement). The old 32-neuron Memory Child: about 5.
 - **The goal:** at least 60 overall and at least 10 in each ability.
+- **First measured profile (21 Nov 2026, `BP-frozen`, `scorecard/bp/findings_HRS_2026-11-21.md`):** W3n's HRS: learning 2,
+  reasoning 0 (detours 0.27), memory 0 (lower bound 0.69 vs 0.80), generalization 2, autonomy 2 = **6/100**. First
+  targets: detours, a learned memory of its own, survival without reflexes.
 - To make it a measurement, not an opinion, each ability needs fixed tests with anchored levels (the scorecard's job),
   run the same way on every brain.
 
