@@ -72,6 +72,20 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 - To make it a measurement, not an opinion, each ability needs fixed tests with anchored levels (the scorecard's job),
   run the same way on every brain.
 
+## Rejecting garbage (the creator, 21 November 2026)
+"so we gotta make sure we are not limiting our agents as u said big difference humans can reject garbage but ai cannot so our agent should do same".
+- **The principle:** a brain must never be built so that it can only absorb what it is given. It must be able to doubt
+  and turn away from bad teaching or bad information, and check it against its own experience.
+- **Where it stands:**
+  - Mind Lab's big brains became parrots when a teacher was always there;
+  - W3f's children chose whom to learn from by visible success (a first filter);
+  - the "that worked!" recipe lets its own experience weigh in.
+- **Measured by** the scorecard's selective learning (Part A, test 4) and the Bob Profile's autonomy 15 ("turns away
+  from a bad teacher").
+- **A study to draft (after W3o): the bad teacher.** A parent that is sometimes wrong (it walks to remembered food that
+  has gone, or wastes time). Can the child learn to trust its own experience over the wrong lessons, and keep the right
+  ones?
+
 ## Pain (the creator, 16 November 2026)
 "i think for growth there should be suffering also at least for some period maybe when we move one agent to another we will remove pain but i think for beginning there should be pain".
 - **The decision:** the growing brain has pain during its development (a body signal of harm that does not kill), so that it can learn to avoid harm, and fear may follow. Pain may be removed later, when a brain moves into another body or world.
