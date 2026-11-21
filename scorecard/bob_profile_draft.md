@@ -1,4 +1,4 @@
-# The Bob Profile: five abilities, 20 points each (DRAFT v1, 20 November 2026; not frozen)
+# The Bob Profile: five abilities, 20 points each (v2, 21 November 2026; levels 2 and the built parts of 5 frozen as `BP-frozen`)
 
 **Why.** The creator, 20 November 2026: "from this scale we should aim at least getting 60+ overall and each one at
 least 10+". The assistant's first rating of the living brain (W3n's HRS) was about 13/100, a judgment. This draft turns
@@ -8,7 +8,49 @@ nobody (the assistant included) can fool themselves.
 It sits beside the scorecard's Parts A and B (`tests_draft.md`): those items are indicators and are never summed. The
 Bob Profile is the creator's yardstick, and it is summed.
 
-## The rules
+## v2 (21 November 2026, after the council: `bp_council_2026-11-21.md`, GPT and Gemini)
+These changes override v1 where they differ.
+1. **The five-number profile is the result; the floor decides.** "At least 10 in every ability" is the goal; the total is
+   secondary. Levels are ordinal milestones, not equal steps.
+2. **Every score names its source:** what the architecture (the designer) gives, and what was learned.
+3. **A cheater control per test**, beside the positive (Script) and negative (random) controls: greedy for the detours;
+   **memory erased** for memory 2; the bare body for autonomy; the frozen copy for learning 5.
+4. **Statistics:** the unit is the training seed (at least 8); each seed is tested on W3's 50 test lands (the detours
+   use the 36 lands that have a qualifying case); pass on the one-sided 95% bootstrap lower bound over seeds (numpy seed
+   20261121).
+5. **Split tests:** reasoning 5 = a detour half and a value half; autonomy 5 = bare survival and seeking information;
+   generalization 10 = changed causes and a different world.
+6. **Generalization 2** is now a topology shift: lands of a new kind (W3's generator with 8 wall segments, not 4; seeds
+   940001–940050), against the brain's own standard test lifespan (ratio ≥ 0.5). Learning 2 keeps the held-out lands.
+7. "No catastrophic forgetting" moves to learning 10; memory 10 becomes long-delay recall with a memory intervention.
+8. Levels 15 and 20 are provisional. 20 = human performance under matched senses and budgets when that can be run;
+   otherwise the grid-world ceiling (the best known agent with the same senses).
+
+### The frozen tests (`bp/bp_tests.py`, `bp/bp_score.py`)
+| test | what | pass |
+|---|---|---|
+| Learning 2 (L2) | lifespan on the 50 test lands, body as trained; normalised (brain − random) / (Script − random) | lower bound ≥ 0.50 |
+| Reasoning 2 (R2) | memory knows walls, shelter and one food patch; hungry, no reflex; start at the easiest cell whose path is ≥ 5 and detour ≥ 4; reach the patch within 3 × the shortest path, with the brain's moves drawn as in its life | lower bound ≥ 0.80; Script ≥ 0.95; greedy and random ≤ 0.20 |
+| Reasoning 5, detour half (R5d) | the same with path ≥ 10 and detour ≥ 10 | as R2 (the value half is not built: level 5 not awarded) |
+| Memory 2 (M2, M2e) | food seen 100 steps ago, now out of sight (the cell nearest 8 steps away); the same with the food erased from memory | success lower bound ≥ 0.80 and the drop (M2 − M2e) lower bound ≥ 0.20; Script ≥ 0.95, random ≤ 0.20 |
+| Memory 5 | needs a learned memory of its own | brains whose map memory is written by our code fail by construction |
+| Generalization 2 (G2) | lifespan on the 50 new-kind lands / lifespan on the 50 test lands, body as trained | lower bound ≥ 0.50 |
+| Autonomy 2 (A2) | on lands where the first step toward food and toward the shelter differ, memory known: first move when hungry (energy 60) vs tired (tiredness 150); tracks = ½[(P food|hungry − P food|tired) + (P shelter|tired − P shelter|hungry)] | lower bound ≥ 0.30; Script ≥ 0.90; random within ±0.15 |
+| Autonomy 5, survival half (A5s) | bare (no reflexes) full lives on the 50 fresh lands | lower bound ≥ 0.50 (the information half is not built: level 5 not awarded) |
+
+### Recorded honestly: what was seen before freezing
+- While building, R2 and M2 were run on W3n's HRS seeds 1–3 and the controls.
+  - R2 with the hardest detour on each land: 22–44% success.
+  - R2 with the brain's most likely move instead of a drawn one: lower still.
+  - M2: 90%.
+- Two choices were then made, both following v1's text, and both in the brain's favour:
+  - the detour start became the easiest qualifying cell ("behind one obstacle");
+  - walks use moves drawn from the brain, as in its life.
+- The 0.80 pass line was set in v1 before any run and was not changed.
+- R2 still gave 19–42% on seeds 1–3 after these changes. The scored battery runs on seeds 1–3 again (the same code)
+  and on 5 more seeds.
+
+## The rules (v1)
 1. **Anchors, not opinions.** Each ability has six levels: **0, 2, 5, 10, 15, 20**. A level counts only when its test
    passes. A brain's score in an ability is the highest level it passes, with every lower level passed too. Scores are
    therefore 0, 2, 5, 10, 15 or 20 per ability; finer steps may be added later, never invented after seeing results.
