@@ -4,3 +4,4 @@ __pycache__/
 viewer/life_viewer.html
 viewer/lives_*.json
 workbench/*/dl/
+workbench/W3p/output/
