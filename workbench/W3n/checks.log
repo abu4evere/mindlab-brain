@@ -1,0 +1,11 @@
+PASS determinism settings in place before numpy loads (verified machine: True; paths ['X86_V3', 'baseline(X86_V2)'])
+PASS arms: W3k's run R (2.4M fade of 4.0M), W3m's sleep reflex on, the arm's parts; CY drawn (seed 20261211)
+PASS parts off: W3n's training equals W3m's SL bit for bit
+PASS cheaper rest: resting at the shelter costs 0.5 (on) / 1.0 (off); away 1.0
+PASS hunger reflex: silent above the line; at the line walks to remembered food and hands back after eating (3 steps)
+PASS hunger reflex: nothing remembered, nothing happens; when both are due, hunger wins over sleep
+PASS HR: the hunger reflex took 333 of 6000 training steps (80 meals) [True]; differs from SL [True]; split = unsplit [True]; repeatable [True]
+PASS CR: training differs from SL (the cheaper rest changes the body's energy)
+done HC 7
+PASS a staged HC run saves its copies and tests HC, HCS, HCY, HCS-off, HCS-old and HCS-bare; hunger counted ({'steps': 1490, 'hunger': 52, 'meals': 16, 'interrupts': 9}); off in HCS-off (0); bare: no sleep (0) or hunger (0) take-over; the body back as trained after
+All: PASS

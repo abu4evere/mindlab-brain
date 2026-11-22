@@ -61,6 +61,15 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 - It is a frozen study like any other (plan, the creator's sign-off on the plan, checks, recompute). ACL's nature stays frozen (v17): only the people's brain changes.
 - Before that comes the "raw eyes" test (W3o, the creator: "yes u can go ahead with first one"): does the brain still work when its world is not sorted into wall, food and shelter layers for it?
 
+## W3n (finished 22 November 2026; `workbench/W3n/findings.md`)
+- A hunger reflex (walk to the nearest remembered food at energy 80): HRS − SLS +527 [+346, +742], yes.
+- **Fresh-land survival HCS 0.902 [0.873, 0.929], HRS 0.884 [0.861, 0.905]: the survival part of the ACL readiness bar
+  (0.80) is met by the whole agent.** Without its reflexes the brain survives about 0.38; the brain itself did not
+  improve.
+- Cheaper rest (the creator's idea) backfired: CRS − SLS −610 [−796, −355]. Resting became too attractive and the
+  brains starved.
+- Next limit: deaths are now almost all "no food known" (searching, not reaching).
+
 ## The Bob Profile goal (the creator, 20 November 2026)
 "from this scale we should aim at least getting 60+ overall and each one at least 10+".
 - The scale: five abilities, 20 points each: learning (unfamiliar tasks), reasoning (multi-step problems), memory
