@@ -87,6 +87,9 @@ resamples, 95%; every seed's difference listed)
   random policy's share toward the lie is about 0.25.
 - The dose in a short check: the lying parent's move differs from the right parent's in about half of its choices.
 
+- `analyse_w3q.py` was written after the tag W3q-frozen and before any W3q run (22 Nov 2026), as the plan says;
+  tested on made-up numbers only.
+
 ## Named limits
 - The lie is about one rule (corners); other lies may differ. The parent's lessons are supervised copy steps; a real
   child also weighs who teaches.
