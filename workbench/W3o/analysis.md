@@ -1,5 +1,47 @@
 # W3o analysis (the frozen analysis, analyse_w3o.py)
 
 - Checks All: PASS: **yes**
-- All runs present: **NO, missing test_HR_4.json, test_HRS_4.json, test_HRS-bare_4.json, test_HRS-off_4.json, test_RE_1.json, test_RE_2.json, test_RE_3.json, test_RE_4.json, test_RE_5.json, test_RE_6.json, test_RE_7.json, test_RE_8.json**
+- All runs present: **yes**
 
+| arm | lifespan | survived | fresh lands: survived | steps hungry |
+|---|---|---|---|---|
+| HR (W3n) | 2578.825 [2462.520, 2693.897] | 0.820 [0.772, 0.867] | 0.815 [0.725, 0.890] | 0.021 [0.015, 0.028] |
+| HRS (W3n) | 2802.925 [2735.678, 2866.550] | 0.897 [0.867, 0.925] | 0.877 [0.855, 0.902] | 0.009 [0.006, 0.013] |
+| HRS-bare (W3n) | 1607.525 [1433.345, 1754.428] | 0.338 [0.277, 0.393] | 0.375 [0.287, 0.450] | 0.064 [0.056, 0.074] |
+| HRS-off (W3n) | 2295.783 [2142.282, 2442.701] | 0.627 [0.545, 0.700] | 0.613 [0.547, 0.677] | 0.033 [0.026, 0.039] |
+| RE | 2658.368 [2569.375, 2749.845] | 0.850 [0.810, 0.890] | 0.840 [0.800, 0.880] | 0.017 [0.012, 0.023] |
+| RES | 2731.205 [2660.325, 2807.927] | 0.875 [0.843, 0.912] | 0.877 [0.850, 0.907] | 0.013 [0.009, 0.016] |
+| REY | 2681.273 [2563.037, 2790.770] | 0.843 [0.792, 0.890] | 0.855 [0.820, 0.885] | 0.016 [0.009, 0.023] |
+| RES-bare | 1555.640 [1380.630, 1728.161] | 0.340 [0.265, 0.410] | 0.323 [0.230, 0.412] | 0.066 [0.057, 0.074] |
+| RES-off | 2362.838 [2252.190, 2476.785] | 0.672 [0.608, 0.733] | 0.672 [0.627, 0.718] | 0.030 [0.026, 0.034] |
+| RES-swap | 322.642 [269.952, 381.912] | 0.003 [0.000, 0.007] | 0.003 [0.000, 0.007] | 0.235 [0.217, 0.253] |
+| RV | 1355.902 [1128.779, 1610.141] | 0.205 [0.128, 0.295] | 0.275 [0.188, 0.375] | 0.087 [0.071, 0.102] |
+| RVS | 1320.622 [1143.401, 1509.754] | 0.208 [0.145, 0.277] | 0.270 [0.195, 0.353] | 0.088 [0.079, 0.097] |
+| RVY | 1317.670 [1211.652, 1423.588] | 0.185 [0.148, 0.220] | 0.220 [0.163, 0.273] | 0.089 [0.079, 0.100] |
+| RVS-bare | 385.033 [345.420, 421.740] | 0.005 [0.000, 0.015] | 0.005 [0.000, 0.015] | 0.176 [0.167, 0.185] |
+| RVS-off | 671.975 [593.015, 746.103] | 0.028 [0.013, 0.043] | 0.045 [0.028, 0.060] | 0.153 [0.142, 0.165] |
+| RVS-swap | 1356.430 [1169.719, 1547.245] | 0.210 [0.147, 0.280] | 0.233 [0.177, 0.287] | 0.085 [0.075, 0.096] |
+
+## Readings (lifespan on the test lands, paired by seed with W3n's HR)
+
+**1. Primary, RE (97.5% intervals, Bonferroni; margin −200 steps):**
+- **RES-bare − HRS-bare:** -51.885 [-264.200, 145.999] -> **unclear (the interval reaches below −200)**; 4 of 8 seeds above 0
+- **RES − HRS:** -71.720 [-149.950, 4.028] -> **small: within the margin**; 3 of 8 seeds above 0
+**2. RV, the ceiling test (95%):**
+- RVS-bare − HRS-bare: -1222.492 [-1395.396, -1024.607]
+- RVS − HRS: -1482.302 [-1623.865, -1339.696]
+**3. Secondary (95%):**
+- RE − HR: 79.543 [-76.057, 238.532]
+- RV − HR: -1222.923 [-1420.400, -1034.978]
+- RVS − RES: -1410.582 [-1584.503, -1217.291]
+- RES-swap − RES: -2408.562 [-2503.208, -2327.587] (the manipulation check: expected below 0)
+- Manipulation check passed (RE's brain uses what the colours mean): **yes**
+- Deaths per 1,000 steps: HR 0.617 [0.417, 0.831]; HRS 0.217 [0.120, 0.323]; HRS-bare 1.329 [1.090, 1.623]; HRS-off 0.644 [0.483, 0.796]; RE 0.451 [0.311, 0.599]; RES 0.345 [0.231, 0.459]; REY 0.390 [0.210, 0.596]; RES-bare 1.546 [1.242, 1.838]; RES-off 0.714 [0.578, 0.828]; RES-swap 4.670 [4.299, 5.025]; RV 1.790 [1.435, 2.153]; RVS 1.805 [1.566, 2.054]; RVY 1.847 [1.623, 2.081]; RVS-bare 3.603 [3.386, 3.827]; RVS-off 2.989 [2.739, 3.254]; RVS-swap 1.732 [1.461, 2.027]
+**4. Toward the bar (fresh-land survival, 0.80):** HRS 0.877 [0.855, 0.902]; RES 0.877 [0.850, 0.907]; RVS 0.270 [0.195, 0.353]; HRS-bare 0.375 [0.287, 0.450]; RES-bare 0.323 [0.230, 0.412]; RVS-bare 0.005 [0.000, 0.015]
+
+- Median lifespan: HR 2553; HRS 2827; HRS-bare 1658; HRS-off 2282; RE 2643; RES 2704; REY 2728; RES-bare 1527; RES-off 2389; RES-swap 313; RV 1275; RVS 1288; RVY 1310; RVS-bare 393; RVS-off 664; RVS-swap 1306
+- Share of lives past step 1,000: HR 0.860; HRS 0.938; HRS-bare 0.558; HRS-off 0.818; RE 0.887; RES 0.917; REY 0.915; RES-bare 0.525; RES-off 0.825; RES-swap 0.050; RV 0.512; RVS 0.480; RVY 0.487; RVS-bare 0.043; RVS-off 0.205; RVS-swap 0.487
+
+**The probe** (no reflex, memory fully known; share of first moves toward food when hungry, toward the shelter when tired):
+- hungry: HRS 0.868; RES 0.843; RVS 0.555; RES-swap 0.148 (chance 0.292); RES − HRS -0.025 [-0.060, 0.010]; RVS − HRS -0.312 [-0.388, -0.223]; RES-swap − HRS -0.720 [-0.780, -0.660]
+- tired: HRS 0.752; RES 0.700; RVS 0.603; RES-swap 0.853 (chance 0.348); RES − HRS -0.052 [-0.188, 0.128]; RVS − HRS -0.150 [-0.282, 0.010]; RES-swap − HRS 0.100 [-0.010, 0.275]

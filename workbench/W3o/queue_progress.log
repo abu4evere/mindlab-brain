@@ -1,0 +1,5 @@
+2026-11-21 11:25 start RE 1
+2026-11-21 11:47 queue restarted with 6 slots for the remaining PC jobs (RE 1 already running)
+2026-11-21 11:47 start RV 1
+2026-11-21 11:47 start RE 2
+2026-11-21 15:11 PC queue stopped; RV 2, RE 3, RV 3, RE 4, RV 4 move to the Oracle VM (bit-identical to the Google VM)

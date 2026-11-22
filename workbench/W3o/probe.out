@@ -1,0 +1,8 @@
+HRS hungry: toward 0.868 (chance 0.292; 8 seeds)
+HRS tired: toward 0.752 (chance 0.348; 8 seeds)
+RES hungry: toward 0.843 (chance 0.292; 8 seeds)
+RES tired: toward 0.700 (chance 0.348; 8 seeds)
+RVS hungry: toward 0.555 (chance 0.292; 8 seeds)
+RVS tired: toward 0.603 (chance 0.348; 8 seeds)
+RES-swap hungry: toward 0.148 (chance 0.292; 8 seeds)
+RES-swap tired: toward 0.853 (chance 0.348; 8 seeds)
