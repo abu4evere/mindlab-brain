@@ -70,6 +70,16 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
   brains starved.
 - Next limit: deaths are now almost all "no food known" (searching, not reaching).
 
+## W3o (finished 22 November 2026; `workbench/W3o/findings.md`, tag W3o-done)
+- Raw eyes: the brain sees mixed colours instead of sorted wall, food and shelter layers.
+- **Mixed colours that always mean the same cost little:** RES − HRS −72 [−150, +4] (within the −200 margin); fresh-land
+  survival 0.877, the same as HRS; the brain steps toward food alone almost as often (0.843 vs 0.868). The swap check
+  passes (−2,409): it really uses what the colours mean. The bare reading is unclear (−52 [−264, +146]).
+- **Colours dealt anew on each land break it:** RVS − HRS −1,482; fresh-land survival 0.27; toward food 0.555 (chance
+  0.29). **The gap is learning a meaning within one life** ("I ate where it was this colour, so here this colour is
+  food"): fast learning within a life, an approved direction, and a study to draft.
+- Recomputed blind by a fresh session; every number and verdict agrees.
+
 ## The Bob Profile goal (the creator, 20 November 2026)
 "from this scale we should aim at least getting 60+ overall and each one at least 10+".
 - The scale: five abilities, 20 points each: learning (unfamiliar tasks), reasoning (multi-step problems), memory
