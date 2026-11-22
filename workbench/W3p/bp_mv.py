@@ -2,7 +2,7 @@
 the mechanism measure (does the value map, followed uphill, reach the food in the R2 detour cases?) for MV and HR.
 The frozen test file is not edited: this script only tells it where MV's brains are and how to load them.
 
-  python bp_mv.py TEST ARM SEED     TEST in the BP tests or PLAN; ARM in MV, HR
+  python bp_mv.py TEST ARM SEED     TEST in the BP tests, PLAN or WALLS; ARM in MV, MB, MBb, HR
 """
 import json
 import sys
@@ -16,13 +16,13 @@ import numpy as np  # noqa: E402
 import w3p  # noqa: E402
 from bp_tests import W, R3  # noqa: E402
 
-T.BRAIN_DIRS["MV"] = HERE / "output"
+T.BRAIN_DIRS["MV"] = T.BRAIN_DIRS["MB"] = T.BRAIN_DIRS["MBb"] = HERE / "output"
 
 
 def load_brain(arm, seed):
-    if arm == "MV":
-        w3p.configure("MV", seed)                    # HR's world and body; the loader builds a MoveVIN
-        return w3p.w3k.load_npz(HERE / "output" / f"MV_CS_{seed}.npz", seed)
+    if arm in ("MV", "MB", "MBb"):
+        w3p.configure(arm, seed)                     # HR's world and body; the loader builds a MoveVIN
+        return w3p.w3k.load_npz(HERE / "output" / f"{arm}_CS_{seed}.npz", seed)
     w3p.B.DriveVIN = w3p.DRIVE
     return T.w3k.load_npz(T.BRAIN_DIRS[arm] / f"{arm}_CS_{seed}.npz", seed)
 
@@ -52,6 +52,19 @@ def plan_uphill(net, R):
     return {"uphill": float(np.mean(res)), "cases": len(res)}
 
 
+def walls(net, R):
+    """MoveVIN only: mean "can I enter here?" at walls and at open places, memory fully known, on the 50 test lands."""
+    import brain_mv as M
+    pw, po = [], []
+    for ls in T.TEST_LANDS:
+        w = T.known(ls, R)
+        c = M.B.cols(w.obs_map()[None])
+        pas = M.sig(c @ net.p["Wp"].reshape(-1) + net.p["bp"][0]).reshape(W.N, W.N)
+        pw.append(pas[w.walls].mean())
+        po.append(pas[~w.walls].mean())
+    return {"walls": float(np.mean(pw)), "open": float(np.mean(po)), "gap": float(np.mean(po) - np.mean(pw))}
+
+
 def main():
     test, arm, seed = sys.argv[1], sys.argv[2], int(sys.argv[3])
     T.OUT.mkdir(exist_ok=True)
@@ -61,6 +74,8 @@ def main():
     name = f"{arm}S_{seed}"
     if test == "PLAN":
         res = plan_uphill(agent, R)
+    elif test == "WALLS":
+        res = walls(agent, R)
     else:
         prev = T.body(test not in T.BARE)
         res = T.TESTS[test](agent, R)

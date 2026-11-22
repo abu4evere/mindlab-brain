@@ -56,14 +56,16 @@ check(f"determinism settings in place (paths {in_use})",
       and not any(t.startswith(("X86_V4", "AVX512")) for t in in_use))
 
 # 1. the arm: W3n's HR body and schedule; the recipe builds a MoveVIN
-w3p.configure("MV", 3)
+w3p.configure("MB", 3)
 cw = w3d._ns["copy_weight"]
 net = B.DriveVIN(3, fixed_map=False)
-check("MV: W3n's HR body, 4.0M steps with a 2.4M fade, sleep and hunger reflexes; the recipe builds a MoveVIN "
-      f"({type(net).__name__}, {sum(v.size for v in net.p.values())} numbers)",
-      w3k.RUNS["MV"] == {"steps": 4_000_000, "fade": 2_400_000} and cw(0) == 0.5 and cw(2_400_000) == 0.0
+check("MB: W3n's HR body, 4.0M steps with a 2.4M fade, sleep and hunger reflexes; the recipe builds a MoveVIN that "
+      f"learns from bumps ({type(net).__name__}, {sum(v.size for v in net.p.values())} numbers); the world hands it "
+      f"the lessons ({W.World.__name__})",
+      w3k.RUNS["MB"] == {"steps": 4_000_000, "fade": 2_400_000} and cw(0) == 0.5 and cw(2_400_000) == 0.0
       and w3m.PART == {"reflex": "walk", "urge": False} and w3n.BODY == {"cheap": False, "hunger": True}
-      and isinstance(net, M.MoveVIN) and sum(v.size for v in net.p.values()) == 236)
+      and isinstance(net, M.MoveVIN) and type(net).__name__ == "BumpVIN" and W.World is w3p.BumpWorld
+      and sum(v.size for v in net.p.values()) == 236)
 B.DriveVIN = w3p.DRIVE
 
 # 2. the gradients are exact (finite differences)
@@ -96,40 +98,86 @@ out = subprocess.run([sys.executable, str(HERE / "capacity_mv.py")], capture_out
 check(f"capacity: hand-set weights solve the detours ({out.strip().splitlines()[-1] if out.strip() else 'no output'})",
       "'success': 1.0, 'cases': 36" in out)
 
+# 1b. MBb: the same, with balanced lessons (blocked and moved lessons carry half the weight each)
+w3p.configure("MBb", 3)
+nb = B.DriveVIN(3, fixed_map=False)
+bal_on = w3p.LEARN["balanced"]
+w3p.configure("MB", 3)
+bal_off = w3p.LEARN["balanced"]
+X = np.random.default_rng(1).random((64, 45))
+y = np.r_[np.zeros(4), np.ones(60)]
+wb_ = w3p.bump_update(M.MoveVIN(1), X, y, True)
+wu_ = w3p.bump_update(M.MoveVIN(1), X, y, False)
+check(f"MBb builds a BumpVIN [{type(nb).__name__}] with balanced lessons [{bal_on}], MB without [{not bal_off}]; with 4 "
+      f"blocked and 60 moved lessons the blocked ones carry {wb_[:4].sum():.2f} of the weight balanced, "
+      f"{wu_[:4].sum():.3f} plain", type(nb).__name__ == "BumpVIN" and bal_on and not bal_off
+      and abs(wb_[:4].sum() - 0.5) < 1e-12 and abs(wu_[:4].sum() - 4 / 64) < 1e-12)
+w3p.configure("MV", 3)
+mv_ok = B.DriveVIN is M.MoveVIN and W.World is not w3p.BumpWorld
+check(f"MV (the control without bumps) builds a plain MoveVIN in W3n's world [{mv_ok}]", mv_ok)
+B.DriveVIN = w3p.DRIVE
+
 # 5. MV trains, differs from HR, split = unsplit, repeatable
 w3k.CS_WINDOW, w3k.CS_START = 400, 200
 fresh()
-short("MV", 6, fade=1500, steps=6000)
-m1, _, _ = w3m.train_net_w3m("MV", 6, 6000, R, hours=1.0)
-_, q, _ = w3m.train_net_w3m("MV", 6, 6000, R, hours=1.0, pause_after=3500)
-m2, _, _ = w3m.train_net_w3m("MV", 6, 6000, R, hours=1.0, state=q)
-m3, _, _ = w3m.train_net_w3m("MV", 6, 6000, R, hours=1.0)
+short("MB", 6, fade=1500, steps=6000)
+b0 = w3p.LEARN["steps"]
+m1, _, _ = w3m.train_net_w3m("MB", 6, 6000, R, hours=1.0)
+lessons = w3p.LEARN["steps"] - b0
+on_after = w3p.LEARN["on"]
+_, q, _ = w3m.train_net_w3m("MB", 6, 6000, R, hours=1.0, pause_after=3500)
+m2, _, _ = w3m.train_net_w3m("MB", 6, 6000, R, hours=1.0, state=q)
+m3, _, _ = w3m.train_net_w3m("MB", 6, 6000, R, hours=1.0)
 init = M.MoveVIN(6)
 B.DriveVIN = w3p.DRIVE
 short("HR", 6, fade=1500, steps=6000)
 h1, _, _ = w3m.train_net_w3m("HR", 6, 6000, R, hours=1.0)
-check(f"MV trains a MoveVIN [{type(m1).__name__}], it moves from its start [{not same(m1, init)}], split = unsplit "
-      f"[{same(m1, m2)}], repeatable [{same(m1, m3)}]; HR still trains a DriveVIN [{type(h1).__name__}]",
-      isinstance(m1, M.MoveVIN) and not same(m1, init) and same(m1, m2) and same(m1, m3)
-      and type(h1).__name__ == "DriveVIN")
+check(f"MB trains a MoveVIN [{type(m1).__name__}] with {lessons} bump-lesson steps (off after training "
+      f"[{not on_after}]), it moves from its start [{not same(m1, init)}], split = unsplit (lessons travel with the "
+      f"state) [{same(m1, m2)}], repeatable [{same(m1, m3)}]; HR still trains a DriveVIN [{type(h1).__name__}]",
+      isinstance(m1, M.MoveVIN) and lessons > 0 and not on_after and not same(m1, init) and same(m1, m2)
+      and same(m1, m3) and type(h1).__name__ == "DriveVIN")
+
+# 5b. a bump lesson: a failed move pushes "can I enter here?" down for that patch, a successful one up; none in tests
+w3p.configure("MB", 2)
+probe = B.DriveVIN(2, fixed_map=False)
+land = W.make_land(900001)
+wb = W.World(land, R)
+wb.m_seen[:] = True
+wb.m_wall[:] = wb.walls
+wall_dir = next(a for a in range(4) if wb.walls[wb.pos[1] + W.MOVES[a][1], wb.pos[0] + W.MOVES[a][0]])     if any(wb.walls[wb.pos[1] + W.MOVES[a][1], wb.pos[0] + W.MOVES[a][0]] for a in range(4)) else None
+before = probe.p["Wp"].copy()
+w3p.LEARN.update(on=False, rows=[], ys=[])
+wb.step(4 if wall_dir is None else wall_dir)
+untouched = np.array_equal(before, probe.p["Wp"]) and not w3p.LEARN["ys"]
+w3p.LEARN.update(on=True, rows=[], ys=[])
+start = wb.pos
+for _ in range(w3p.BUMP_BATCH):
+    a = wall_dir if wall_dir is not None else 0
+    wb.pos = start
+    wb.step(a)
+w3p.LEARN.update(on=False, rows=[], ys=[])
+moved = not np.array_equal(before, probe.p["Wp"])
+check(f"bump lessons: nothing learned outside training [{untouched}]; {w3p.BUMP_BATCH} attempts update the filter "
+      f"[{moved}] (a wall next to the start: {wall_dir is not None})", untouched and moved)
 
 # 6. a whole staged MV run saves its copies and runs every test; nothing written into W3n's folder
 fresh()
-short("MV", 7, fade=1500, steps=12000)
+short("MB", 7, fade=1500, steps=12000)
 w3k.CFG["cy_step"] = 2200
 seeds0, fresh0 = W.TEST_SEEDS, w3k.w3i.FRESH_SEEDS
 W.TEST_SEEDS, w3k.w3i.FRESH_SEEDS = range(900001, 900003), range(910001, 910003)
 w3k.right_machine = lambda: True
 w3p.OUT = tmp
-w3p.run("MV", 7, 1.0)
+w3p.run("MB", 7, 1.0)
 names = {p.name for p in tmp.iterdir()}
-need = {"MV_7.npz", "MV_CS_7.npz", "MV_CY_7.npz", "test_MV_7.json", "test_MVS_7.json", "test_MVY_7.json",
-        "test_MVS-off_7.json", "test_MVS-bare_7.json", "test_fresh_MVS_7.json"}
-loaded = w3k.load_npz(tmp / "MV_CS_7.npz", 7)
+need = {"MB_7.npz", "MB_CS_7.npz", "MB_CY_7.npz", "test_MB_7.json", "test_MBS_7.json", "test_MBY_7.json",
+        "test_MBS-off_7.json", "test_MBS-bare_7.json", "test_fresh_MBS_7.json"}
+loaded = w3k.load_npz(tmp / "MB_CS_7.npz", 7)
 new3n = {p.name for p in W3N_OUT.iterdir()} - n3n
-check(f"a staged MV run saves its copies and runs every test (missing {sorted(need - names)}); the kept copy loads as "
-      f"{type(loaded).__name__}; nothing new in W3n's folder from W3p ({sorted(x for x in new3n if 'MV' in x)})",
-      need <= names and isinstance(loaded, M.MoveVIN) and not any("MV" in x for x in new3n))
+check(f"a staged MB run saves its copies and runs every test (missing {sorted(need - names)}); the kept copy loads as "
+      f"{type(loaded).__name__}; nothing new in W3n's folder from W3p ({sorted(x for x in new3n if 'MB' in x)})",
+      need <= names and isinstance(loaded, M.MoveVIN) and not any("MB" in x for x in new3n))
 W.TEST_SEEDS, w3k.w3i.FRESH_SEEDS = seeds0, fresh0
 B.DriveVIN = w3p.DRIVE
 shutil.rmtree(tmp)

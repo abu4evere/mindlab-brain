@@ -1,10 +1,13 @@
 PASS determinism settings in place (paths ['X86_V3', 'baseline(X86_V2)'])
-PASS MV: W3n's HR body, 4.0M steps with a 2.4M fade, sleep and hunger reflexes; the recipe builds a MoveVIN (MoveVIN, 236 numbers)
+PASS MB: W3n's HR body, 4.0M steps with a 2.4M fade, sleep and hunger reflexes; the recipe builds a MoveVIN that learns from bumps (BumpVIN, 236 numbers); the world hands it the lessons (BumpWorld)
 PASS MoveVIN's gradients match finite differences ({'W0': '9.1e-10', 'br': '4.3e-11', 'Ws': '5.1e-10', 'Wf': '1.3e-09', 'Wc': '1.9e-09', 'Wp': '1.8e-08', 'bp': '7.1e-11', 'g': '1.5e-10', 'lb': '1.2e-10', 'bo': '5.2e-10', 'wv': '3.8e-10', 'bv': '1.8e-11'})
 PASS the fast MoveVIN equals the reference, bit for bit
 PASS capacity: hand-set weights solve the detours (R2 {'success': 1.0, 'cases': 36} R5d {'success': 1.0, 'cases': 8} M2 {'success': 1.0, 'cases': 50})
-PASS MV trains a MoveVIN [MoveVIN], it moves from its start [True], split = unsplit [True], repeatable [True]; HR still trains a DriveVIN [DriveVIN]
-done MV 7
-PASS a staged MV run saves its copies and runs every test (missing []); the kept copy loads as MoveVIN; nothing new in W3n's folder from W3p ([])
+PASS MBb builds a BumpVIN [BumpVIN] with balanced lessons [True], MB without [True]; with 4 blocked and 60 moved lessons the blocked ones carry 0.50 of the weight balanced, 0.062 plain
+PASS MV (the control without bumps) builds a plain MoveVIN in W3n's world [True]
+PASS MB trains a MoveVIN [BumpVIN] with 73 bump-lesson steps (off after training [True]), it moves from its start [True], split = unsplit (lessons travel with the state) [True], repeatable [True]; HR still trains a DriveVIN [DriveVIN]
+PASS bump lessons: nothing learned outside training [True]; 64 attempts update the filter [True] (a wall next to the start: True)
+done MB 7
+PASS a staged MB run saves its copies and runs every test (missing []); the kept copy loads as BumpVIN; nothing new in W3n's folder from W3p ([])
 All: PASS
 exit 0

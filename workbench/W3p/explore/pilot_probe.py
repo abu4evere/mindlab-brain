@@ -1,7 +1,7 @@
 """W3p pilot readout (exploratory, labelled): the Bob Profile probes (BP-frozen functions, unchanged) on the pilot
 brains PMV (MoveVIN) and PHR (DriveVIN), 800k steps, seeds 1-3, plus the value-map uphill measure.
 
-  python pilot_probe.py ARM SEED      ARM in PMV, PHR
+  python pilot_probe.py ARM SEED      ARM in PMV, PMB, PHR
 """
 import json
 import sys
@@ -15,7 +15,7 @@ from bp_mv import T, w3p, R3  # noqa: E402
 arm, seed = sys.argv[1], int(sys.argv[2])
 R = R3.regrowth()
 T.w3n.configure("HR", 1)
-if arm == "PMV":
+if arm in ("PMV", "PMB"):
     w3p.configure("PMV", seed)
 else:
     w3p.B.DriveVIN = w3p.DRIVE

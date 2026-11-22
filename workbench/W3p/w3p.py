@@ -19,12 +19,15 @@ B = w3k.B
 OUT = HERE / "output"
 DRIVE = B.DriveVIN
 ARMS = {"MV": ("move", 4_000_000, 2_400_000), "PMV": ("move", 800_000, 480_000), "PHR": ("drive", 800_000, 480_000),
-        "MB": ("bump", 4_000_000, 2_400_000), "PMB": ("bump", 800_000, 480_000)}
+        "MB": ("bump", 4_000_000, 2_400_000), "PMB": ("bump", 800_000, 480_000),
+        "MBb": ("bump_bal", 4_000_000, 2_400_000)}
 # Learning from bumps (the "bump" arms): every attempted move is a lesson for the brain's "can I enter here?" filter
 # (Wp, bp): the place it tried to enter, as its own map memory showed it before the step, and whether it got there.
 # Every BUMP_BATCH attempts, one logistic step (learning rate BUMP_LR) on those lessons. Only while training.
 BUMP_LR, BUMP_BATCH = 0.05, 64
-LEARN = {"on": False, "net": None, "rows": [], "ys": [], "steps": 0}
+LEARN = {"on": False, "net": None, "rows": [], "ys": [], "steps": 0, "balanced": False}
+# MBb (balanced lessons; the councils, after the pilot: when bumps grow rare, "I moved" lessons drown the "blocked" ones):
+# in each batch, the blocked and the moved lessons carry half the weight each (when both are present).
 for _a, (_b, _s, _f) in ARMS.items():
     w3k.RUNS[_a] = {"steps": _s, "fade": _f}
     w3m.ARMS[_a] = {"reflex": "walk", "urge": False}
@@ -52,15 +55,23 @@ class BumpWorld(w3n.CheapWorld):
         LEARN["rows"].append(row)
         LEARN["ys"].append(1.0 if self.pos != before else 0.0)
         if len(LEARN["ys"]) >= BUMP_BATCH:
-            net = LEARN["net"]
-            X, y = np.asarray(LEARN["rows"]), np.asarray(LEARN["ys"])
-            pr = brain_mv.sig(X @ net.p["Wp"].reshape(-1) + net.p["bp"][0])
-            g = pr - y
-            net.p["Wp"] -= BUMP_LR * (g @ X / len(y)).reshape(net.p["Wp"].shape)
-            net.p["bp"] -= BUMP_LR * g.mean()
+            bump_update(LEARN["net"], np.asarray(LEARN["rows"]), np.asarray(LEARN["ys"]), LEARN["balanced"])
             LEARN["rows"], LEARN["ys"] = [], []
             LEARN["steps"] += 1
         return out
+
+
+def bump_update(net, X, y, balanced):
+    """One logistic step on a batch of lessons; returns the weights used (balanced: blocked and moved half each)."""
+    pr = brain_mv.sig(X @ net.p["Wp"].reshape(-1) + net.p["bp"][0])
+    wt = np.full(len(y), 1.0 / len(y))
+    n1 = y.sum()
+    if balanced and 0 < n1 < len(y):
+        wt = np.where(y > 0.5, 0.5 / n1, 0.5 / (len(y) - n1))
+    g = (pr - y) * wt
+    net.p["Wp"] -= BUMP_LR * (g @ X).reshape(net.p["Wp"].shape)
+    net.p["bp"] -= BUMP_LR * g.sum()
+    return wt
 
 
 def _while_training(fn):
@@ -87,8 +98,9 @@ w3m.train_net_w3m = _while_training(w3m.train_net_w3m)            # what the che
 def configure(arm, seed):
     _configure_n(arm, seed)
     kind = ARMS[arm][0]
-    B.DriveVIN = {"move": brain_mv.MoveVIN, "bump": BumpVIN, "drive": DRIVE}[kind]   # every 'B.DriveVIN(' builds it
-    if kind == "bump":
+    B.DriveVIN = {"move": brain_mv.MoveVIN, "bump": BumpVIN, "bump_bal": BumpVIN, "drive": DRIVE}[kind]
+    LEARN["balanced"] = kind == "bump_bal"
+    if kind in ("bump", "bump_bal"):
         W.World = BumpWorld
 
 
