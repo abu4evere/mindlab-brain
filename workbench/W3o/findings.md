@@ -1,6 +1,7 @@
 # W3o findings: raw eyes (22 Nov 2026)
 
-**Status: unfinished until the blind recompute (`recompute_w3o.md`) is in and agrees.**
+**Status: final (22 Nov 2026). The blind recompute (`recompute_w3o.md`, a fresh session that did not see the analysis
+script) agrees on every key number and verdict; see the end.**
 
 - Plan: `questions.md`, frozen as tag `W3o-frozen` (20 Nov 2026); checks All: PASS (`checks.log`, `checks_gcp.log`,
   `checks_oci.log`). Exploratory, in the W3 series.
@@ -71,3 +72,15 @@
 - The parent (W3's Script) also reads the sorted memory during childhood: a second privileged channel (GPT, council).
 - Eight seeds are a pilot; the unclear bare reading for RE could be settled by more seeds if it ever matters.
 - Lifespan is capped at 3,000 steps, so the arms near the cap (HRS, RES) are compared on a squeezed scale.
+
+## The blind recompute (22 Nov 2026, `recompute_w3o.md`, `recompute_w3o_blind.py`)
+A fresh assistant session, which did not open `analyse_w3o.py`, its outputs or these findings, recomputed from the raw
+files (50,000 bootstrap resamples, numpy seed 20261122, an exact bootstrap and a t interval beside it):
+- RES − HRS −71.7 [−151.8, +3.7] → small (same verdict); RES-bare − HRS-bare −51.9 [−261.3, +142.6] → unclear (same);
+- RVS − HRS −1,482 [−1,629, −1,341]; RVS-bare − HRS-bare −1,222 [−1,395, −1,020]; RES-swap − RES −2,409 [−2,502,
+  −2,328] (passes);
+- fresh-land survival HRS 0.878, RES 0.878 (both reach 0.80), RVS 0.270 (does not);
+- probe differences identical to the frozen analysis (RES − HRS hungry −0.025 [−0.060, +0.010]).
+Every mean is identical and every interval end within about 2 steps; the t intervals give the same verdicts. It also
+noted: the RE bare reading turns on two seeds each way; RES − HRS sits just short of "real" (upper bound +4); HRS seed 7
+is an outlier on the tired probe.
