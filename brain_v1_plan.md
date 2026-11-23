@@ -70,6 +70,17 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
   brains starved.
 - Next limit: deaths are now almost all "no food known" (searching, not reaching).
 
+## W3p (finished 23 November 2026; `workbench/W3p/findings.md`, tag W3p-done) — the new best brain
+- The brain is **MoveVIN**: the thinking loop is the body's own physics (4 moves, blocked = stay, 30 rounds), with a
+  learned "can I enter here?" filter that **learns walls from its bumps**. 236 numbers (HR's 379).
+- **MBb (balanced bump lessons) is the new best Mind Lab brain:** solves every detour (R2 1.00, held out on 200 new
+  lands too), long detours 0.88; and **keeps the body alive with both reflexes off** — bare survival 0.988 and lifespan
+  2,983/3,000, where W3n's HR was 0.38 and 1,608. The brain itself now does what the reflexes did.
+- The planner alone (MV, no bumps) ties the old brain on detours (0.28); the bumps carry it (MB − MV +0.52).
+- **Bob Profile: MBb 10/100** (HR 6), the first brain to score in all five abilities (Reasoning, stuck at 0, now 2).
+  Capped at 10 only because the level-5+ tests are not built; building them is the next step toward ≥ 60, ≥ 10 each.
+- Blind recompute (a fresh session) agrees on every number. Candidate for the one ACL comparison.
+
 ## W3o (finished 22 November 2026; `workbench/W3o/findings.md`, tag W3o-done)
 - Raw eyes: the brain sees mixed colours instead of sorted wall, food and shelter layers.
 - **Mixed colours that always mean the same cost little:** RES − HRS −72 [−150, +4] (within the −200 margin); fresh-land
