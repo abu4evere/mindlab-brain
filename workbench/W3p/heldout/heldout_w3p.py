@@ -6,6 +6,8 @@ MBb and W3n's HR (kept copies, seeds 1-8) and the controls. Only the list of lan
 """
 import json
 import sys
+
+sys.stdout.reconfigure(encoding="utf-8")
 from pathlib import Path
 
 HERE = Path(__file__).parent
