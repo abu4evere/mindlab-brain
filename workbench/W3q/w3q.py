@@ -13,11 +13,10 @@ import json
 import sys
 from pathlib import Path
 
-import numpy as np
-
 HERE = Path(__file__).parent
 sys.path.insert(0, str(HERE.parent / "W3n"))
-import w3n  # noqa: E402  (W3n, W3m, W3k: the numerical settings before numpy is used)
+import w3n  # noqa: E402  (W3n, W3m, W3k: the numerical settings before numpy loads)
+import numpy as np  # noqa: E402
 from w3n import w3k, w3m, W  # noqa: E402
 
 OUT = HERE / "output"

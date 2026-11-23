@@ -90,6 +90,8 @@ resamples, 95%; every seed's difference listed)
 - `analyse_w3q.py` was written after the tag W3q-frozen and before any W3q run (22 Nov 2026), as the plan says;
   tested on made-up numbers only.
 
+- **Amendment (23 Nov 2026, before any Google run):** `w3q.py` loaded numpy before W3k's numerical settings. The Google VM's checks caught it (an AVX-512 path in use; FAILED, nothing started). Fixed (numpy after `w3n`). Runs already going: Oracle's 14 (AMD EPYC 7742: OpenBLAS picks its Zen kernels by itself, and no AVX-512 exists there, so effectively unchanged) and the PC's BF 7 and BF 8 (Intel without AVX-512: possibly OpenBLAS's own kernels instead of the forced Zen ones). Every run stays a valid sample of its arm; the PC's two are not bit-comparable to other machines' runs. Named limit, not a change of any reading.
+
 ## Named limits
 - The lie is about one rule (corners); other lies may differ. The parent's lessons are supervised copy steps; a real
   child also weighs who teaches.
