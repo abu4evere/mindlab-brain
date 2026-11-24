@@ -1,0 +1,10 @@
+2026-11-23 20:05:42 start brain
+2026-11-23 23:24:13 start random5
+2026-11-24 00:47:05 end brain (brain: 5275 lives, 1000128 steps, mean length 190, Crafter score 0.56%)
+2026-11-24 00:47:05 start sated
+2026-11-24 03:54:48 end random5 (random5: 5923 lives, 1000001 steps, mean length 169, Crafter score 0.53%)
+2026-11-24 03:54:48 start random5s
+2026-11-24 05:43:38 end sated (sated: 5321 lives, 1000032 steps, mean length 188, Crafter score 0.81%)
+2026-11-24 05:43:38 start random
+2026-11-24 08:12:53 end random5s (random5s: 5909 lives, 1000178 steps, mean length 169, Crafter score 0.53%)
+2026-11-24 08:34:06 random moved to the Google VM at 4,150 lives / 697,380 steps (the creator needed the PC); resumed there from seed 4151 (nice 10)

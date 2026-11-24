@@ -86,3 +86,10 @@ in Mind Lab first (the creator's order: Mind Lab, then Crafter, then ACL).
 
 Status: FROZEN, 23 Nov 2026. Signed off by the creator in chat ("yes go ahead start it"), after the council.
 Machine: the creator's PC (Windows), all 5 arms, at most 2 at a time at Idle priority; output in `CX1/output/`.
+
+## Amendment (24 Nov 2026, during the runs; the creator needed to take the PC away)
+RANDOM-17 (the scale reference) ran on the PC to 4,150 lives / 697,380 steps (seeds 1-4150); the rest (seed 4151 on,
+to the 1M budget) runs on the Google VM (Linux), resumed from the same file. A check on the VM showed Crafter lives are
+**not bit-identical across machines** (seed 1 matched; seeds 2 and 3 differed), so lives from seed 4151 are the VM's.
+This arm is the scale reference only (not the primary comparison); its lives from both machines are valid random lives;
+each life's machine is recoverable from the seed (<= 4150: PC; > 4150: Google VM).
