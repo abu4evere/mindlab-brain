@@ -1,0 +1,9 @@
+PASS 1 semantic ids match Crafter
+PASS 2 window orientation, view 9 x 7, wall/food/unseen/shelter
+PASS 3 hand: into food = face then do; stay = sleep  (move_right, do, sleep)
+PASS 4 score formula (play and analysis agree)  (0.1957 vs 0.1957)
+PASS 5 determinism (seed 7, both arms)
+PASS 6 MBb unchanged (hash equals the kept copy; 236 numbers)  (236 numbers, 0c92d8556731)
+PASS 7 RANDOM-5 shares the hand
+PASS 8 SATED gating (and the primary bridge unchanged)
+All: PASS

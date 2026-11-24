@@ -84,4 +84,5 @@ Read how the published brains work (DreamerV3, Curious Replay, PPO-ResNet, Achie
 RND, SPRING), with labels for what was read, and list what could be borrowed; any borrowed idea is built and tested
 in Mind Lab first (the creator's order: Mind Lab, then Crafter, then ACL).
 
-Status: DRAFT after the council. Needs the creator's sign-off and the tag `CX1-frozen` before any study data.
+Status: FROZEN, 23 Nov 2026. Signed off by the creator in chat ("yes go ahead start it"), after the council.
+Machine: the creator's PC (Windows), all 5 arms, at most 2 at a time at Idle priority; output in `CX1/output/`.
