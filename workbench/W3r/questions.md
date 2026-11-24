@@ -86,3 +86,17 @@ each run's machine recorded.
 2. We chose the three consequences and their match to the three layers.
 3. The parent and reflexes read the true kinds (as in RV): the body helps in every arm.
 4. Food moves twice per life: knowing what a colour means is not knowing where food is now (staleness still does that).
+
+## Amendments before any study data (24 Nov 2026, recorded openly)
+1. **The pilot's rule picked an unstable rate.** On pilot seeds 9001-9004 the fastest rate, 1.0, made the ensemble's
+   weights diverge (to about 1e37-1e39 on every pilot land; its predictions were garbage). The rule now chooses the
+   fastest among STABLE rates (every member's weights finite and at most 10 on every pilot land): **0.3** (median 7.5
+   steps; 0.1: 8.0). `calib_w3r.py`, `calib_w3r.json`. The ensemble's starting spread N(0, 0.1) is a pre-data choice.
+2. **"Fed ranks food first" is read only after the first meal**, so a random start cannot count as learning
+   (evaluation only; the brain never sees it).
+3. **A note on "fed":** a step always costs energy before the meal check, so energy is always below EMAX when a meal
+   could happen: every step is a fair trial for "fed" (the rule stays as written; it only ever excludes nothing).
+4. **The learning curve is read after k meals** (positive "fed" events; k = 0, 1, 3, 5), as the 22 Nov draft had it:
+   every step is a fair "fed" trial (note 3), so "k fair trials" would not separate the curve. `probe_w3r.py` gives the
+   module a fixed small history first (5 bumps on the wall colour, 1 rest on the shelter colour, 5 floor steps) and then
+   k meals on the food colour.
