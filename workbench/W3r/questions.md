@@ -100,3 +100,6 @@ each run's machine recorded.
    every step is a fair "fed" trial (note 3), so "k fair trials" would not separate the curve. `probe_w3r.py` gives the
    module a fixed small history first (5 bumps on the wall colour, 1 rest on the shelter colour, 5 floor steps) and then
    k meals on the food colour.
+5. **Keeping old abilities** (the creator, 24 Nov 2026: "Bob must retain his previous abilities while acquiring new
+   ones"). After the runs, the Bob Profile (`scorecard/bp`) is run on the kept copies of RM and HR, each with its own
+   eyes, and read as a secondary: does learning meanings cost any earlier ability? A loss is reported as a regression.
