@@ -126,3 +126,15 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
   - kept proportional to real harm;
   - logged in every study;
   - measured for what it teaches (avoidance, one-shot learning, fear, learning by watching).
+
+## 24 Nov 2026: three results (all final, each recomputed blind)
+- **W3q, the bad teacher** (tag W3q-done): manipulation check failed narrowly (frozen verdict). Descriptively: a weakly
+  learned childhood lie faded once the lying parent left; a parent who stays keeps the lie alive (BP − RP +0.125); and
+  ANY parent who never leaves costs the child heavily (RP − HR lifespan −1,063). Rejecting garbage while it keeps coming
+  is not in this brain. Idea: trust in teachers learned from how their advice turned out.
+- **CX1, the Outside Exam** (tag CX1-done): MBb in Crafter, untrained for it: 0.56%, above random choices through the
+  same bridge (0.53%; +0.028 [+0.017, +0.039]), below Crafter's own random agent (1.54%). It finds water and food on
+  purpose but has no sense of "enough" (SATED 0.81%) and cannot make anything.
+- **ACL's BX1 school** (D:\acl, findings final): MBb raised for 300 ACL lives became as good as ACL's hand-written mind
+  (+1.2 years [−2.5, +4.7]) and 8 years better than the untrained MBb.
+- **W3r** (learning what colours do within one life; the Crafter brains' consequence model) is running.
