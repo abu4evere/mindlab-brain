@@ -56,7 +56,13 @@ acl and cradle so overall 5 project works"):
 - 2026-11-11: GPT's five ideas (pasted by the creator) folded in, labelled as GPT; the first workbench experiment is alone vs with others.
 - 2026-11-13: W3 (drives only) council (GPT, Gemini, DeepSeek; two rounds), frozen (W3-frozen), built, checks All: PASS, calibration R = 200, launched (jobs_w3.py; 32 runs x 800,000 steps + tests; about 14-18 hours).
 
-## Cloud runs (since 14 November 2026)
+## GitHub: storage only (since 24 November 2026)
+GitHub disabled `abu4evere/mindlab` on 20 November 2026 for using Actions as compute. The code now lives in
+**github.com/abu4evere/mindlab-brain** (the creator made it on 24 November 2026, Actions disabled), **for storage and
+sharing only**: never add workflow files, never run anything on GitHub. Studies run on the PC, the Oracle VM and the
+Google VM (see `D:cl\CLAUDE.md`). The section below is history.
+
+## Cloud runs (14-20 November 2026; ended, GitHub disabled the repo)
 Public repo **github.com/abu4evere/mindlab** (the creator made it on 14 November). The workflow `.github/workflows/run.yml`
 runs one study command on GitHub's machines: checks first (it stops unless they print All: PASS), then the command,
 then the chosen paths saved as an artifact.
