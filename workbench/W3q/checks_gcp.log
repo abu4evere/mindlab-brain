@@ -1,0 +1,12 @@
+PASS determinism settings in place (paths ['X86_V3', 'baseline(X86_V2)'])
+PASS arms: 4.0M steps, fade 2.4M, HR's body; copy weight (0, 1.2M, 2.4M; present at 2.4M, at 4.0M) {'BF': (0.5, 0.25, 0.0, False, False), 'BP': (0.5, 0.25, 0.05, True, True), 'RP': (0.5, 0.25, 0.05, True, True), 'HR': (0.5, 0.25, 0.0, False, False)}
+PASS corners found exactly on a hand-made map ([(1, 1), (1, 5), (5, 1), (5, 5)]); an unseen cell is never a corner ([(1, 5), (5, 1), (5, 5)])
+PASS the lying parent (30 conflict states): heads for the corner [True] where the right parent heads for food [True]; with the corners unseen it acts as the right parent [True]; when not hungry, the same [True]
+PASS the right parent: W3q's training equals HR's unwrapped training bit for bit [True]
+PASS BF = BP before the fade [True], differ after [True]; copy lessons after the fade {'BF': 0, 'BP': 350, 'RP': 345}; dose {'BF': {'acts': 1500, 'lies': 703, 'hungry_acts': 1084}, 'BP': {'acts': 3000, 'lies': 1518, 'hungry_acts': 2149}, 'RP': {'acts': 0, 'lies': 0, 'hungry_acts': 0}}; the right Script restored after training [True]
+PASS BP: split = unsplit [True] with the same dose [True], repeatable [True]
+PASS the probe: 200 conflict states each satisfy the rule [True]; the same answer twice [True]
+done BP 7
+PASS a staged BP run saves its copies, snapshots ['BP_7_1k.npz'] and every test (missing []); nothing new in W3n's folder ([])
+All: PASS
+exit 0
