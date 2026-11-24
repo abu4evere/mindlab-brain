@@ -60,7 +60,7 @@ acl and cradle so overall 5 project works"):
 GitHub disabled `abu4evere/mindlab` on 20 November 2026 for using Actions as compute. The code now lives in
 **github.com/abu4evere/mindlab-brain** (the creator made it on 24 November 2026, Actions disabled), **for storage and
 sharing only**: never add workflow files, never run anything on GitHub. Studies run on the PC, the Oracle VM and the
-Google VM (see `D:cl\CLAUDE.md`). The section below is history.
+Google VM (see `D:\acl\CLAUDE.md`). The section below is history.
 
 ## Cloud runs (14-20 November 2026; ended, GitHub disabled the repo)
 Public repo **github.com/abu4evere/mindlab** (the creator made it on 14 November). The workflow `.github/workflows/run.yml`
