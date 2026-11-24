@@ -110,4 +110,35 @@ n = sum(d[k].size for k in d.files)
 check("6 MBb unchanged (hash equals the kept copy; 236 numbers)", h(HERE / "mbb_seed1.npz") == h(W3P_KEPT) and n == 236,
       f"{n} numbers, {h(W3P_KEPT)[:12]}")
 
+# 7. RANDOM-5 uses the same hand: with food to the east and facing east, an east draw gives "do"
+env = crafter.Env(seed=3)
+env.reset()
+r5 = BR.RandomHandPlayer(np.random.default_rng(0))
+r5.reset()
+r5.choose = lambda m, info: 2
+info = play.first_info(env)
+x, y = (int(v) for v in info["player_pos"])
+info["semantic"] = info["semantic"].copy()
+info["semantic"][x + 1, y] = BR.MAT.index("water")
+r5.facing = (1, 0)
+b1 = r5.act(env, info)
+r5.choose = lambda m, info: 4
+b2 = r5.act(env, info)
+check("7 RANDOM-5 shares the hand", BR.ACTIONS[b1] == "do" and BR.ACTIONS[b2] == "sleep")
+
+# 8. SATED: water hidden (and a wall) while drink = 9, shown while drink < 9; cows follow food
+sem = np.full((64, 64), BR.MAT.index("grass"))
+sem[33, 30] = BR.MAT.index("water")
+sem[31, 30] = len(BR.MAT) + BR.OBJ.index("cow")
+mem = BR.Memory()
+mem.write(sem, (32, 30), 0, set())
+full = mem.window((32, 30), 0, {"drink": 9, "food": 5})
+thirsty = mem.window((32, 30), 0, {"drink": 8, "food": 9})
+plain = mem.window((32, 30), 0)
+ok = (full[BR.CH_FOOD, BR.H, BR.H + 1] == 0 and full[BR.CH_WALL, BR.H, BR.H + 1] == 1
+      and full[BR.CH_FOOD, BR.H, BR.H - 1] == 1
+      and thirsty[BR.CH_FOOD, BR.H, BR.H + 1] == 1 and thirsty[BR.CH_WALL, BR.H, BR.H - 1] == 1
+      and plain[BR.CH_FOOD, BR.H, BR.H + 1] == 1 and plain[BR.CH_FOOD, BR.H, BR.H - 1] == 1)
+check("8 SATED gating (and the primary bridge unchanged)", bool(ok))
+
 print("All: PASS" if all(results) else "All: FAIL")

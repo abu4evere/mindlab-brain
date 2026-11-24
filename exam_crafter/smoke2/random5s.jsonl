@@ -1,0 +1,21 @@
+{"steps": 171, "reward": 0.1, "achievements": {"wake_up": 2}, "actions": {"move": 138, "do": 0, "sleep": 33, "other": 0}, "cells": 49, "death": "health", "seed": 900001, "seconds": 1.7}
+{"steps": 140, "reward": 1.1, "achievements": {"collect_drink": 1, "wake_up": 2}, "actions": {"move": 114, "do": 2, "sleep": 24, "other": 0}, "cells": 35, "death": "health", "seed": 900002, "seconds": 1.7}
+{"steps": 141, "reward": 0.1, "achievements": {"wake_up": 2}, "actions": {"move": 113, "do": 0, "sleep": 28, "other": 0}, "cells": 39, "death": "health", "seed": 900003, "seconds": 1.5}
+{"steps": 139, "reward": 1.1, "achievements": {"collect_drink": 3, "wake_up": 2}, "actions": {"move": 94, "do": 7, "sleep": 38, "other": 0}, "cells": 32, "death": "health", "seed": 900004, "seconds": 1.5}
+{"steps": 173, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 134, "do": 0, "sleep": 39, "other": 0}, "cells": 50, "death": "health", "seed": 900005, "seconds": 1.6}
+{"steps": 37, "reward": -0.9, "achievements": {}, "actions": {"move": 29, "do": 0, "sleep": 8, "other": 0}, "cells": 12, "death": "health", "seed": 900006, "seconds": 1.3}
+{"steps": 170, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 132, "do": 1, "sleep": 37, "other": 0}, "cells": 35, "death": "health", "seed": 900007, "seconds": 1.7}
+{"steps": 242, "reward": 0.1, "achievements": {"wake_up": 4}, "actions": {"move": 193, "do": 0, "sleep": 49, "other": 0}, "cells": 52, "death": "health", "seed": 900008, "seconds": 1.9}
+{"steps": 176, "reward": 1.1, "achievements": {"eat_cow": 1, "wake_up": 2}, "actions": {"move": 139, "do": 1, "sleep": 36, "other": 0}, "cells": 39, "death": "health", "seed": 900009, "seconds": 1.5}
+{"steps": 178, "reward": 1.1, "achievements": {"collect_drink": 1, "wake_up": 3}, "actions": {"move": 143, "do": 2, "sleep": 33, "other": 0}, "cells": 52, "death": "health", "seed": 900010, "seconds": 1.6}
+{"steps": 142, "reward": 0.1, "achievements": {"wake_up": 2}, "actions": {"move": 111, "do": 0, "sleep": 31, "other": 0}, "cells": 34, "death": "health", "seed": 900011, "seconds": 1.6}
+{"steps": 155, "reward": 1.1, "achievements": {"collect_drink": 5, "wake_up": 2}, "actions": {"move": 116, "do": 8, "sleep": 31, "other": 0}, "cells": 27, "death": "health", "seed": 900012, "seconds": 1.6}
+{"steps": 164, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 129, "do": 0, "sleep": 35, "other": 0}, "cells": 40, "death": "health", "seed": 900013, "seconds": 1.6}
+{"steps": 144, "reward": 0.1, "achievements": {"wake_up": 2}, "actions": {"move": 119, "do": 0, "sleep": 25, "other": 0}, "cells": 35, "death": "health", "seed": 900014, "seconds": 1.6}
+{"steps": 80, "reward": 0.1, "achievements": {"wake_up": 1}, "actions": {"move": 61, "do": 0, "sleep": 19, "other": 0}, "cells": 24, "death": "health", "seed": 900015, "seconds": 1.4}
+{"steps": 185, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 145, "do": 0, "sleep": 40, "other": 0}, "cells": 49, "death": "health", "seed": 900016, "seconds": 1.8}
+{"steps": 172, "reward": 1.1, "achievements": {"collect_drink": 2, "wake_up": 3}, "actions": {"move": 136, "do": 2, "sleep": 34, "other": 0}, "cells": 36, "death": "health", "seed": 900017, "seconds": 1.6}
+{"steps": 133, "reward": 0.1, "achievements": {"wake_up": 2}, "actions": {"move": 102, "do": 2, "sleep": 29, "other": 0}, "cells": 30, "death": "health", "seed": 900018, "seconds": 1.5}
+{"steps": 46, "reward": -0.9, "achievements": {}, "actions": {"move": 37, "do": 0, "sleep": 9, "other": 0}, "cells": 16, "death": "health", "seed": 900019, "seconds": 1.4}
+{"steps": 168, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 138, "do": 0, "sleep": 30, "other": 0}, "cells": 49, "death": "health", "seed": 900020, "seconds": 1.6}
+{"steps": 176, "reward": 0.1, "achievements": {"wake_up": 3}, "actions": {"move": 135, "do": 2, "sleep": 39, "other": 0}, "cells": 37, "death": "health", "seed": 900021, "seconds": 1.6}

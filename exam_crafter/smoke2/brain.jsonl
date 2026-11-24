@@ -1,0 +1,12 @@
+{"steps": 180, "reward": 0.1, "achievements": {"collect_drink": 140}, "actions": {"move": 40, "do": 140, "sleep": 0, "other": 0}, "cells": 41, "death": "health", "seed": 900001, "seconds": 2.0}
+{"steps": 402, "reward": 0.1, "achievements": {"collect_drink": 379}, "actions": {"move": 23, "do": 379, "sleep": 0, "other": 0}, "cells": 23, "death": "health", "seed": 900002, "seconds": 2.8}
+{"steps": 206, "reward": 0.1, "achievements": {"collect_drink": 112}, "actions": {"move": 91, "do": 115, "sleep": 0, "other": 0}, "cells": 89, "death": "health", "seed": 900003, "seconds": 2.0}
+{"steps": 254, "reward": 0.1, "achievements": {"collect_drink": 198}, "actions": {"move": 56, "do": 198, "sleep": 0, "other": 0}, "cells": 57, "death": "health", "seed": 900004, "seconds": 2.2}
+{"steps": 239, "reward": 0.1, "achievements": {"collect_drink": 214}, "actions": {"move": 25, "do": 214, "sleep": 0, "other": 0}, "cells": 9, "death": "health", "seed": 900005, "seconds": 2.3}
+{"steps": 177, "reward": 0.1, "achievements": {"collect_drink": 121}, "actions": {"move": 56, "do": 121, "sleep": 0, "other": 0}, "cells": 54, "death": "health", "seed": 900006, "seconds": 1.9}
+{"steps": 165, "reward": 0.1, "achievements": {"collect_drink": 140}, "actions": {"move": 25, "do": 140, "sleep": 0, "other": 0}, "cells": 26, "death": "health", "seed": 900007, "seconds": 1.9}
+{"steps": 186, "reward": 0.1, "achievements": {"collect_drink": 168}, "actions": {"move": 18, "do": 168, "sleep": 0, "other": 0}, "cells": 11, "death": "health", "seed": 900008, "seconds": 2.1}
+{"steps": 394, "reward": 1.1, "achievements": {"collect_drink": 307, "wake_up": 1}, "actions": {"move": 85, "do": 308, "sleep": 1, "other": 0}, "cells": 64, "death": "health", "seed": 900009, "seconds": 2.5}
+{"steps": 212, "reward": 0.1, "achievements": {"collect_drink": 173}, "actions": {"move": 39, "do": 173, "sleep": 0, "other": 0}, "cells": 34, "death": "health", "seed": 900010, "seconds": 2.0}
+{"steps": 577, "reward": 2.1, "achievements": {"collect_drink": 453, "eat_cow": 1, "wake_up": 1}, "actions": {"move": 111, "do": 456, "sleep": 10, "other": 0}, "cells": 37, "death": "health", "seed": 900011, "seconds": 3.4}
+{"steps": 42, "reward": 0.1, "achievements": {"eat_cow": 1}, "actions": {"move": 39, "do": 3, "sleep": 0, "other": 0}, "cells": 34, "death": "health", "seed": 900012, "seconds": 1.5}

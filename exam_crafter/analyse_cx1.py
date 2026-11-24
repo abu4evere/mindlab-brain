@@ -13,6 +13,13 @@ ACH = ['collect_coal', 'collect_diamond', 'collect_drink', 'collect_iron', 'coll
        'make_iron_sword', 'make_stone_pickaxe', 'make_stone_sword', 'make_wood_pickaxe', 'make_wood_sword',
        'place_furnace', 'place_plant', 'place_stone', 'place_table', 'wake_up']
 B, BOOT_SEED = 2000, 0
+ARMS = ("brain", "random5", "random", "sated", "random5s")
+# the achievements the bridge's hand can reach on purpose (questions.md): drink, eat, sleep and wake
+REACHABLE = ["collect_drink", "eat_cow", "eat_plant", "wake_up"]
+COMPARE = [("brain", "random5", "PRIMARY: the brain's choices vs random choices through the same bridge"),
+           ("brain", "random", "the brain vs Crafter's own random floor (scale)"),
+           ("sated", "random5s", "SATED arm (assisted perception) vs its matched floor"),
+           ("sated", "brain", "what satiety gating changes for the brain")]
 
 
 def got(recs):
@@ -38,29 +45,36 @@ def arm(recs, rng):
         "ended_by_time": int(sum(r["death"] == "time" for r in recs)),
         "action_share": {k: round(v / n_act, 4) for k, v in acts.items()},
         "drinks_per_life": round(float(np.mean([r["achievements"].get("collect_drink", 0) for r in recs])), 2),
-        "cows_per_life": round(float(np.mean([r["achievements"].get("eat_cow", 0) for r in recs])), 3)}
+        "cows_per_life": round(float(np.mean([r["achievements"].get("eat_cow", 0) for r in recs])), 3),
+        "cells_mean": round(float(np.mean([r["cells"] for r in recs])), 1),
+        "reachable_rates": {a: round(100.0 * float(np.mean([a in r["achievements"] for r in recs])), 2)
+                            for a in REACHABLE}}
 
 
 def main():
     out = Path(sys.argv[1])
     rng = np.random.default_rng(BOOT_SEED)
-    res = {}
-    boots = {}
-    for kind in ("brain", "random"):
+    res, boots = {}, {}
+    for kind in ARMS:
         recs = [json.loads(x) for x in open(out / f"{kind}.jsonl")]
         _, boots[kind], res[kind] = arm(recs, rng)
-    d = boots["brain"] - boots["random"]
-    res["difference"] = {"brain_minus_random": round(res["brain"]["score"] - res["random"]["score"], 3),
-                         "ci95": [round(float(np.percentile(d, 2.5)), 3), round(float(np.percentile(d, 97.5)), 3)]}
-    lo, hi = res["difference"]["ci95"]
-    res["reading"] = ("above the floor" if lo > 0 else "below the floor" if hi < 0 else "not separable from the floor")
+    res["comparisons"] = []
+    for a, b, what in COMPARE:
+        d = boots[a] - boots[b]
+        lo, hi = float(np.percentile(d, 2.5)), float(np.percentile(d, 97.5))
+        res["comparisons"].append({"a": a, "b": b, "what": what,
+                                   "difference": round(res[a]["score"] - res[b]["score"], 3),
+                                   "ci95": [round(lo, 3), round(hi, 3)],
+                                   "reading": "a above b" if lo > 0 else "a below b" if hi < 0 else "not separable"})
     (out / "analysis.json").write_text(json.dumps(res, indent=1))
-    for kind in ("brain", "random"):
+    for kind in ARMS:
         r = res[kind]
-        print(f"{kind:6s}: score {r['score']:.2f}% {r['score_ci95']} over {r['lives']} lives / {r['steps']} steps; "
-              f"life mean {r['length_mean']} median {r['length_median']}; actions {r['action_share']}")
-        print("        ", {k: v for k, v in r["rates"].items() if v > 0})
-    print("difference", res["difference"], "->", res["reading"])
+        print(f"{kind:8s}: score {r['score']:.2f}% {r['score_ci95']} over {r['lives']} lives / {r['steps']} steps; "
+              f"life mean {r['length_mean']} median {r['length_median']}; cells {r['cells_mean']}; "
+              f"actions {r['action_share']}")
+        print("          ", {k: v for k, v in r["rates"].items() if v > 0})
+    for c in res["comparisons"]:
+        print(f"{c['a']} - {c['b']}: {c['difference']:+.3f} {c['ci95']} -> {c['reading']}  ({c['what']})")
 
 
 if __name__ == "__main__":

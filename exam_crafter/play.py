@@ -1,6 +1,6 @@
 """Play Crafter lives with a player and score them the Crafter way (draft, exploratory until the plan is frozen).
 
-  python play.py brain|random BUDGET [FIRST_SEED] [OUTDIR]
+  python play.py brain|sated|random5|random5s|random BUDGET [FIRST_SEED] [OUTDIR]
       lives on seeds FIRST_SEED, FIRST_SEED+1, ... until the total steps reach BUDGET (the crossing life is completed)
       -> OUTDIR/<player>.jsonl (one line per life; resumes from the lines already there) and a printed score
 
@@ -41,6 +41,7 @@ def life(env, player):
         reward += r
     got = {k: v for k, v in info["achievements"].items() if v > 0}
     return {"steps": steps, "reward": round(reward, 2), "achievements": got, "actions": acts,
+            "cells": len(player.visited),
             "death": "time" if steps >= env._length else "health"}
 
 
@@ -60,11 +61,14 @@ def main():
     recs = [json.loads(x) for x in open(path)] if path.exists() else []
     total = sum(r["steps"] for r in recs)
     s = first + len(recs)
-    net = BR.load(str(HERE / "mbb_seed1.npz")) if kind == "brain" else None
+    net = BR.load(str(HERE / "mbb_seed1.npz")) if kind in ("brain", "sated") else None
+    make = {"brain": lambda r: BR.BrainPlayer(net, r), "sated": lambda r: BR.BrainPlayer(net, r, sated=True),
+            "random5": lambda r: BR.RandomHandPlayer(r), "random5s": lambda r: BR.RandomHandPlayer(r, sated=True),
+            "random": lambda r: BR.RandomPlayer(r)}[kind]
     while total < budget:
         env = crafter.Env(seed=s)
         rng = np.random.default_rng(s)
-        player = BR.BrainPlayer(net, rng) if kind == "brain" else BR.RandomPlayer(rng)
+        player = make(rng)
         t0 = time.time()
         rec = life(env, player)
         rec.update(seed=s, seconds=round(time.time() - t0, 1))

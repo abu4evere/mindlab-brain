@@ -20,8 +20,15 @@ Descriptive, not a hypothesis test: this is the brain's first outside measuremen
   plant; shelter = own place; staleness 1 - exp(-age/200)); the 3 drives (hunger = the worse of food and drink, tired,
   curiosity by W3's rule); the hand: sample the brain's own softmax; a move into food = face it, then "do"; stay =
   "sleep". No chopping, placing or making move exists for it.
-- **Arms:** BRAIN (MBb through the bridge) and RANDOM (a uniformly random action of Crafter's 17 each step, Crafter's
-  own floor).
+- **Arms** (after the council, 23 Nov; `CX1/council_2026-11-23.md`):
+  - BRAIN: MBb through the bridge, as it is (the primary arm);
+  - RANDOM-5: the same bridge and hand, each of the 5 moves uniformly at random (the matched floor: it isolates the
+    brain's choices from the bridge's hand);
+  - RANDOM: a uniformly random action of Crafter's 17 each step (Crafter's own floor, for scale);
+  - SATED (secondary, labelled "assisted perception"): as BRAIN, but a food kind shows in the food channel only while
+    the body is not full of it (water while drink < 9; cow and ripe plant while food < 9); hidden food is a wall (the
+    body still cannot step in). A translation of Mind Lab's rule that food is eaten only when not full;
+  - RANDOM-5S: RANDOM-5 with the same gating (SATED's matched floor; GPT's addition).
 - **Protocol (Crafter's, section 3.3):** lives on Crafter seeds 1, 2, 3, ... (default `crafter.Env`, 64 x 64, view 9,
   length 10,000), played in order until the total reaches 1,000,000 steps (the life that crosses 1M is completed and
   counted, as in a training run's last episode). Each arm's random stream: `np.random.default_rng(seed)` per life.
@@ -29,19 +36,24 @@ Descriptive, not a hypothesis test: this is the brain's first outside measuremen
 - **Machine:** one machine for both arms, recorded (the PC or a Linux VM).
 
 ## Measures (written before the data; `analyse_cx1.py`, frozen with the plan)
-1. **Primary:** each arm's Crafter score, S = exp(mean_i ln(1 + s_i)) - 1, s_i = % of lives with achievement i at least
+1. **Primary:** BRAIN - RANDOM-5 in Crafter score, with its bootstrap interval. Each arm's Crafter score, S = exp(mean_i ln(1 + s_i)) - 1, s_i = % of lives with achievement i at least
    once (the paper's footnote 2), with a 95% bootstrap interval over lives (2,000 resamples, seed 0), and the
-   difference BRAIN - RANDOM with its bootstrap interval (lives resampled within each arm).
+   differences (lives resampled within each arm): BRAIN - RANDOM-5 (primary), BRAIN - RANDOM (scale),
+   SATED - RANDOM-5S and SATED - BRAIN (secondary).
 2. The 22 success rates for each arm, beside the published table (README scoreboard, `D:\acl\docs\research\
    crafter_scoreboard_2026-11-23.md`; the published numbers are other people's runs, a comparison of scale only).
 3. Life length (steps) mean and median; share of lives ending by health vs the 10,000-step limit.
-4. What the brain did: share of its actions that were moves, "do", "sleep"; drinks and cow kills per life.
+4. What the brain did: share of its actions that were moves, "do", "sleep"; drinks and cow kills per life; places
+   visited per life; the success rates of the 4 achievements the hand can reach on purpose (collect_drink, eat_cow,
+   eat_plant, wake_up), since the 22-achievement score mostly counts things this brain cannot do.
 Every number with its population (lives, steps).
 
 ## What would count
-- BRAIN's interval entirely above RANDOM's score: "the brain, as it is, beats Crafter's floor".
-- Entirely below: "the brain, as it is, is below the floor" (expected from the smoke: it has no move for wood or
-  tools, which random play gets by accident).
+- Primary interval entirely above 0: "the brain's own choices beat random choices through the same bridge"; entirely
+  below 0: "its choices are worse than random ones here"; otherwise: "not separable".
+- BRAIN vs RANDOM is reported for scale (expected below: no move for wood or tools, which random play gets by accident).
+- SATED is assisted perception, never reported as the brain's unassisted result. If gating helps a lot, that shows an
+  interface mismatch (one food channel for two needs), not necessarily a reasoning failure (GPT).
 - Either way the result is the "before" mark; it says nothing yet about a trained or upgraded brain.
 
 ## Known limits (named before the data)
@@ -51,19 +63,25 @@ Every number with its population (lives, steps).
 - The published agents LEARN during their 1M steps; MBb does not learn here. The published scores are for scale only.
 - The bridge reads Crafter's map (semantic view), not its picture: at night the picture darkens for image-based
   brains, but the map does not; a small advantage for MBb, named here.
-- Pilot (smoke, seeds 900001+, 5 random and 3 brain lives): random 1.08%, brain 0.45%; not part of the study.
+- Sleeping is risky in Crafter (a zombie deals 7 damage to a sleeper, 2 to one awake; crafter/objects.py): shelter =
+  own place is where rest is possible, not a protection.
+- Pilot (smoke, seeds 900001+, about 3,000 steps per arm, not part of the study): BRAIN 0.60%, SATED 0.80%,
+  RANDOM-5 0.57%, RANDOM-5S 0.54%, RANDOM 1.31%; about 100 steps per second on the loaded PC (about 3 hours per arm).
 
-## Checks before the run (`checks_cx1.py`, All: PASS required)
+## Checks before the run (`checks_cx1.py`, All: PASS required; 8 checks, All: PASS on 23 Nov)
 1. Semantic ids: the bridge's names match Crafter's `_mat_ids` and object order.
 2. The window: a known world cell appears at the expected window place (orientation x/y).
 3. The hand: a food cell to the east gives move_right, then "do" once facing east.
 4. The score: a hand-made set of lives gives the formula's value; all 0 gives 0; all 100 gives 100.
 5. Determinism: the same seed gives the same life twice (both arms).
 6. The brain is the W3p brain: MBb's 236 numbers loaded unchanged (hash of the npz equals W3p's kept copy).
+7. RANDOM-5 shares the hand (into food when facing it = "do"; stay = "sleep").
+8. SATED gating: water hidden and a wall while drink = 9, shown while drink < 9, cows by food; the primary bridge
+   unchanged.
 
 ## Then (not part of CX1)
 Read how the published brains work (DreamerV3, Curious Replay, PPO-ResNet, Achievement Distillation, Plan2Explore,
 RND, SPRING), with labels for what was read, and list what could be borrowed; any borrowed idea is built and tested
 in Mind Lab first (the creator's order: Mind Lab, then Crafter, then ACL).
 
-Status: DRAFT. Needs council, the creator's sign-off and the tag `CX1-frozen` before any study data.
+Status: DRAFT after the council. Needs the creator's sign-off and the tag `CX1-frozen` before any study data.

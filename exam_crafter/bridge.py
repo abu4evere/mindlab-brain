@@ -64,6 +64,7 @@ class Memory:
         self.seen = np.zeros((area, area), bool)       # indexed [x, y] like Crafter
         self.wall = np.zeros((area, area), bool)
         self.food = np.zeros((area, area), bool)
+        self.water = np.zeros((area, area), bool)       # which food is water (for the SATED arm)
         self.last = np.full((area, area), -1, int)
 
     def write(self, sem, pos, t, ripe_cells):
@@ -75,10 +76,13 @@ class Memory:
                     food = name in ("water", "cow") or (name == "plant" and (x, y) in ripe_cells)
                     self.seen[x, y] = True
                     self.food[x, y] = food
+                    self.water[x, y] = name == "water"
                     self.wall[x, y] = (name not in GROUND) and not food
                     self.last[x, y] = t
 
-    def window(self, pos, t):
+    def window(self, pos, t, inv=None):
+        """inv given (the SATED arm): a food kind shows only while the body is not full of it (water while drink < 9,
+        cow and ripe plant while food < 9)."""
         m = np.zeros((5, N, N))
         x0, y0 = pos
         for wy in range(N):
@@ -92,7 +96,13 @@ class Memory:
                     m[CH_UNC, wy, wx] = 1.0
                     continue
                 m[CH_WALL, wy, wx] = float(self.wall[x, y])
-                m[CH_FOOD, wy, wx] = float(self.food[x, y])
+                food = self.food[x, y]
+                if inv is not None and food:
+                    food = inv["drink"] < 9 if self.water[x, y] else inv["food"] < 9
+                    if not food:                                # hidden food is still a place the body cannot enter
+                        m[CH_WALL, wy, wx] = 1.0
+                        continue
+                m[CH_FOOD, wy, wx] = float(food)
                 if not self.wall[x, y]:
                     m[CH_UNC, wy, wx] = 1.0 - np.exp(-(t - self.last[x, y]) / TAU)
         m[CH_SHELTER, H, H] = 1.0
@@ -113,22 +123,27 @@ def levels(inv, m):
 
 
 class BrainPlayer:
-    """MBb as it is, through the bridge."""
+    """MBb as it is, through the bridge. sated=True: the SATED arm (questions.md, secondary)."""
 
-    def __init__(self, net, rng):
-        self.net, self.rng = net, rng
+    def __init__(self, net, rng, sated=False):
+        self.net, self.rng, self.sated = net, rng, sated
 
     def reset(self):
         self.mem, self.t, self.facing = Memory(), 0, (0, 1)    # Crafter's player starts facing down
+        self.visited = set()
+
+    def choose(self, m, info):
+        lev = levels(info["inventory"], m)
+        fw = self.net.plan(m[None], lev[None])
+        z, _ = self.net.head(fw, np.array([H * N + H]))
+        return int(self.rng.choice(5, p=softmax(z[0])))
 
     def act(self, env, info):
         pos = tuple(int(v) for v in info["player_pos"])
         self.mem.write(info["semantic"], pos, self.t, ripe_plants(env))
-        m = self.mem.window(pos, self.t)
-        lev = levels(info["inventory"], m)
-        fw = self.net.plan(m[None], lev[None])
-        z, _ = self.net.head(fw, np.array([H * N + H]))
-        a = int(self.rng.choice(5, p=softmax(z[0])))
+        m = self.mem.window(pos, self.t, info["inventory"] if self.sated else None)
+        a = self.choose(m, info)
+        self.visited.add(pos)
         self.t += 1
         if a == 4:
             return A["sleep"]
@@ -141,6 +156,17 @@ class BrainPlayer:
         self.facing = tuple(int(v) for v in env._player.facing)
 
 
+class RandomHandPlayer(BrainPlayer):
+    """RANDOM-5: the same bridge and hand, but each of the 5 moves uniformly at random (the matched floor).
+    sated=True: RANDOM-5S, the matched floor for the SATED arm."""
+
+    def __init__(self, rng, sated=False):
+        super().__init__(None, rng, sated)
+
+    def choose(self, m, info):
+        return int(self.rng.integers(5))
+
+
 class RandomPlayer:
     """Crafter's own floor: a uniformly random action each step."""
 
@@ -148,9 +174,10 @@ class RandomPlayer:
         self.rng = rng
 
     def reset(self):
-        pass
+        self.visited = set()
 
     def act(self, env, info):
+        self.visited.add(tuple(int(v) for v in info["player_pos"]))
         return int(self.rng.integers(len(ACTIONS)))
 
     def after(self, env):
