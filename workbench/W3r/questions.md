@@ -1,4 +1,6 @@
-# W3r: learning what colours DO within one life (plan v2, after council; to freeze on the creator's sign-off)
+# W3r: learning what colours DO within one life (FROZEN, tag W3r-frozen)
+
+**Sign-off:** the creator, 24 Nov 2026, in this Claude Code session: "yes go ahead freeze it and start".
 
 **Why.** W3o: when the colours of wall, food and shelter are dealt anew on each land (RV), the brain breaks (RVS − HRS
 −1,482; fresh-land survival 0.27). It cannot learn within one life "I ate where it was this colour, so this colour is
