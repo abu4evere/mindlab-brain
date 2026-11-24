@@ -1,0 +1,14 @@
+PASS determinism settings in place before numpy loads (paths ['X86_V3', 'baseline(X86_V2)'])
+PASS arms: W3n's HR body and schedule, both reflexes, CY as W3n's, eyes and module set; the ensemble's rate from the pilot (0.3, pilot seeds [9001, 9002, 9003, 9004])
+PASS W3r's RV = W3o's RV [True]; W3r's HR = W3n's HR [True] (bit for bit)
+PASS RM with the oracle map = HR bit for bit [True]; RM with its table differs from HR [True] and from RV [True]
+PASS labels: a bump gives 1 blocked positive on the wall colour [True]; a meal 1 fed positive on the food colour [True]; rest at the shelter 1 rested positive on its colour [True]; staying put untired teaches nothing about blocked or rest [True]
+PASS a new life starts empty (table zero [True]); no lesson, no layer [True]; the sham credits colours in view {0} of {0, 3, 5}; the ensemble's start is the same per land and differs between lands
+PASS mid-swap exchanges wall and food from LIFE/2 [True]; soft layers [True]
+PASS split = unsplit and repeatable: {'RM': (True, True), 'RE5': (True, True)}
+done RM 7
+midswap done RM 7
+done HR 7
+soft done HR 7
+PASS staged RM and HR runs save copies and run every test plus the probe (missing: []); module measures recorded [True]; settings back after the probe; nothing new in W3n's or W3o's folders
+All: PASS
