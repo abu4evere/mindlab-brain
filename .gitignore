@@ -12,3 +12,12 @@ notes/
 workbench/W3q/output/
 workbench/W3q/tmp_checks/
 workbench/W3p/heldout/output/
+
+# Outside Exam (Crafter)
+exam_crafter/.venv/
+exam_crafter/smoke/
+exam_crafter/output/
+exam_crafter/CX1/output/
+exam_crafter/sources/*.pdf
+exam_crafter/sources/*.txt
+exam_crafter/__pycache__/
