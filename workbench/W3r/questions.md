@@ -103,3 +103,5 @@ each run's machine recorded.
 5. **Keeping old abilities** (the creator, 24 Nov 2026: "Bob must retain his previous abilities while acquiring new
    ones"). After the runs, the Bob Profile (`scorecard/bp`) is run on the kept copies of RM and HR, each with its own
    eyes, and read as a secondary: does learning meanings cost any earlier ability? A loss is reported as a regression.
+   *Correction (24 Nov 2026):* the quoted sentence is GPT's (from the creator's ACL chat), which the creator pasted
+   and agreed with ("yes you are right"); not the creator's own words. The amendment stands.
