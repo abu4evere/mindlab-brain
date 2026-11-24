@@ -1,36 +1,86 @@
-# W3r: learning a meaning within one life (DRAFT for the council; not frozen, no code yet)
+# W3r: learning what colours DO within one life (plan v2, after council; to freeze on the creator's sign-off)
 
-- **Why:** W3o (final, 22 Nov 2026): when the colours of wall, food and shelter are dealt anew on each land (RV), the
-  brain cannot work out within a life which colour is food (fresh-land survival 0.27; toward food 0.555, chance 0.29).
-  The gap is fast learning within a life, an approved direction ("fast learning within a life", CLAUDE.md, 8 Nov).
-- **Sources:** `D:\acl\docs\research\learning_meaning_within_a_life_2026-11-22.md` (Miconi et al. 2018, differentiable
-  plasticity; Wang et al. 2016, meta-RL).
-- **Order:** after W3q's runs (compute). Council first (GPT, Gemini, DeepSeek), then checks, then frozen.
+**Why.** W3o: when the colours of wall, food and shelter are dealt anew on each land (RV), the brain breaks (RVS − HRS
+−1,482; fresh-land survival 0.27). It cannot learn within one life "I ate where it was this colour, so this colour is
+food". ACL's BX1 school showed the same gap (it learned how a week felt, not which choice caused it). The top Crafter
+brains all learn a model of consequences (`D:\acl\docs\research\crafter_brains_borrow_2026-11-24.md`). The creator, 24
+Nov 2026: "learn it and if there are things we should take, take it use in ours".
+Earlier draft (22 Nov, a plastic colour trace written at meals, Miconi et al. 2018): `questions_v0_plastic.md`. This
+plan keeps its sham for the signal (written at random steps), its learning curve after k meals and its mid-life swap.
 
-## The idea (smallest version)
-RV's world and W3o's RV brain (DriveVIN with colour eyes), plus **a plastic link from the three colour layers to the
-feelings map**: a within-life trace h (one number per colour layer, zero at birth) is written at each meal by the
-colours under the body ("I ate where it looked like this"), and adds α · Σ_c h_c · colour_c(x) to the value the
-planner spreads. Slow training learns α (how much to trust the trace); the trace's speed η is fixed in advance (a
-design choice to put to the council: learned η needs gradients through a whole life).
+**Honest name** (council: GPT, Gemini, DeepSeek; `gpt_review_w3r_draft.md`): *within-life grounding of colours in the
+body's own consequences* (online body-affordance remapping). Not open-ended meaning: we chose the three consequences
+and that they stand in for the three layers the brain already has. A first rung.
 
-## Arms (seeds 1–8, paired with W3o's RV)
-| arm | brain | answers |
+## The meaning module (body only; no names, no new rewards; reset at every birth)
+Three consequences the body itself feels, each tied to the colour of the cell involved as remembered **just before**
+the step (the colour memory holds what was last seen: an eaten food cell shows floor until seen full again):
+- **blocked**: the body tried to step into a cell and did not move (the attempted cell's colour);
+- **fed**: the body ate on the cell it stands on (its colour before the meal). A fair negative only when a meal was
+  possible had the colour meant food: energy below EMAX;
+- **rested**: tiredness fell on the cell it stands on. A fair negative only when rest was possible: tiredness above 0.
+Steps where a consequence could not happen teach nothing about it (no wrong negatives; GPT's most dangerous risk).
+
+Two learners:
+- **Table** (the simplest learner; GPT and Gemini): for each of the 8 colour codes, counts of positives and fair
+  negatives per consequence; prediction = positives / (positives + fair negatives); 0 before any fair trial (unknown is
+  shown as nothing). No learning rate, no random start.
+- **Ensemble** (Plan2Explore's learner, borrowed): 5 linear members (3 colour bits + bias → 3 consequences), each with
+  its own seeded random start and a bootstrap mask (each event used by each member with probability 0.5), one step of
+  squared error per event; prediction = the members' mean, clipped to [0, 1]. Its learning rate is set in a pilot
+  BEFORE the study (pilot seeds 9001-9004, never study seeds) by how fast it ranks the food colour first; then frozen.
+
+**What the brain sees:** in its wall, food and shelter layers, the module's prediction for each remembered cell's colour
+(blocked → wall, fed → food, rested → shelter). Unseen and staleness unchanged. The brain is MoveVIN, trained from
+scratch in every arm for 4.0M steps with its own eyes, exactly as W3o (W3n's HR body: both reflexes, the parent's
+childhood, the kept copy).
+
+## Arms (W3o's changing-colour lands; seeds 1-16; each machine's runs paired on that machine)
+| Arm | The brain's wall / food / shelter layers | Answers |
 |---|---|---|
-| **PL** | RV + the plastic link | does a within-life trace let it learn the colour of food on each land? |
-| **PZ** | RV + the link, trace held at zero | the extra parameter alone (sham for the structure) |
-| **PS** | RV + the link, trace written at random steps (not meals) | the sham for the signal |
-| RV, RE (W3o, cited) | changing colours / fixed colours | the floor and the ceiling |
+| **RV** (control, rerun) | the 3 colour layers (W3o) | the floor |
+| **RM** | the table, learned from consequences | does learning what colours do help? (primary) |
+| **RMX** (sham for the signal) | the same table, but each event is credited to a colour drawn at random from the colours in view (seeded), not the cell where it happened | is it the consequence, or just having an extra learned layer? |
+| **RE5** | the ensemble, learned from consequences | does the borrowed Plan2Explore learner do as well? |
+| **HR** (ceiling, rerun) | the true kinds (sorted memory) | the ceiling |
+Curiosity-by-disagreement is **dropped** from W3r (council: add, do not replace staleness; 5 linear members give weak
+variance): its own later study, with a better uncertainty.
 
-## Readings to set before freezing
-- Primary: fresh-land survival and test lifespan, PL − RV (and PL − PS), against RE as the ceiling.
-- The probe of W3o (toward food when hungry), read after k meals on a fresh land (k = 0, 1, 3, 5): the within-life
-  learning curve; PL should start at RV's level and rise.
-- The swap check: exchanging food and wall colours mid-life; PL should recover after a few meals, RE should not.
+## Measures (as W3o)
+- **Primary:** fresh-land survival of the kept copy (S): **RMS − RVS**, the paired difference over the 16 training seeds
+  with a 95% bootstrap interval (10,000 resamples of seeds, seed 1). The kept copy is chosen on training lives only
+  (W3k's rule), never on test lands.
+- Secondary: RMS − RMXS (the sham); RE5S − RVS; RMS − HRS (the gap left); lifespan; toward-food-alone; deaths by cause.
+- The bare test (both reflexes off). The parent and reflexes read the true kinds in every arm (the council's shared
+  confound, named): survival is partly the body's.
+- The learning curve: toward-food-alone on a fresh land after k fair "fed" trials (k = 0, 1, 3, 5); RM should start at
+  RV's level and rise.
+- The module itself: fair trials until "fed" ranks the true food colour first; its accuracy against the hidden true kinds
+  by age (evaluation only; the brain never sees the kinds).
+- Test-only checks: **mid-life swap** (food and wall colours exchanged halfway through a test life: RM should recover
+  after a few meals, a fixed-meaning brain should not); **soft** (HR's brain with 0.85/0.15 layers in place of 1/0: does
+  softness alone hurt?).
 
-## Questions for the council
-1. Is a Hebbian trace written at meals designer help that gives the answer away, or a fair minimal learning channel
-   (the world gives the signal, the brain learns how much to trust it)?
-2. Fixed or learned trace speed?
-3. Are PZ and PS the right shams? Is a recurrent-memory arm (Wang's meta-RL) worth adding?
-4. The probe after k meals: sound?
+## Checks before data (`checks_w3r.py`, All: PASS required)
+- RM with the **oracle colour-to-kind map** in place of the table reproduces HR bit for bit (the layers are then exactly
+  the sorted memory; the defined check, not "an oracle of consequences", as DeepSeek warned).
+- RV reproduces W3o's RV bit for bit on the same machine; HR reproduces W3n's HR.
+- Labels: a scripted life that eats, rests and bumps once each gives the table exactly 1 positive in the right colour
+  cell; full-energy steps on food and zero-tiredness steps at the shelter teach nothing; RMX credits a colour in view.
+- The module resets at every birth and every test land; the hidden kinds never reach the brain or the module.
+- Same seed, same result; split runs = unsplit runs.
+
+## Expected (before data)
+RMS − RVS lower bound above 0: GPT 70%, Gemini 65%, DeepSeek 40% (asked before the label and table fixes); the
+assistant about 65%. RMS − RMXS above 0: about 60%. RE5S − RVS above 0: about 50%. RMS within 200 steps' lifespan of
+HRS: about 35%.
+
+## Compute
+5 arms × 16 seeds × 4.0M steps on the Oracle VM and the Google VM (never GitHub), after W3q and BX1's test free them;
+each run's machine recorded.
+
+## Limits (named now)
+1. Colours are 3 clean bits; real eyes are noisier.
+2. We chose the three consequences and their match to the three layers.
+3. The parent and reflexes read the true kinds (as in RV): the body helps in every arm.
+4. Food moves twice per life: knowing what a colour means is not knowing where food is now (staleness still does that).
