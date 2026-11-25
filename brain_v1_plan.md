@@ -169,3 +169,12 @@ learning the new world AND by the Bob Profile on the old one (no loss beyond a m
 - **Order:** W3r -> Body v1 -> G0 -> G1. Meta-learning ("learning how to learn", GPT) is already in the approved
   neural-brain direction (8 Nov: "genes set the starting brain and how it learns, and they evolve"): ACL's deep time.
 - The next council on any of these uses the round-table format (the creator, 25 Nov).
+
+### Check before G0 (25 Nov 2026; numbers from the saved test files, by script): the post-childhood decline is gone
+Mean test-land lifespan (of 3,000) at each copy, 2.4M (end of childhood) / 2.8M / 3.2M / 3.6M / final 4.0M:
+- W3n HR (16 seeds): 2,540 / 2,617 / 2,578 / 2,605 / 2,531 (final below 2.4M in 7 of 16 seeds);
+- W3p MBb (8 seeds): 2,964 / 2,978 / 2,978 / 2,962 / 2,994 (MB 2,916-2,983; MV 2,806-2,902).
+The decline after childhood (W3i-W3k) is not seen in the current brains (long childhood, both reflexes, MoveVIN).
+**So G0 changes:** not "why does the brain decline within its world" (it no longer does) but **forgetting between
+worlds**: train the brain on a new world, bring it back, and read the Bob Profile at home (W3r's amendment 5 gives a
+first reading). GPT's and the assistant's earlier premise for G0 is corrected here.
