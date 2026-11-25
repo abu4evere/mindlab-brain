@@ -178,3 +178,11 @@ The decline after childhood (W3i-W3k) is not seen in the current brains (long ch
 **So G0 changes:** not "why does the brain decline within its world" (it no longer does) but **forgetting between
 worlds**: train the brain on a new world, bring it back, and read the Bob Profile at home (W3r's amendment 5 gives a
 first reading). GPT's and the assistant's earlier premise for G0 is corrected here.
+
+### Idea (25 Nov 2026, from the creator's questions "What is entertainment for brain" / "do our brain contain
+### entertainment too?"): PLAY, not started
+Today MBb's curiosity is staleness-seeking (one of its three drives, a lens on places not seen for a while): novelty,
+not fun. Entertainment in the scientific sense would need (1) a brain that predicts (Body v1's consequence model), (2) a
+reward for its own learning progress (Oudeyer 2007; Schmidhuber's "compression progress"), fading as things are mastered
+(boredom), and (3) free time when fed and rested. A later study, "Play": with free time, does the brain practise or
+explore, and does that make it better at surviving later (as young animals' play does)? After Body v1.
