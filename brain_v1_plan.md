@@ -138,3 +138,20 @@ the old minds' + 3; population ratio upper bound ≥ 0.80).
 - **ACL's BX1 school** (D:\acl, findings final): MBb raised for 300 ACL lives became as good as ACL's hand-written mind
   (+1.2 years [−2.5, +4.7]) and 8 years better than the untrained MBb.
 - **W3r** (learning what colours do within one life; the Crafter brains' consequence model) is running.
+
+## Lessons from Ava (Ex Machina) for Bob (25 Nov 2026; GPT's list, which the creator added to the plan)
+The creator watched Ex Machina, shared GPT's list of what Bob could take from Ava, and said: "Yea i want to add it to
+plan". The list is GPT's words (labelled), adopted by the creator; the status column is the assistant's.
+| Ava's design (GPT) | For Bob (GPT) | Status (25 Nov 2026) |
+|---|---|---|
+| Reconfigurable brain | neural plasticity and adaptive architecture | researched, not built (`D:\acl\docs\research\mind_evidence_and_growing_brains_2026-11-25.md`: grow when stuck; a new part per new skill) |
+| Persistent memories | continual learning without forgetting | measured from now on: every new brain takes the Bob Profile (W3r amendment 5); the post-childhood decline (W3i-W3k) is the open problem |
+| Observing humans | learning by observing other agents | done several times: the parent's childhood (W3d-W3f), ACL's brain school (BX1), the bad teacher (W3q) |
+| Understanding behaviour | predicting other minds | not started; first step: trust learned from how a teacher's advice turned out (`D:\acl\docs\research\whom_to_trust_2026-11-24.md`) |
+| Physical embodiment | intelligence grounded in sensory experience | under way: Body v1 draft (`body/body_v1_draft.md`), CX2 (meanings learned by touching) |
+
+GPT: "The most interesting technical concept to me is a brain capable of reorganizing itself while preserving previous
+knowledge." **The proposed next big study (after W3r and Body v1; a draft for the creator and the council, not
+started): G1, grow and protect.** When the brain meets a new world or a new sense, it adds a new part (as progressive
+networks do) and slows learning in the old parts that mattered (as EWC does), against a fixed-size brain; judged by
+learning the new world AND by the Bob Profile on the old one (no loss beyond a margin set before data).
