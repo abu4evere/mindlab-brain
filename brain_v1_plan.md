@@ -186,3 +186,12 @@ not fun. Entertainment in the scientific sense would need (1) a brain that predi
 reward for its own learning progress (Oudeyer 2007; Schmidhuber's "compression progress"), fading as things are mastered
 (boredom), and (3) free time when fed and rested. A later study, "Play": with free time, does the brain practise or
 explore, and does that make it better at surviving later (as young animals' play does)? After Body v1.
+**Dopamine (added 25 Nov 2026; the creator: "does that mean we should add dopamine to our brain" ... "ok add that to the
+plan too"):** the brain already has a dopamine-like signal: actor-critic's temporal-difference error (what happened vs
+what the critic predicted), the same quantity dopamine neurons were found to signal (reward prediction error; Schultz,
+Dayan & Montague 1997, cited from memory, to check before use). Today it fires only for body needs (hunger, tiredness)
+and a little for staleness. The Play study would let **learning progress** feed the same signal (an intrinsic reward from
+the brain's own predictions getting better), with two guards named before any design: (1) the body's needs stay
+stronger (no "addiction" to fun over survival); (2) reward learning PROGRESS, not surprise itself (avoids the "noisy TV"
+trap, where unlearnable randomness stays surprising forever). The reward comes from Bob's own body and brain, never a
+score handed to him (ACL's rule: no named rewards).
