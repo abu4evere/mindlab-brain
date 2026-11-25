@@ -1,4 +1,6 @@
-# CX2: does the brain learn what Crafter's things mean, within one life? (plan v2 after council; to freeze on the creator's sign-off)
+# CX2: does the brain learn what Crafter's things mean, within one life? (FROZEN, tag CX2-frozen)
+
+**Sign-off:** the creator, 24 Nov 2026, in this Claude Code session: "yes go ahead freeze it and start".
 
 **Why.** CX1 (final): MBb, untrained for Crafter, scored 0.56%, above random choices through the same bridge (0.53%),
 because it heads for water and cows. But the bridge TOLD it which tile kinds are food and which are walls. GPT's
