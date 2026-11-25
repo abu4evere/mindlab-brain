@@ -155,3 +155,17 @@ knowledge." **The proposed next big study (after W3r and Body v1; a draft for th
 started): G1, grow and protect.** When the brain meets a new world or a new sense, it adds a new part (as progressive
 networks do) and slows learning in the old parts that mattered (as EWC does), against a fixed-size brain; judged by
 learning the new world AND by the Bob Profile on the old one (no loss beyond a margin set before data).
+
+### G1 revised after GPT's critique (25 Nov 2026; GPT's opinion, checked by the assistant; still a proposal)
+- **G0 first, a cheap diagnosis** (read-only on saved snapshots of W3i-W3n brains): is the post-childhood decline
+  forgetting (an old skill relearns fast), lost plasticity (it relearns slowly) or unstable learning (weights drift and
+  swing)? Our data so far: the decline starts after the parent fades; slowing all adult learning did not help (W3j); a
+  brain frozen at the end of childhood does worse than one that keeps learning a while (W3j).
+- **G1's arms (GPT):** A fixed; B larger fixed (same capacity, no growth); C grow without protection; D grow and protect.
+- **Growth triggered by the brain itself** (GPT: "we are managing his development, not Bob"): grow when its own
+  surprise stays high, not when we announce a new world.
+- **No rigidity (GPT):** judged on three things: learns the new world, keeps the old (Bob Profile), and can still revise
+  a meaning when the world changes (W3r's mid-life swap as the test).
+- **Order:** W3r -> Body v1 -> G0 -> G1. Meta-learning ("learning how to learn", GPT) is already in the approved
+  neural-brain direction (8 Nov: "genes set the starting brain and how it learns, and they evolve"): ACL's deep time.
+- The next council on any of these uses the round-table format (the creator, 25 Nov).
