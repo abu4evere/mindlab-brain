@@ -49,3 +49,12 @@ The brain, told nothing about Crafter, learned within each life what blocks, wha
 The lesson is GPT's principle in data: what we told it made it rigid; what it found out for itself made it explore.
 Next steps (for the creator): the Body v1 draft (`D:\mindlab\body\body_v1_draft.md`) with use/operate hands, so the
 same learner can reach crafting; and a check of the discovery-measure gap.
+
+## Addendum (25 Nov 2026, after the findings): the discovery-measure gap explained
+Limit 3's gap (water "ranked first" in 56.4% of LEARN lives, the drink achievement in 91.5%) was checked on three such
+lives replayed in fresh processes (seeds 4, 14, 15): each poked water 5 times, **every time with drink already full
+(9)**. Crafter counts "collect_drink" even when the body is full, but nothing changes in the body, so by the frozen
+fair-negative rule the table learns nothing (neither positive nor negative) and water's meaning stays unknown. Every
+life starts with full drink, so a first meeting with water early in life is wasted. Not a fault: it is the plan's rule
+working as written. It says something about learning from the body: **a meaning can only be learned when the need is
+there** (you learn that water quenches thirst only when thirsty). The frozen readings are unchanged.
