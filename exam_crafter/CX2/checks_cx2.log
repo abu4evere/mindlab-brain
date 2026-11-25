@@ -1,0 +1,7 @@
+PASS NAMED's eyes equal CX1's over a life prefix [True]
+PASS a perfect table gives LEARN's layers = NAMED's (plants aside; 0 plant cells) [True]
+PASS labels: bump into water [True], poke until drinking [True], a 3-hit cow is one bout, one positive [True], full drink teaches nothing about drink [True], LEARN-NP does not poke [True], moves while asleep teach nothing [True]
+PASS the same seed in two fresh processes, the same life [True] (177 steps, 30 bouts); tables empty after reset [True]; BLIND shows no food and only edge walls [True]
+PASS relabelled kinds change nothing (LEARN, RANDOM-5P, LEARN-NP: the same actions, lives and measures) [True]
+PASS every arm lives a whole life (steps, bouts, first drink ranked): {'learn': (180, 28, 72), 'named': (186, 32, 45), 'blind': (156, 18, None), 'learn_np': (221, 0, None), 'random5p': (221, 6, None)}
+All: PASS

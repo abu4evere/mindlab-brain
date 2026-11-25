@@ -93,3 +93,9 @@ to the 1M budget) runs on the Google VM (Linux), resumed from the same file. A c
 **not bit-identical across machines** (seed 1 matched; seeds 2 and 3 differed), so lives from seed 4151 are the VM's.
 This arm is the scale reference only (not the primary comparison); its lives from both machines are valid random lives;
 each life's machine is recoverable from the seed (<= 4150: PC; > 4150: Google VM).
+
+## Correction (24 Nov 2026, found while checking CX2)
+The amendment above blamed the PC/VM difference on the machines. Crafter itself is not repeatable within one process
+(creatures in Python sets ordered by memory address); a fresh process repeats a seed exactly. The PC and VM runs both
+ran many lives in one process, so the most likely cause is this, not Linux vs Windows. The conclusion stands: the
+random arm's lives are valid random lives either way.

@@ -64,3 +64,16 @@ stationary, abundant and one bout). LEARN − BLIND above 0: about 60%. "Close" 
 1. We chose the consequences (blocked, fed-food, fed-drink) and the poke reflex.
 2. No health or danger in the tables; zombies and lava are not learned as bad.
 3. The brain is fixed (MBb); only its eyes learn. A brain that learns in Crafter is a later step.
+
+## Amendments before any study data (24 Nov 2026)
+1. **The wall layer** = P(blocked) except where the food layer is above 0.5, where it is 0 (as CX1: a food place is
+   somewhere the brain goes; water blocks walking, so without this rule a learned water cell would show as wall and
+   food at once). With a perfect table this makes LEARN's layers equal NAMED's (check 2).
+2. **Crafter is not repeatable within one process.** It keeps creatures in Python sets ordered by memory address, so
+   which creature despawns can depend on earlier lives in the same process; a fresh process repeats a seed exactly
+   (checked: 3 fresh runs, identical). Every arm's lives are equally random, so no comparison is biased, but lives are
+   not paired across arms. The checks compare lives in fresh processes (`cx2_one.py`). This also corrects CX1's
+   amendment: the cross-machine difference there was most likely this, not Linux vs Windows (a correction is
+   appended to CX1's questions.md).
+3. Checks All: PASS on the PC (`checks_cx2.log`); analysis `analyse_cx2.py` written before data and smoke-tested on
+   seeds 900001+ (`CX2/smoke`, not study data).
