@@ -77,3 +77,13 @@ stationary, abundant and one bout). LEARN − BLIND above 0: about 60%. "Close" 
    appended to CX1's questions.md).
 3. Checks All: PASS on the PC (`checks_cx2.log`); analysis `analyse_cx2.py` written before data and smoke-tested on
    seeds 900001+ (`CX2/smoke`, not study data).
+
+## CX2-C, the confirmatory run (decided 25 Nov 2026 in sleep mode, before any of its data)
+The primary passed narrowly (+0.027 [+0.004, +0.052]). A confirmatory run: **the identical frozen code and analysis**
+(`cx2.py`, `analyse_cx2.py`), the same four arms (LEARN, RANDOM-5P, BLIND, NAMED; LEARN-NP not repeated), **new Crafter
+seeds 100001+**, **3,000,000 steps per arm** (3x: both council members said a same-size run has only ~55-60% power),
+output in `CX2/output_confirm/`, on the otherwise idle PC (normal priority, 4 at once). **Confirmed** if the primary
+LEARN − RANDOM-5P interval is again entirely above 0; otherwise "not confirmed" (the original stays, with this beside it).
+Council: GPT yes, 55% at the same size; Gemini yes, 58% at the same size, ~85% at 3x, and asked to check LEARN − NAMED for
+an artefact (NAMED's eyes equal CX1's by check 1, and NAMED's score 0.60% matches CX1's 0.56%; the mechanism is in the
+findings). Lives cannot be paired across arms (amendment 2).
