@@ -105,3 +105,8 @@ each run's machine recorded.
    eyes, and read as a secondary: does learning meanings cost any earlier ability? A loss is reported as a regression.
    *Correction (24 Nov 2026):* the quoted sentence is GPT's (from the creator's ACL chat), which the creator pasted
    and agreed with ("yes you are right"); not the creator's own words. The amendment stands.
+6. **How the Bob Profile reads W3r's brains** (before any W3r data, 24 Nov 2026): `bp_w3r.py` loads them into the
+   frozen tests unchanged (as W3p's bp_mv.py). Whole-life tests start each life with an empty module; single-state
+   probes first give the module a fixed small history (5 bumps on the wall colour, 1 rest on the shelter colour, 5 floor
+   steps, 3 meals on the food colour). W3r's HR rerun is scored as "HRr". A smoke run with a stand-in brain (W3n's HR
+   seed 1, not a W3r brain) showed the module's layers then equal the sorted memory.
