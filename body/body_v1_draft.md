@@ -45,3 +45,21 @@ Which looks block, feed, water, rest or hurt; what each operation does; when "us
 2. How should the brain read hands and feedback (new layers for MoveVIN, or a small separate module)? The brain will grow
    past 236 numbers (about 45 per new sense layer).
 3. What margin counts as "no loss" in step 1?
+
+## Revised after the first round-table (25 Nov 2026; `roundtable_body_v1_2026-11-25.md`; still a draft, not frozen)
+- **operate(k)** stays, labelled as each world's native motor repertoire (shuffled numbers; no names, order, grouping
+  or legality shown); controls: padded / randomised operation lists and a no-make arm; combine(slot_a, NONE | slot_b |
+  FRONT_TILE) is a v2 ablation.
+- **Actions are chosen by one shared scoring rule over a table** keyed by action number (tries and the signed changes
+  that followed, plus a bonus for untried ones), so any number of operations fits with no new parameters.
+- **Feedback** becomes signed changes (hands and each feeling, up or down), not one bit per kind of change.
+- **The brain:** MoveVIN stays the spatial planner; a separate light consequence model (count-based first, with
+  uncertainty) learns what actions do and feeds MoveVIN's reward and passability maps; hands and feelings do not go onto
+  the map.
+- **The poke is pain-gated:** poke untried kinds; stop poking kinds whose pokes brought pain; a reflex-only baseline.
+- **Step 1 = the frozen brain through Body v1 only** (no consequence model yet). Pass: on 10+ paired seeds, the lower
+  95% bound of the difference above −5% relative mean lifespan AND above −3 points full-life survival, and the worst
+  quarter of seeds no more than 10% worse. Also: dead-action and idle rates, early vs late life, detours, causes of
+  death; adapter audits beyond id shuffling (availability, ordering, auto-targeting, hidden state).
+- **Step 2 (the creator, 25 Nov 2026: "start with things in hands then add station"):** the Mind Lab crafting world first
+  combines only what Bob holds; a station nearby comes next.

@@ -167,3 +167,7 @@ creator.
 7. Also measure: dead-action and idle rates, early vs late life, detours, causes of death, retention (all three).
 **Open, for the creator (Gemini's question):** should the step-2 crafting world in Mind Lab need a station nearby (like
 Crafter's table) plus inventory, or only inventory-to-inventory combinations?
+
+## The creator's answer to Gemini's question (25 Nov 2026)
+"start with things in hands then add station": the step-2 crafting world in Mind Lab first combines only what Bob
+holds; a station nearby (like Crafter's table) comes as the next step.
