@@ -1,0 +1,9 @@
+2026-11-24 22:23:51 start learn
+2026-11-24 22:23:51 start random5p
+2026-11-25 01:37:20 start named (parallel, the creator: max capacity)
+2026-11-25 01:37:20 start blind (parallel, the creator: max capacity)
+2026-11-25 02:48:28 end random5p (random5p: 5501 lives, 1000026 steps, mean length 182, Crafter score 1.48%)
+2026-11-25 02:48:28 start learn_np
+2026-11-25 04:24:30 end blind (blind: 5852 lives, 1000074 steps, mean length 171, Crafter score 1.05%)
+2026-11-25 04:35:50 end named (named: 5284 lives, 1000125 steps, mean length 189, Crafter score 0.60%)
+2026-11-25 06:01:35 end learn_np (learn_np: 5734 lives, 1000032 steps, mean length 174, Crafter score 0.21%)
