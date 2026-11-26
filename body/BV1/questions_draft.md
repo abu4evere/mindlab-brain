@@ -72,3 +72,27 @@ Test lives only (no training): 4 arms x 16 seeds on Oracle, a few hours. Machine
 2. Is "hands empty, use always does nothing, K = 0" a fair first test of the body, or does it test too little?
 3. If W3r fails, what should step 1 be?
 4. Are the margins (−5% lifespan, −3 points survival, worst quarter 10%) right for a frozen-brain, connection-only test?
+
+## Revised after the round-table (26 Nov 2026; `roundtable_bv1_2026-11-26.md`; still a draft, not frozen)
+The four advisors (GPT, Gemini, DeepSeek, Grok) converged in two rounds; the revision below replaces the arms and the
+primary above (kept for the record).
+- **What BV1 is:** an interface gate (engineering), labelled as testing translation only; no claim about the body's
+  generality, no hands / use / operate(k) test (step 2).
+- **No statistical arm:** the 16-seed non-inferiority run and BODY-PAD are dropped (a frozen brain with fixed outputs
+  cannot reach dummy operations).
+- **Pass = exact parity:** BODY and BODY-SHUF reproduce NATIVE **bit for bit** on 8 seeds (each on its own fresh test
+  land), lives chosen to include wall hits, meals at and below the energy cap, resting, map edges; compared step by step
+  on observations, actions, table updates and the brain's internal state, not only lifespan. BODY-SHUF: identical after
+  undoing its own colour and verb renaming. Any mismatch = fail, then diagnose (statistics only as a diagnostic).
+- **Feedback, fixed by the round-table and the code:** two signed parts per feeling: the body's own per-step drift, and
+  the change caused by the world's response to the action (measured after the drift). In this world the step's cost
+  comes before the meal check, so a meal always shows as a rise of at least 1 even at the cap: exact parity without a
+  special "meal" flag or knowledge of the cap.
+- **Adapter audit first, as its own gate** (before any brain): no adapter output (legality, availability, ordering,
+  auto-targeting, hidden state, the two feedback parts) carries information about which looks are food, wall or
+  shelter, including conditional leaks, across randomised renamings; with a scripted random body.
+- **If W3r fails:** the same gate with a scripted tabular agent that learns colours from feedback (it validates the
+  body, not a brain). Whether step 2 may start then is the creator's call (GPT, DeepSeek, Grok: plumbing yes, crafting
+  science no until a within-life meaning learner works; Gemini: proceed).
+- **Compute:** a few CPU-minutes (8 lives per arm); Oracle or this PC.
+- **Expected:** pass, if the build is right (the assistant about 90%); the likely failure is a build bug found by the gate.
