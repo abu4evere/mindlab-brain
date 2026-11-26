@@ -7,6 +7,9 @@ LOG=~/after_w3r_gcp.log
 Q=~/mindlab/workbench/W3r/queue_progress.log
 echo "$(date -u '+%F %H:%M') UTC waiting for W3r's queue to finish" >> $LOG
 until grep -q "queue finished" $Q; do sleep 300; done
+# An early Bob Profile batch (seeds 12-14, 1 slot) was started on 26 Nov 06:15 EST while W3r's last runs used 7 of the
+# 8 threads; wait for it, so no test is started twice (bp_battery.sh skips tests whose result exists).
+while pgrep -f "bp_battery.sh" > /dev/null; do sleep 300; done
 echo "$(date -u '+%F %H:%M') UTC W3r's queue finished; starting the Bob Profile" >> $LOG
 cd ~/mindlab/workbench/W3r
 nohup bash bp_battery.sh 8 12 13 14 15 16 > bp_battery_runner.out 2>&1 &
