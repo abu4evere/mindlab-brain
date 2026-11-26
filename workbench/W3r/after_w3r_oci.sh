@@ -9,6 +9,9 @@ LOG=~/after_w3r_oci.log
 Q=~/mindlab/workbench/W3r/queue_progress.log
 echo "$(date -u '+%F %H:%M') UTC waiting for W3r's queue to finish" >> $LOG
 until grep -q "queue finished" $Q; do sleep 300; done
+# An early Bob Profile batch (seeds 1-9, 9 slots) was started on 26 Nov 01:45 EST while W3r's last runs used only 7 of
+# the 16 threads; wait for it, so no test is started twice (bp_battery.sh skips tests whose result exists).
+while pgrep -f "bp_battery.sh" > /dev/null; do sleep 300; done
 echo "$(date -u '+%F %H:%M') UTC W3r's queue finished; starting the Bob Profile" >> $LOG
 # CX2-C moved to the second computer (25 Nov 2026, 23:50 EST; the creator asked that this PC be used too), so this
 # script no longer starts it here: the Bob Profile gets all 16 slots.
