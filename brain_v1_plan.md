@@ -195,3 +195,6 @@ the brain's own predictions getting better), with two guards named before any de
 stronger (no "addiction" to fun over survival); (2) reward learning PROGRESS, not surprise itself (avoids the "noisy TV"
 trap, where unlearnable randomness stays surprising forever). The reward comes from Bob's own body and brain, never a
 score handed to him (ACL's rule: no named rewards).
+
+## 26 Nov 2026: CX2-C confirms CX2 (final, recomputed blind)
+- In Crafter, with meanings learned within each life from what the body feels (not told), MBb beats random choices again on new seeds at 3x the data: LEARN − RANDOM-5P +0.025 score points [+0.012, +0.038] (first run +0.027 [+0.004, +0.052]). Small but real; it rests on the poke reflex. `exam_crafter/CX2/findings.md`, tag CX2C-done.

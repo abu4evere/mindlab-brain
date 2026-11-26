@@ -87,3 +87,5 @@ LEARN − RANDOM-5P interval is again entirely above 0; otherwise "not confirmed
 Council: GPT yes, 55% at the same size; Gemini yes, 58% at the same size, ~85% at 3x, and asked to check LEARN − NAMED for
 an artefact (NAMED's eyes equal CX1's by check 1, and NAMED's score 0.60% matches CX1's 0.56%; the mechanism is in the
 findings). Lives cannot be paired across arms (amendment 2).
+
+**CX2-C reading (26 Nov 2026, 01:30 EST): CONFIRMED.** LEARN − RANDOM-5P +0.025 [+0.012, +0.038], entirely above 0; blind recompute agrees (recompute_cx2c_blind.md). Run with analyse_cx2c.py, the frozen analyse_cx2.py imported unchanged with LEARN-NP (not repeated here) dropped from its arm list and its one comparison; written after the data, a mechanical change, recorded openly. Details in findings.md.

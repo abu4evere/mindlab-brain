@@ -58,3 +58,29 @@ fair-negative rule the table learns nothing (neither positive nor negative) and 
 life starts with full drink, so a first meeting with water early in life is wasted. Not a fault: it is the plan's rule
 working as written. It says something about learning from the body: **a meaning can only be learned when the need is
 there** (you learn that water quenches thirst only when thirsty). The frozen readings are unchanged.
+
+## CX2-C, the confirmatory run (final 26 Nov 2026, 01:30 EST; blind recompute agrees)
+The frozen rule (questions.md, "CX2-C"): confirmed if LEARN − RANDOM-5P's 95% interval is again entirely above 0.
+**Result: CONFIRMED.** LEARN − RANDOM-5P **+0.025 score points [+0.012, +0.038]** (first run: +0.027 [+0.004, +0.052]).
+New Crafter seeds 100001+, 3,000,000 steps per arm (3x the first run), the identical frozen code.
+
+| arm | lives | steps | Crafter score | 95% interval |
+|---|---|---|---|---|
+| LEARN | 16,109 | 3,000,056 | 1.50% | [1.489, 1.507] |
+| RANDOM-5P | 16,465 | 3,000,052 | 1.47% | [1.463, 1.483] |
+| BLIND | 17,629 | 3,000,086 | 1.05% | [1.042, 1.063] |
+| NAMED | 15,809 | 3,000,151 | 0.60% | [0.589, 0.606] |
+Secondaries, as in the first run: LEARN − BLIND +0.446 [+0.433, +0.460] (above); LEARN − NAMED +0.900 [+0.888, +0.913]
+(above); "close" does not apply (NAMED − RANDOM-5P −0.875 [−0.889, −0.862], below 0). Water ranked first in 0.567 of
+LEARN lives (first run 0.564), cow 0.101.
+- Analysis: `analyse_cx2c.py` = the frozen `analyse_cx2.py` imported unchanged, run on the four arms (LEARN-NP was not
+  repeated, so the frozen script stopped at its missing file; the wrapper only drops that arm and its one comparison;
+  written after the data, a mechanical change, recorded here and in questions.md). Output `output_confirm/analysis.json`.
+- Blind recompute: `recompute_cx2c_blind.md` (a fresh subagent that saw only the four raw files and the plan's
+  definitions): +0.0253 [+0.0114, +0.0381], every secondary reading the same; data checks clean (seeds contiguous from
+  100001, no malformed lines, totals just over 3,000,000).
+- Machines: the creator's laptop (Windows, about 77-91% of each arm, until 25 Nov) and, from there, the second computer
+  (Windows 10, AMD Ryzen 5 5600, Python 3.12.10, crafter 1.8.3, numpy 2.5.5, single-threaded BLAS, Idle priority;
+  25-26 Nov). Lives are not paired across arms or processes (amendment 2), so the machine change biases no comparison.
+- Reading for Bob: the small edge of learned meanings over random choices (same hand, same tables) holds on new seeds
+  at 3x the data. It stays small (+0.025 points, LEARN 1.50% vs 1.47%), and it rests on the poke reflex (limit 1).
