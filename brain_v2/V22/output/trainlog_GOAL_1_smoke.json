@@ -1,0 +1,1 @@
+{"log": [{"step": 2883, "life": 1, "Wg_norm": 0.0, "G_norm": 0.0, "chains_last_life": 0, "lifespan_last_life": 3000, "seconds": 17.7}, {"step": 3000, "life": 2, "Wg_norm": 0.0, "G_norm": 0.0, "chains_last_life": 0, "lifespan_last_life": 145, "seconds": 18.4}], "machine": {"platform": "Windows-10-10.0.19045-SP0", "python": "3.12.10", "numpy": "2.5.3", "node": "DESKTOP-B9PA260"}}
