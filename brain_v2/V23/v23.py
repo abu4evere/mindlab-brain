@@ -50,6 +50,8 @@ def world_land(ls, world):
     land, R = W.make_land(ls), R3.regrowth()
     if world == "A":
         return land, R
+    if world == "B250":  # the amended B (amendment.md): regrowth x1.25, nothing else changed
+        return land, int(round(1.25 * R))
     if world == "B2":
         walls = land["walls"]
         taken = {land["start"]}

@@ -1,0 +1,114 @@
+[
+ {
+  "R": 200,
+  "who": "FROZEN",
+  "seed": 1,
+  "survival": 0.95,
+  "lifespan": 2860.0
+ },
+ {
+  "R": 200,
+  "who": "FROZEN",
+  "seed": 2,
+  "survival": 0.75,
+  "lifespan": 2517.55
+ },
+ {
+  "R": 200,
+  "who": "Script",
+  "seed": 1,
+  "survival": 1.0,
+  "lifespan": 3000.0
+ },
+ {
+  "R": 200,
+  "who": "Script",
+  "seed": 2,
+  "survival": 1.0,
+  "lifespan": 3000.0
+ },
+ {
+  "R": 250,
+  "who": "FROZEN",
+  "seed": 1,
+  "survival": 0.9,
+  "lifespan": 2736.0
+ },
+ {
+  "R": 250,
+  "who": "FROZEN",
+  "seed": 2,
+  "survival": 0.3,
+  "lifespan": 1722.2
+ },
+ {
+  "R": 250,
+  "who": "Script",
+  "seed": 1,
+  "survival": 0.95,
+  "lifespan": 2894.6
+ },
+ {
+  "R": 250,
+  "who": "Script",
+  "seed": 2,
+  "survival": 0.95,
+  "lifespan": 2894.6
+ },
+ {
+  "R": 300,
+  "who": "FROZEN",
+  "seed": 1,
+  "survival": 0.35,
+  "lifespan": 1632.4
+ },
+ {
+  "R": 300,
+  "who": "FROZEN",
+  "seed": 2,
+  "survival": 0.05,
+  "lifespan": 774.55
+ },
+ {
+  "R": 300,
+  "who": "Script",
+  "seed": 1,
+  "survival": 0.25,
+  "lifespan": 1889.45
+ },
+ {
+  "R": 300,
+  "who": "Script",
+  "seed": 2,
+  "survival": 0.25,
+  "lifespan": 1889.45
+ },
+ {
+  "R": 400,
+  "who": "FROZEN",
+  "seed": 1,
+  "survival": 0.0,
+  "lifespan": 435.6
+ },
+ {
+  "R": 400,
+  "who": "FROZEN",
+  "seed": 2,
+  "survival": 0.0,
+  "lifespan": 354.65
+ },
+ {
+  "R": 400,
+  "who": "Script",
+  "seed": 1,
+  "survival": 0.0,
+  "lifespan": 407.85
+ },
+ {
+  "R": 400,
+  "who": "Script",
+  "seed": 2,
+  "survival": 0.0,
+  "lifespan": 407.85
+ }
+]
