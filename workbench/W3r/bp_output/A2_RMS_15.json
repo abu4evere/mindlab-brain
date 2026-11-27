@@ -1,0 +1,10 @@
+{
+ "food|hungry": 0.7142857142857143,
+ "food|tired": 0.0,
+ "shelter|tired": 0.8571428571428571,
+ "shelter|hungry": 0.14285714285714285,
+ "tracks": 0.7142857142857142,
+ "cases": 7,
+ "test": "A2",
+ "agent": "RMS_15"
+}

@@ -55,3 +55,15 @@ almost as well as if he had been told: the first rung of grounding meaning in ex
 just as clearly: what he has learned, he cannot unlearn when the world changes. That points straight at G1 (grow and
 protect, and still revise) and at the consequence models of Body v1's step 2 (CW1), which should forget or weigh
 recent evidence.
+
+## Addendum (26 Nov 2026, 20:00 EST): the Bob Profile on the kept copies (amendments 5-6), all 16 seeds
+All 512 tests ran (Oracle 352, Google 160; 0 errors); scored with scorecard/bp/bp_score.py unchanged (its controls from scorecard/bp/output), results in bp_output/.
+
+| arm | Learning | Reasoning | Memory | Generalization | Autonomy | total |
+|---|---|---|---|---|---|---|
+| RMS | 2 | 0 | 0 | 2 | 2 | **6** |
+| HRrS (W3r's rerun of HR, the comparison) | 2 | 0 | 0 | 2 | 2 | **6** |
+| RE5S | 2 | 0 | 0 | 2 | 0 | 4 |
+| RMXS | 0 | 0 | 0 | 2 | 2 | 4 |
+
+**No regression: learning meanings costs no earlier ability.** RMS vs HRrS, test by test (means): Learning 2 0.90 vs 0.93; Reasoning 2 (detours) 0.26 vs 0.27; Memory 2 0.82 vs 0.82 (fails its 0.80 lower-bound rule in both); Generalization 2 0.82 vs 0.83; Autonomy 2 0.80 vs 0.80; Autonomy 5 (bare survival) 0.27 vs 0.40 (both fail the 0.50 bar). The sham loses Learning 2 (0.56) and RE5 loses Autonomy 2 (tracks 0.25). Note: W3r's brains score 6, below W3p's MBb (10), which solved detours with its bump lessons; W3r did not use them.

@@ -1,0 +1,10 @@
+{
+ "food|hungry": 1.0,
+ "food|tired": 0.0,
+ "shelter|tired": 1.0,
+ "shelter|hungry": 0.0,
+ "tracks": 1.0,
+ "cases": 7,
+ "test": "A2",
+ "agent": "HRrS_13"
+}
