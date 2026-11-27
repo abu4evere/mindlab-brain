@@ -134,3 +134,6 @@ Later (Brain v3): a growing brain; temporal abstraction (reusable action sequenc
 - **The retirement rule (DeepSeek):** a written decision is retired only when a learned part does at least as well on
   held-out lands AND passes the no-loss gate.
 - **Credit fallback:** VM work checkpointed so nothing is lost if credits end (download results before ~15 Dec).
+
+## Correction (27 Nov 2026, appended; nothing above rewritten)
+The walker in BV1, CW1 and CW2 (RMS) is W3n's **DriveVIN**, not MoveVIN as written above (MoveVIN is W3p's MBb). V2-2's plan uses DriveVIN's reward map (r = W0 x + s Ws x + f Wf x + c Wc x + b).
