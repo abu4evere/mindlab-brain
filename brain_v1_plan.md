@@ -201,3 +201,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 26 Nov 2026: BV1 (Body v1 step 1) gate PASSES
 - Through the standard body (senses, verbs, two-part feedback, a Mind Lab adapter) W3r's RM brain lives bit for bit as with its own wiring on 8 seeds, also with all colour and verb numbers renamed; the adapter audit passes first. An interface check only; step 2 (a crafting world, things in hands) is next and needs its own plan. `body/BV1/findings.md`, tag BV1-done (independent re-run still to do).
+
+## 26 Nov 2026: W3r final (recomputed blind): learning what colours do works; revising does not yet
+- On lands whose colours change, the brain that learns within its life what each colour does (blocked, fed, rested) survives full fresh lives 0.859 vs 0.211 (RMS − RVS +0.647 [+0.578, +0.714], 16/16 seeds), level with the told-kinds ceiling (−0.026 [−0.068, +0.010]); not an extra-layer effect (vs the sham +0.376); one meal is enough (toward food 0.41 -> 0.85). But after a mid-life colour swap it does not recover (−0.609): a count table never forgets. Next limit: revising a meaning (G1's third criterion; CW1's consequence model). `workbench/W3r/findings.md`, tag W3r-done; the Bob Profile reading follows.
