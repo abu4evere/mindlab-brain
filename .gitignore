@@ -25,3 +25,5 @@ body/BV1/brains/
 body/CW1/brains/
 body/CW2/brains/
 brain_v2/V21/output/run_*.out
+brain_v2/V22/output_checks/
+brain_v2/V22/output/ckpt_*.pkl

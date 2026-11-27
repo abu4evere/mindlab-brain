@@ -1,0 +1,37 @@
+3 the reward is R3.reward('D3', ...) only (one call, kind D3): PASS 
+4 no goal with nothing experienced: PASS 
+1 zero check seed 1 land 950001 GOAL: PASS (287 steps; goal starts 0)
+1 zero check seed 1 land 950001 GOAL-NOFLOOR: PASS (287 steps; goal starts 0)
+1 zero check seed 1 land 950001 SHAM-GOAL: PASS (287 steps; goal starts 0)
+1 zero check seed 1 land 950001 FT-NOGOAL: PASS (287 steps; goal starts 0)
+1 zero check seed 1 land 950002 GOAL: PASS (2933 steps; goal starts 0)
+1 zero check seed 1 land 950002 GOAL-NOFLOOR: PASS (2933 steps; goal starts 0)
+1 zero check seed 1 land 950002 SHAM-GOAL: PASS (2933 steps; goal starts 0)
+1 zero check seed 1 land 950002 FT-NOGOAL: PASS (2933 steps; goal starts 0)
+1 zero check seed 2 land 950001 GOAL: PASS (2873 steps; goal starts 27)
+1 zero check seed 2 land 950001 GOAL-NOFLOOR: PASS (2873 steps; goal starts 21)
+1 zero check seed 2 land 950001 SHAM-GOAL: PASS (2873 steps; goal starts 35)
+1 zero check seed 2 land 950001 FT-NOGOAL: PASS (2873 steps; goal starts 0)
+1 zero check seed 2 land 950002 GOAL: PASS (2886 steps; goal starts 0)
+1 zero check seed 2 land 950002 GOAL-NOFLOOR: PASS (2886 steps; goal starts 0)
+1 zero check seed 2 land 950002 SHAM-GOAL: PASS (2886 steps; goal starts 0)
+1 zero check seed 2 land 950002 FT-NOGOAL: PASS (2886 steps; goal starts 0)
+5 the sham place is never a goal-look cell: PASS 35 sham goals
+{"step": 2000, "life": 1, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.1957988276650056, "chains_last_life": 1, "lifespan_last_life": 2128, "seconds": 8.7}
+trained GOAL 2 2000
+2 fine-tuning with learning rate 0 changes nothing: PASS 
+{"step": 1500, "life": 1, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.21053267823370736, "chains_last_life": 0, "lifespan_last_life": 1566, "seconds": 6.1}
+trained GOAL 2 1500
+{"step": 2557, "life": 2, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 2.797252840028834, "chains_last_life": 0, "lifespan_last_life": 1129, "seconds": 4.6}
+{"step": 4500, "life": 3, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.9557535511454206, "chains_last_life": 0, "lifespan_last_life": 2018, "seconds": 12.3}
+trained GOAL 2 4500
+{"step": 2557, "life": 2, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 2.797252840028834, "chains_last_life": 0, "lifespan_last_life": 1129, "seconds": 4.8}
+{"step": 4500, "life": 3, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.9557535511454206, "chains_last_life": 0, "lifespan_last_life": 2018, "seconds": 12.8}
+trained GOAL 2 4500
+6 two resumes from the same checkpoint give identical parameters: PASS 
+{"step": 2000, "life": 1, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.19637529412082244, "chains_last_life": 0, "lifespan_last_life": 2066, "seconds": 8.1}
+trained GOAL 2 2000
+{"step": 2000, "life": 1, "Wg_norm": 0.0, "G_norm": 0.0, "critic_loss": 0.19637529412082244, "chains_last_life": 0, "lifespan_last_life": 2066, "seconds": 8.2}
+trained GOAL 2 2000
+7 the same fine-tuning twice gives identical parameters (and learning moves them): PASS 
+All: PASS (22/22)
