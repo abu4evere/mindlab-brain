@@ -1,7 +1,7 @@
 # V2-3 amendment A1: B = R x1.25 (ADOPTED before any main-run data; tag V23-amended)
 
-Written 27 Nov 2026, about 16:30 EST, under the creator's sleep-mode autonomy; council asked about 16:45 EST, adopted
-about 17:00 EST. Date note: `questions.md` says "Frozen 28 Nov 2026 (EST, early)"; the freeze was in fact 27 Nov 2026,
+Written 27 Nov 2026, about 15:50 EST, under the creator's sleep-mode autonomy; council asked about 15:55 EST, adopted
+about 16:00 EST. Date note: `questions.md` says "Frozen 28 Nov 2026 (EST, early)"; the freeze was in fact 27 Nov 2026,
 about 15:14 EST (docs/autonomous_decisions.md in ACL). The frozen file is left as it was.
 
 ## What was found
