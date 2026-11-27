@@ -207,3 +207,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 26 Nov 2026: CW1 (Body v1 step 2) final (recomputed blind): a combination of things in hands is found and reused within one life
 - Through the standard body, a consequence model that plans through hand states (told nothing about A, B, C or the 4 shuffled operations) makes and eats C 5.73 times per life vs 0.65 for random choices at the same moments (LEARN - RANDOM-OPS +5.08 [+4.75, +5.41], 16/16 seeds; first join at step ~296 vs ~1,641); 12 operations instead of 4 slow the first join by ~59 steps only. Making did not lengthen lives (LEARN - NO-MAKE survival +0.001). Limits: one chain, frozen mover blind to things, hand-built planner. Next: CW2 (a station, the creator: "then add station") and revision when the world changes. `body/CW1/findings.md`.
+
+## 27 Nov 2026: Brain v2 roadmap drafted (the creator: add all missing parts)
+- `brain_v2_roadmap_draft.md`: the missing parts mapped to real brain areas (analogy only) and proposed as studies in order: V2-1 Revise (a memory that can change its mind), V2-2 Keep learning for life (dopamine-like signal with protection; G0 -> G1), V2-3 Goals (a prefrontal goal layer), V2-4 Body model and play, V2-5 Fear, V2-6 Seeing, V2-7 Other minds. A draft for the council and the creator; nothing started.
