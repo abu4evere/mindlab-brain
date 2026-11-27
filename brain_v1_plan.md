@@ -216,3 +216,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 27 Nov 2026: V2-1 Revise (Brain v2 step 1) final (recomputed blind): W3r's revision failure fixed
 - Resetting a look to unknown when a confident belief is contradicted: survival under the mid-life swap 0.851 vs 0.226 (+0.625 [+0.580, +0.667], 16/16), no loss on stable lands (-0.001 [-0.007, +0.005]); not the hunger reflex (its share of post-swap meals 0.38 -> 0.05); a sham reset does nothing; a fixed window barely helps here but matches surprise on CW1's join change (Test B +0.87 vs +0.92). Caveat: Bob relearns what he uses, not a fully correct table. `brain_v2/V21/findings.md`.
+
+## 28 Nov 2026: V2-2 Goals (Brain v2 step 2) final (recomputed blind): NEGATIVE
+- A zero-initialised goal layer learned by 1M steps of adult fine-tuning was not used by the walker (GOAL - FT-NOGOAL chains -0.096 [-0.230, +0.038]; goal input emptied changes nothing, +0.004); the carry reflex stays (GOAL - reflex -1.01). Every fine-tuned walker, with or without a goal, lost a little on the Bob Profile (A5s about -0.10, R2 -0.07 to -0.11): unprotected adult learning erodes old skills. Next: protection for lifelong learning (V2-3) before another goal attempt; a goal signal that reaches a fed Bob. `brain_v2/V22/findings.md`.
