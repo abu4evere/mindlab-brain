@@ -1,0 +1,71 @@
+2 station placement land 950001: PASS station (13, 3), min spot distance 5
+2 station placement land 950002: PASS station (6, 3), min spot distance 9
+2 station placement land 950003: PASS station (13, 10), min spot distance 6
+2 station placement land 940001: PASS station (13, 9), min spot distance 8
+2 station placement land 940002: PASS station (12, 13), min spot distance 5
+2 physics: the join only on the station (both orders), nothing else anywhere: PASS []
+2 the station is felt underfoot: PASS 
+2 the station cannot be taken: PASS 
+2 a thing dropped on the station lies on top: PASS 
+3 no target with nothing experienced (the bonus never guides): PASS 
+3 no target after only failed operations: PASS 
+3/5 delayed credit through place: after one chain at the station, (A, B) off it targets the station: PASS target 7
+3 holding A, off the B spot: target is B's look: PASS 2
+3 on the station holding A and B: no target (act here): PASS 
+3 map copy differs from the walker's map only at the marked cell (food layer = 1): PASS 0 marked steps over 5 pilot lives
+3 (forced guidance) the map copy differs from the walker's own map only at the marked cell, so the walker's map (from its memory, the same step) never holds the mark: PASS 2501 marked steps
+4 sham: never the station, at the nearest path distance: PASS 16 cells at distance 6
+6 adapter audit land 950001: verbs, legality, station identical whichever op joins: PASS 
+6 adapter audit land 950002: verbs, legality, station identical whichever op joins: PASS 
+6 same seed, same result (GUIDE-REFLEX, seed 1, land 950002): PASS chains 0
+6 same seed, same result (GUIDE-MAP, seed 1, land 950002): PASS chains 0
+6 same seed, same result (SHAM-REFLEX, seed 1, land 950002): PASS chains 0
+1 zero check seed 1 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 1 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 1 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 1 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 1 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 1 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 2 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 2 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 2 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 2 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 2 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 2 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 3 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 3 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 3 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 3 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 3 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 3 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 4 GUIDE-REFLEX: PASS (1628 steps identical)
+1 zero check seed 4 GUIDE-MAP: PASS (1628 steps identical)
+1 zero check seed 4 SHAM-REFLEX: PASS (1628 steps identical)
+1 zero check seed 4 SHAM-MAP: PASS (1628 steps identical)
+1 zero check seed 4 NO-GUIDE: PASS (1628 steps identical)
+1 zero check seed 4 RANDOM-OPS: PASS (1628 steps identical)
+1 zero check seed 5 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 5 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 5 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 5 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 5 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 5 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 6 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 6 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 6 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 6 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 6 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 6 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 7 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 7 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 7 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 7 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 7 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 7 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 8 GUIDE-REFLEX: PASS (3000 steps identical)
+1 zero check seed 8 GUIDE-MAP: PASS (3000 steps identical)
+1 zero check seed 8 SHAM-REFLEX: PASS (3000 steps identical)
+1 zero check seed 8 SHAM-MAP: PASS (3000 steps identical)
+1 zero check seed 8 NO-GUIDE: PASS (3000 steps identical)
+1 zero check seed 8 RANDOM-OPS: PASS (3000 steps identical)
+All: PASS (70/70)
