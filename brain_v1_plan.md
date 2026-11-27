@@ -210,3 +210,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 27 Nov 2026: Brain v2 roadmap drafted (the creator: add all missing parts)
 - `brain_v2_roadmap_draft.md`: the missing parts mapped to real brain areas (analogy only) and proposed as studies in order: V2-1 Revise (a memory that can change its mind), V2-2 Keep learning for life (dopamine-like signal with protection; G0 -> G1), V2-3 Goals (a prefrontal goal layer), V2-4 Body model and play, V2-5 Fear, V2-6 Seeing, V2-7 Other minds. A draft for the council and the creator; nothing started.
+
+## 27 Nov 2026: CW2 (Body v1 step 3, a station) final (recomputed blind)
+- Steering the walker to the learned place: carry reflex +0.627 chains per life [+0.430, +0.843] over no steering (16/16; 1.11 vs 0.48), the walker's own planner through a food-layer mark +0.108 [+0.060, +0.160] (small); the right place matters (REFLEX - SHAM +0.80); discovery unchanged (25.5% of lives), the gain is all reuse; small survival cost for the reflex (-0.015). Next: V2-2 Goals (a goal layer the planner learns, so the reflex can be retired). `body/CW2/findings.md`.
