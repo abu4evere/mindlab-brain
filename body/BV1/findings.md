@@ -43,3 +43,16 @@ are exercised (this world has none), and nothing here is a claim about the body'
 Today's brain can live through the standard body with nothing lost. The body is ready for step 2 (a small crafting
 world where things held in the hands combine: the creator's "start with things in hands then add station"), which
 needs its own plan, council and sign-off.
+
+## Appended 26 Nov 2026 (about 20:35 EST): independent re-run, PASS confirmed
+A fresh Claude session (not the one that built and ran BV1) re-ran both scripts from the repository, unchanged, on the
+second computer (Windows 10, AMD Ryzen 5 5600, Python 3.12.10, numpy 2.5.3), Idle priority. The brains in `brains/`
+were first checked against W3r's outputs on Oracle (`~/mindlab/workbench/W3r/output/RM_CS_1-8.npz`): SHA-256 equal
+for all 8.
+- `checks_bv1.py`: **All: PASS**; its log is identical, line for line, to the committed `checks_bv1.log` (kept as
+  `checks_bv1_rerun_2026-11-26.log`).
+- `bv1.py`: **Gate: PASS**; the new `gate.json` (kept as `output/gate_rerun_2026-11-26.json`) equals the committed one
+  in every field (all 8 seeds' lifespans and coverage, parity BODY and BODY-SHUF vs NATIVE, coverage totals 579 / 865
+  / 105 / 3090 / 2618, coverage met, determinism, machine) except the wall-clock `seconds` (234.8 vs 186.1).
+Limit: the same machine as the first run (a different machine was not needed: the gate is exact parity, not a
+statistic). **These findings are now final.**

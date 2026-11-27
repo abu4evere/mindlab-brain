@@ -1,0 +1,142 @@
+{
+ "seeds": {
+  "1": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 50,
+    "meals_below_cap": 113,
+    "meals_at_cap": 7,
+    "rests_at_shelter": 372,
+    "edge_steps": 262
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "2": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 59,
+    "meals_below_cap": 115,
+    "meals_at_cap": 21,
+    "rests_at_shelter": 371,
+    "edge_steps": 256
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "3": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 15,
+    "meals_below_cap": 116,
+    "meals_at_cap": 16,
+    "rests_at_shelter": 349,
+    "edge_steps": 213
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "4": {
+   "lifespan": {
+    "lifespan": 1628,
+    "died": true
+   },
+   "coverage": {
+    "wall_hits": 93,
+    "meals_below_cap": 58,
+    "meals_at_cap": 10,
+    "rests_at_shelter": 203,
+    "edge_steps": 544
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "5": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 1,
+    "meals_below_cap": 121,
+    "meals_at_cap": 10,
+    "rests_at_shelter": 326,
+    "edge_steps": 93
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "6": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 105,
+    "meals_below_cap": 112,
+    "meals_at_cap": 9,
+    "rests_at_shelter": 701,
+    "edge_steps": 535
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "7": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 150,
+    "meals_below_cap": 121,
+    "meals_at_cap": 23,
+    "rests_at_shelter": 348,
+    "edge_steps": 235
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  },
+  "8": {
+   "lifespan": {
+    "lifespan": 3000,
+    "died": false
+   },
+   "coverage": {
+    "wall_hits": 106,
+    "meals_below_cap": 109,
+    "meals_at_cap": 9,
+    "rests_at_shelter": 420,
+    "edge_steps": 480
+   },
+   "BODY_vs_NATIVE": null,
+   "BODY-SHUF_vs_NATIVE": null
+  }
+ },
+ "machine": {
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.12.10",
+  "numpy": "2.5.3",
+  "processor": "AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD"
+ },
+ "determinism_BODY_seed1": null,
+ "coverage_total": {
+  "wall_hits": 579,
+  "meals_below_cap": 865,
+  "meals_at_cap": 105,
+  "rests_at_shelter": 3090,
+  "edge_steps": 2618
+ },
+ "coverage_met": true,
+ "parity": true,
+ "PASS": true,
+ "seconds": 234.8
+}
