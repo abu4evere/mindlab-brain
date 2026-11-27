@@ -31,3 +31,6 @@ brain_v2/V22/output/run_*.out
 brain_v2/V22/output/snap*.npz
 brain_v2/V22/output/*.npz
 brain_v2/V22/output/*.out
+brain_v2/V23/output_checks/
+brain_v2/V23/output/*.npz
+brain_v2/V23/output/*.out

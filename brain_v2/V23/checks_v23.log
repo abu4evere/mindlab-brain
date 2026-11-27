@@ -1,0 +1,21 @@
+1 FROZEN at home reproduces W3r's saved RMS lives (seed 1, 3 lands): PASS [3000, 3000, 1072]
+{"step": 1500, "life": 4, "home_steps": 0, "drift": 0.0, "seconds": 7.7}
+trained FREE 1 1500 B1
+2 FREE with learning rate 0 equals FROZEN: PASS 
+3 ANCHOR penalty 0 at the old weights, nonzero away: PASS 
+4 B1 = A with R doubled; B2 also moves the shelter: PASS 
+{"step": 2000, "life": 6, "home_steps": 0, "drift": 0.053641744120182, "seconds": 10.9}
+trained FREE 2 2000 B1
+{"step": 2000, "life": 6, "home_steps": 0, "drift": 0.053641744120182, "seconds": 11.4}
+trained FREE 2 2000 B1
+5 the same training twice is identical (and learning moves the weights): PASS 
+{"step": 3500, "life": 9, "home_steps": 20614, "drift": 0.09643093909829922, "seconds": 125.2}
+trained REHEARSE 2 3500 B1
+6 REHEARSE: home steps counted apart from the B budget: PASS {'step': 3500, 'life': 9, 'home_steps': 20614, 'drift': 0.09643093909829922, 'seconds': 125.2}
+6 REPLAY buffer of home segments >= 20,000 steps: PASS 317 segments
+{"step": 1500, "life": 4, "home_steps": 0, "drift": 0.04543382931654531, "seconds": 7.9}
+trained ANCHOR 2 1500 B1
+{"step": 1500, "life": 5, "home_steps": 0, "drift": 0.004255832392415015, "seconds": 9.3}
+trained SLOW 2 1500 B1
+7 ANCHOR and SLOW run; SLOW moves less than FREE: PASS slow 0.00016 free 0.00222
+All: PASS (8/8)
