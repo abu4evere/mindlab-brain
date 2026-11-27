@@ -50,3 +50,9 @@ part (a) of the primary is itself the learnability test, and a failure of FREE t
 ## What stays
 The arms, the 1M steps, the two-part primary, the margins, the SLOW dominance rule and the frozen `analyse_v23.py`
 (already committed before data). The B1 pilot now running is finished and reported as written; it decides nothing.
+
+## The B1 pilot, as committed (finished 27 Nov 2026, about 17:40 EST; decides nothing)
+FREE trained 1M steps in B1 (seeds 1-2), tested on the 20 pilot lands: survival 0.00 and 0.00 (lifespan 312 and 361)
+vs the frozen walker 0.00 and 0.00 (436 and 355). FREE - FROZEN = 0.00, so the frozen rule would have chosen B2 (harsher
+still). Learning gained nothing in B1, as the scan predicted. The frozen walker's 40 pilot lives were run on this PC and
+on Oracle and are identical, land by land (`output/pilot_decision.json`, `output/pilot_oracle/`).

@@ -1,0 +1,26 @@
+{
+ "per_seed": {
+  "1": {
+   "FREE": {
+    "survival": 0.0,
+    "lifespan": 311.9
+   },
+   "FROZEN": {
+    "survival": 0.0,
+    "lifespan": 435.6
+   }
+  },
+  "2": {
+   "FREE": {
+    "survival": 0.0,
+    "lifespan": 360.95
+   },
+   "FROZEN": {
+    "survival": 0.0,
+    "lifespan": 354.65
+   }
+  }
+ },
+ "FREE_minus_FROZEN_survival": 0.0,
+ "B": "B2"
+}
