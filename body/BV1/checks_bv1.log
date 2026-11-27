@@ -1,0 +1,29 @@
+land 910001 renaming None: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910001 renaming 11: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910001 renaming 12: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910001 renaming 13: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910001 renaming 11: 5 table renamed back identical True
+land 910001 renaming 12: 5 table renamed back identical True
+land 910001 renaming 13: 5 table renamed back identical True
+land 910002 renaming None: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910002 renaming 11: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910002 renaming 12: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910002 renaming 13: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910002 renaming 11: 5 table renamed back identical True
+land 910002 renaming 12: 5 table renamed back identical True
+land 910002 renaming 13: 5 table renamed back identical True
+land 910003 renaming None: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910003 renaming 11: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910003 renaming 12: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910003 renaming 13: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910003 renaming 11: 5 table renamed back identical True
+land 910003 renaming 12: 5 table renamed back identical True
+land 910003 renaming 13: 5 table renamed back identical True
+land 910004 renaming None: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910004 renaming 11: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910004 renaming 12: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910004 renaming 13: 1 legality/availability True, 2 non-eye outputs identical True, 3 eyes/touch a pure relabelling True, 4 feedback keys body-only True
+land 910004 renaming 11: 5 table renamed back identical True
+land 910004 renaming 12: 5 table renamed back identical True
+land 910004 renaming 13: 5 table renamed back identical True
+All: PASS

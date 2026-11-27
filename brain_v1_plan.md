@@ -198,3 +198,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 26 Nov 2026: CX2-C confirms CX2 (final, recomputed blind)
 - In Crafter, with meanings learned within each life from what the body feels (not told), MBb beats random choices again on new seeds at 3x the data: LEARN − RANDOM-5P +0.025 score points [+0.012, +0.038] (first run +0.027 [+0.004, +0.052]). Small but real; it rests on the poke reflex. `exam_crafter/CX2/findings.md`, tag CX2C-done.
+
+## 26 Nov 2026: BV1 (Body v1 step 1) gate PASSES
+- Through the standard body (senses, verbs, two-part feedback, a Mind Lab adapter) W3r's RM brain lives bit for bit as with its own wiring on 8 seeds, also with all colour and verb numbers renamed; the adapter audit passes first. An interface check only; step 2 (a crafting world, things in hands) is next and needs its own plan. `body/BV1/findings.md`, tag BV1-done (independent re-run still to do).
