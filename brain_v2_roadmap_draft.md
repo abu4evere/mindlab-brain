@@ -100,3 +100,37 @@ Integrate, take the Bob Profile, then Crafter (CX-series), then ACL after the wo
    goes to ACL?
 4. Fear and pain: Mind Lab only for now (ACL's world is frozen until 7 Dec)?
 5. Is a growing brain (V2-2's "grow") worth its complexity now, or later?
+
+---------------------------------------------------------------------------------------------------------------------
+# REVISED ROADMAP after the round-table (27 Nov 2026 ~01:10 EST; `roadmap_v2_roundtable_2026-11-27.md`)
+Adopted as the working order under the creator's sleep-mode autonomy ("ask council then go ahead"; see
+`D:cl\docsutonomous_decisions.md`). This fixes the ORDER and the rules only: each step is still its own study with
+its own plan, council and (autonomous) sign-off, frozen before data, recomputed blind.
+
+## Order
+1. **V2-1 Revise** — surprise-gated revision of the count tables (W3r's meaning table AND CW1's consequence model);
+   tests: W3r's mid-life swap, CW1 with the joining operation changed mid-life. Test-time only (no retraining).
+2. **V2-2 Goals, with arbitration** — retrain the walker with a goal layer BESIDE the hunger and shelter pulls, its pull
+   set by the consequence model's value; inside it, a named sub-test of learned arbitration: drop a failing goal, and
+   retire the written survival floor if the learned arbitration does at least as well. Start the retraining early
+   (cloud credits ~19-20 Dec); fallback: checkpoint and postpone rather than weaken validation (GPT).
+3. **V2-3 Keep learning for life** — on the goal-capable walker (architecture frozen first); fixed capacity with
+   protection, against a larger fixed brain; growth deferred to Brain v3.
+4. **V2-4 Fear** (Mind Lab only) — a one-shot learned anticipation of danger, separate from pain; must be revisable
+   (outdated fears overcome: GPT).
+5. **V2-5 Forward model** and **V2-6 Play** — separate studies (GPT, DeepSeek); play's learning-progress reward is an
+   engineered intrinsic objective and is labelled so (GPT).
+6. **V2-7 Learned seeing** — at the end of Mind Lab or the start of Crafter (Gemini).
+7. **V2-8 Other minds** — last, only if the earlier steps pass (GPT, Gemini; DeepSeek would cut it).
+Later (Brain v3): a growing brain; temporal abstraction (reusable action sequences).
+
+## Cross-cutting rules (all three)
+- **A no-loss gate after every step:** the Bob Profile with tolerances fixed before data.
+- **Unseen evaluation worlds** beside the Bob Profile, so no step optimises the battery itself (GPT).
+- **Uncertainty:** each learning part reports how sure it is (what it knows vs merely predicts) (GPT, DeepSeek).
+- **Written laws vs written decisions (GPT):** bodily needs, physics and learning rules (count tables included) may stay
+  written; written DECISIONS are retired one by one: first the carry reflex and the survival floor (V2-2), later the
+  hunger and sleep route-following.
+- **The retirement rule (DeepSeek):** a written decision is retired only when a learned part does at least as well on
+  held-out lands AND passes the no-loss gate.
+- **Credit fallback:** VM work checkpointed so nothing is lost if credits end (download results before ~15 Dec).
