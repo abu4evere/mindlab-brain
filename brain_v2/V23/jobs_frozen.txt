@@ -1,0 +1,144 @@
+test H FROZEN 1 A
+test H FROZEN 2 A
+test H FROZEN 3 A
+test H FROZEN 4 A
+test H FROZEN 5 A
+test H FROZEN 6 A
+test H FROZEN 7 A
+test H FROZEN 8 A
+test H FROZEN 9 A
+test H FROZEN 10 A
+test H FROZEN 11 A
+test H FROZEN 12 A
+test H FROZEN 13 A
+test H FROZEN 14 A
+test H FROZEN 15 A
+test H FROZEN 16 A
+bp L2 RMS 1
+bp L2 RMS 2
+bp L2 RMS 3
+bp L2 RMS 4
+bp L2 RMS 5
+bp L2 RMS 6
+bp L2 RMS 7
+bp L2 RMS 8
+bp L2 RMS 9
+bp L2 RMS 10
+bp L2 RMS 11
+bp L2 RMS 12
+bp L2 RMS 13
+bp L2 RMS 14
+bp L2 RMS 15
+bp L2 RMS 16
+bp R2 RMS 1
+bp R2 RMS 2
+bp R2 RMS 3
+bp R2 RMS 4
+bp R2 RMS 5
+bp R2 RMS 6
+bp R2 RMS 7
+bp R2 RMS 8
+bp R2 RMS 9
+bp R2 RMS 10
+bp R2 RMS 11
+bp R2 RMS 12
+bp R2 RMS 13
+bp R2 RMS 14
+bp R2 RMS 15
+bp R2 RMS 16
+bp R5d RMS 1
+bp R5d RMS 2
+bp R5d RMS 3
+bp R5d RMS 4
+bp R5d RMS 5
+bp R5d RMS 6
+bp R5d RMS 7
+bp R5d RMS 8
+bp R5d RMS 9
+bp R5d RMS 10
+bp R5d RMS 11
+bp R5d RMS 12
+bp R5d RMS 13
+bp R5d RMS 14
+bp R5d RMS 15
+bp R5d RMS 16
+bp M2 RMS 1
+bp M2 RMS 2
+bp M2 RMS 3
+bp M2 RMS 4
+bp M2 RMS 5
+bp M2 RMS 6
+bp M2 RMS 7
+bp M2 RMS 8
+bp M2 RMS 9
+bp M2 RMS 10
+bp M2 RMS 11
+bp M2 RMS 12
+bp M2 RMS 13
+bp M2 RMS 14
+bp M2 RMS 15
+bp M2 RMS 16
+bp M2e RMS 1
+bp M2e RMS 2
+bp M2e RMS 3
+bp M2e RMS 4
+bp M2e RMS 5
+bp M2e RMS 6
+bp M2e RMS 7
+bp M2e RMS 8
+bp M2e RMS 9
+bp M2e RMS 10
+bp M2e RMS 11
+bp M2e RMS 12
+bp M2e RMS 13
+bp M2e RMS 14
+bp M2e RMS 15
+bp M2e RMS 16
+bp G2 RMS 1
+bp G2 RMS 2
+bp G2 RMS 3
+bp G2 RMS 4
+bp G2 RMS 5
+bp G2 RMS 6
+bp G2 RMS 7
+bp G2 RMS 8
+bp G2 RMS 9
+bp G2 RMS 10
+bp G2 RMS 11
+bp G2 RMS 12
+bp G2 RMS 13
+bp G2 RMS 14
+bp G2 RMS 15
+bp G2 RMS 16
+bp A2 RMS 1
+bp A2 RMS 2
+bp A2 RMS 3
+bp A2 RMS 4
+bp A2 RMS 5
+bp A2 RMS 6
+bp A2 RMS 7
+bp A2 RMS 8
+bp A2 RMS 9
+bp A2 RMS 10
+bp A2 RMS 11
+bp A2 RMS 12
+bp A2 RMS 13
+bp A2 RMS 14
+bp A2 RMS 15
+bp A2 RMS 16
+bp A5s RMS 1
+bp A5s RMS 2
+bp A5s RMS 3
+bp A5s RMS 4
+bp A5s RMS 5
+bp A5s RMS 6
+bp A5s RMS 7
+bp A5s RMS 8
+bp A5s RMS 9
+bp A5s RMS 10
+bp A5s RMS 11
+bp A5s RMS 12
+bp A5s RMS 13
+bp A5s RMS 14
+bp A5s RMS 15
+bp A5s RMS 16

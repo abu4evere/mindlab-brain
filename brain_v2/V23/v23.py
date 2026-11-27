@@ -9,12 +9,13 @@ gradients over 20 home lives before learning, every 10th step; lam = 1 / mean(F)
 life with learning on; B steps as every arm, home steps extra); REPLAY (20,000 home transitions in 64-step segments
 with bootstrapped returns, recorded before learning; after each B update one update on a random home segment).
   python v23.py train ARM SEED STEPS WORLD [pilot]   -> output/net_{ARM}_{SEED}[_pilot].npz, snapshots, a log
-  python v23.py test KIND ARM SEED WORLD [pilot]     KIND: B (B test lands) | H (home: W3r fresh lands) | P (pilot lands)
+  python v23.py test KIND ARM SEED WORLD [pilot|snap250k|snap500k]  KIND: B (B test lands) | H (home: W3r fresh lands) | P (pilot lands)
   python v23.py bp TEST ARM SEED                     the Bob Profile test (W3r's bp_w3r unchanged but the loading)
 """
 from __future__ import annotations
 
 import json
+import os
 import platform
 import sys
 import time
@@ -29,7 +30,7 @@ from cw1 import W, w3k, R3  # noqa: E402
 B = w3k.B
 w3r, w3m = cw1.w3r, cw1.w3r.w3m
 w3i = w3r.w3n.w3i
-OUT, BP_OUT = HERE / "output", HERE / "bp_output"
+OUT, BP_OUT = Path(os.environ.get("V23_OUT", HERE / "output")), HERE / "bp_output"
 BRAINS = HERE.parents[1] / "body" / "CW1" / "brains"
 W3R = HERE.parents[1] / "workbench" / "W3r"
 V23_SEED = 20261201
@@ -249,7 +250,8 @@ def load(arm, seed, tag=""):
     net = load_rms(seed)
     if arm == "FROZEN":
         return net
-    with np.load(OUT / f"net_{arm}_{seed}{tag}.npz") as z:
+    f = f"{tag[1:]}_{arm}_{seed}.npz" if tag.startswith("_snap") else f"net_{arm}_{seed}{tag}.npz"
+    with np.load(OUT / f) as z:
         for k in net.p:
             net.p[k] = z[k].copy()
     return net
@@ -299,6 +301,6 @@ if __name__ == "__main__":
     if a[1] == "train":
         train(a[2], int(a[3]), int(a[4]), a[5], "_pilot" if len(a) > 6 and a[6] == "pilot" else "")
     elif a[1] == "test":
-        test(a[2], a[3], int(a[4]), a[5], "_pilot" if len(a) > 6 and a[6] == "pilot" else "")
+        test(a[2], a[3], int(a[4]), a[5], "_" + a[6] if len(a) > 6 else "")  # pilot | snap250k | snap500k
     elif a[1] == "bp":
         bob_profile(a[2], a[3], int(a[4]))
