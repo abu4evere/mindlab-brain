@@ -213,3 +213,6 @@ score handed to him (ACL's rule: no named rewards).
 
 ## 27 Nov 2026: CW2 (Body v1 step 3, a station) final (recomputed blind)
 - Steering the walker to the learned place: carry reflex +0.627 chains per life [+0.430, +0.843] over no steering (16/16; 1.11 vs 0.48), the walker's own planner through a food-layer mark +0.108 [+0.060, +0.160] (small); the right place matters (REFLEX - SHAM +0.80); discovery unchanged (25.5% of lives), the gain is all reuse; small survival cost for the reflex (-0.015). Next: V2-2 Goals (a goal layer the planner learns, so the reflex can be retired). `body/CW2/findings.md`.
+
+## 27 Nov 2026: V2-1 Revise (Brain v2 step 1) final (recomputed blind): W3r's revision failure fixed
+- Resetting a look to unknown when a confident belief is contradicted: survival under the mid-life swap 0.851 vs 0.226 (+0.625 [+0.580, +0.667], 16/16), no loss on stable lands (-0.001 [-0.007, +0.005]); not the hunger reflex (its share of post-swap meals 0.38 -> 0.05); a sham reset does nothing; a fixed window barely helps here but matches surprise on CW1's join change (Test B +0.87 vs +0.92). Caveat: Bob relearns what he uses, not a fully correct table. `brain_v2/V21/findings.md`.
