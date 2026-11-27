@@ -1,0 +1,210 @@
+{
+ "lives_per_arm": {
+  "LEARN": 800,
+  "RANDOM-OPS": 800,
+  "NO-MAKE": 800,
+  "PAD": 800
+ },
+ "arm_means": {
+  "LEARN": {
+   "mean_chains": 5.73,
+   "share_3plus": 0.44625000000000004,
+   "share_1plus": 0.9299999999999999,
+   "chains_per_1000": 2.0329896655347346,
+   "first_join_latency": 295.87731170794086,
+   "took_A": 0.9762500000000001,
+   "took_B": 0.965,
+   "joined": 0.93125,
+   "ate_C": 0.9299999999999999,
+   "reuse": 4.800000000000001,
+   "dead_action_rate": 0.45965440275563474,
+   "lifespan": 2679.45375,
+   "survival": 0.8474999999999999,
+   "acts": 64.35624999999999,
+   "moments": 1074.15
+  },
+  "RANDOM-OPS": {
+   "mean_chains": 0.6499999999999999,
+   "share_3plus": 0.030000000000000002,
+   "share_1plus": 0.4525,
+   "chains_per_1000": 0.22086817682680174,
+   "first_join_latency": 1640.504344566128,
+   "took_A": 0.9412499999999999,
+   "took_B": 0.9349999999999999,
+   "joined": 0.51375,
+   "ate_C": 0.4525,
+   "reuse": 0.1975,
+   "dead_action_rate": 0.8476259152448815,
+   "lifespan": 2554.71,
+   "survival": 0.7625000000000001,
+   "acts": 932.9625,
+   "moments": 1066.1387499999998
+  },
+  "NO-MAKE": {
+   "mean_chains": 0.0,
+   "share_3plus": 0.0,
+   "share_1plus": 0.0,
+   "chains_per_1000": 0.0,
+   "first_join_latency": NaN,
+   "took_A": 0.965,
+   "took_B": 0.97,
+   "joined": 0.0,
+   "ate_C": 0.0,
+   "reuse": 0.0,
+   "dead_action_rate": 0.5128348177326758,
+   "lifespan": 2669.735,
+   "survival": 0.84625,
+   "acts": 38.7275,
+   "moments": 2397.0924999999997
+  },
+  "PAD": {
+   "mean_chains": 5.42,
+   "share_3plus": 0.39625,
+   "share_1plus": 0.8787499999999999,
+   "chains_per_1000": 1.8895868906299527,
+   "first_join_latency": 354.45418194062864,
+   "took_A": 0.965,
+   "took_B": 0.945,
+   "joined": 0.88375,
+   "ate_C": 0.8787499999999999,
+   "reuse": 4.54125,
+   "dead_action_rate": 0.6651251891879788,
+   "lifespan": 2554.68375,
+   "survival": 0.8037500000000001,
+   "acts": 98.2175,
+   "moments": 1010.7587500000001
+  }
+ },
+ "primary": {
+  "mean": 5.08,
+  "lo": 4.745000000000001,
+  "hi": 5.41125,
+  "seeds": 16,
+  "positive_seeds": 16,
+  "negative_seeds": 0,
+  "real_gain": true
+ },
+ "secondary_LEARN_minus_RANDOM": {
+  "share_3plus": {
+   "mean": 0.41625,
+   "lo": 0.3875,
+   "hi": 0.44375000000000003,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "share_1plus": {
+   "mean": 0.47750000000000004,
+   "lo": 0.4412499999999999,
+   "hi": 0.51625,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "chains_per_1000": {
+   "mean": 1.8121214887079329,
+   "lo": 1.7067216663194256,
+   "hi": 1.9155376095166874,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "first_join_latency": {
+   "mean": -1344.6270328581872,
+   "lo": -1429.394958696322,
+   "hi": -1257.4887729554666,
+   "seeds": 16,
+   "positive_seeds": 0,
+   "negative_seeds": 16
+  },
+  "took_A": {
+   "mean": 0.034999999999999996,
+   "lo": 0.02124999999999999,
+   "hi": 0.048749999999999995,
+   "seeds": 16,
+   "positive_seeds": 13,
+   "negative_seeds": 1
+  },
+  "took_B": {
+   "mean": 0.03,
+   "lo": 0.01750000000000001,
+   "hi": 0.04249999999999998,
+   "seeds": 16,
+   "positive_seeds": 13,
+   "negative_seeds": 1
+  },
+  "joined": {
+   "mean": 0.4175,
+   "lo": 0.38625,
+   "hi": 0.45,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "ate_C": {
+   "mean": 0.47750000000000004,
+   "lo": 0.4412499999999999,
+   "hi": 0.51625,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "reuse": {
+   "mean": 4.6025,
+   "lo": 4.2700000000000005,
+   "hi": 4.9350000000000005,
+   "seeds": 16,
+   "positive_seeds": 16,
+   "negative_seeds": 0
+  },
+  "dead_action_rate": {
+   "mean": -0.3879715124892467,
+   "lo": -0.3978690225497302,
+   "hi": -0.3777506694102504,
+   "seeds": 16,
+   "positive_seeds": 0,
+   "negative_seeds": 16
+  }
+ },
+ "LEARN_minus_NO-MAKE": {
+  "lifespan": {
+   "mean": 9.718750000000057,
+   "lo": -62.46362500000003,
+   "hi": 78.95587500000009,
+   "seeds": 16,
+   "positive_seeds": 7,
+   "negative_seeds": 9
+  },
+  "survival": {
+   "mean": 0.0012500000000000011,
+   "lo": -0.02375,
+   "hi": 0.027500000000000004,
+   "seeds": 16,
+   "positive_seeds": 5,
+   "negative_seeds": 5
+  }
+ },
+ "PAD_minus_LEARN": {
+  "mean_chains": {
+   "mean": -0.30999999999999994,
+   "lo": -0.7713125,
+   "hi": 0.21253124999999978,
+   "seeds": 16,
+   "positive_seeds": 4,
+   "negative_seeds": 12
+  },
+  "first_join_latency": {
+   "mean": 58.57687023268777,
+   "lo": 27.228023618200343,
+   "hi": 94.1804124417436,
+   "seeds": 16,
+   "positive_seeds": 13,
+   "negative_seeds": 3
+  }
+ },
+ "machines": [
+  "{\"node\": \"DESKTOP-B9PA260\", \"numpy\": \"2.5.3\", \"platform\": \"Windows-10-10.0.19045-SP0\", \"python\": \"3.12.10\"}",
+  "{\"node\": \"mindlab-1.us-east4-a.c.aiiab-515203.internal\", \"numpy\": \"2.5.3\", \"platform\": \"Linux-7.0.0-1017-gcp-x86_64-with-glibc2.43\", \"python\": \"3.14.4\"}",
+  "{\"node\": \"mindlab-2\", \"numpy\": \"2.5.3\", \"platform\": \"Linux-7.0.0-1013-oracle-x86_64-with-glibc2.39\", \"python\": \"3.14.10\"}"
+ ]
+}
