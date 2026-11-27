@@ -142,3 +142,87 @@ Confidence: 78 %
   (DeepSeek).
 Round 2 was not run in this session (the session's context was nearly full); the revised draft takes the checked
 points, and a round 2 on the still-divided points can run in a fresh session before sign-off.
+
+## Round 2 (27 Nov 2026, sent about 20:30 EST on 26 Nov; a new Claude session on the second computer)
+Question: `roundtable_round2_prompt.txt` (identical text to all four; the same chats as round 1; Grok in Fast mode).
+Same reading note as round 1 (`=`, `&`, `?`, `;` shown as spaces; GPT's reply read from the page text, so its
+characters are as shown). GPT answered in ChatGPT's "Instant" mode (the chat's current setting).
+
+### GPT (confidence 95%, "conditional on Claude's code findings")
+Primary: I revise my position given that C is consumed. I agree with Gemini: mean completed chains per life as primary, with the share completing 3+ as secondary. This preserves information and avoids an arbitrary threshold.
+
+Pain-gated poking: I disagree with DeepSeek and Grok. With pain always zero, this mechanism cannot demonstrate anything. Test it when hazards exist.
+
+Failed operations: Ordinary step cost only. Additional penalties would artificially discourage exploration.
+
+PAD: Keep it as a full secondary arm. Increasing irrelevant operations tests exploration scalability, not merely interface invariance.
+
+Forgetting: I disagree with DeepSeek. Keep plain counts and reserve recency mechanisms for the revision study.
+
+Final recommendation: Freeze CW1 after verifying that planning propagates energy benefits backward through learned hand-state transitions. Keep the arbitration floor identical across arms and document its built-in survival bias.
+
+Confidence: 95%, conditional on Claude's code findings.
+
+### Gemini (confidence 92%)
+I disagree with Grok and DeepSeek on dichotomizing the primary endpoint at ≥3 completions—on 16 paired seeds, binary thresholding discards variance and sacrifices statistical power compared to continuous counts. I also disagree with DeepSeek and Grok on pain-gating and failed-action penalties: since Claude confirmed pain    0 everywhere in CW1, pain-gating is dead code, and extra failure penalties introduce arbitrary hyperparameters. Finally, I reject DeepSeek’s recency-window arm—without non-stationarity, forgetting only risks losing sparse crafting transitions.
+
+Final Recommendation:
+
+Primary measure: Mean completed chains per life (LEARN - RANDOM-OPS), with ≥3 share and GPT's post-discovery reuse rate as secondaries.
+
+Pain-gating: Defer until real hazards exist.
+
+Failed operations: Ordinary 1-step metabolic cost only.
+
+PAD (K   12): Keep as a full arm to test exploration scaling under action bloat.
+
+Recency window: Omit here  test in a non-stationary swap study.
+
+Confidence: 92%
+
+### DeepSeek (confidence 83%)
+Direct to Gemini: I agree mean chains beats a 3+ threshold on 16 seeds—but keep 3+ as a headline because “found and used” is the claim  report both.
+
+Final: (1) Primary   mean chains per life, with 3+ chains, first-join latency, and partial progress as secondaries  discovery followed by repeated use as a descriptive pattern, not the primary. (2) No pain-gated poking in CW1—pain is always 0, so it is inert and would only add noise  defer to a hazard world. (3) Ordinary step cost only  a failed-op energy tax confounds the model’s transition learning and is not needed with RANDOM-OPS. (4) PAD as secondary invariance check, not a full arm—dummy ops cannot reach the frozen mover. (5) Include DeepSeek’s recency-window arm as secondary from the start  it is cheap and W3r’s swap failure is a known risk. Confidence: 83%.
+
+### Grok (confidence 82%)
+Reply   final position
+
+Disagree with GPT/Gemini on primary: mean chains gains power but dilutes the “found and repeatedly used” claim  3+ completions remains the cleaner success criterion on 16 seeds. Disagree with Gemini/GPT on poking: even with pain always 0, wiring the gate now costs nothing and prevents later rework. Agree with the majority that ordinary step cost is enough  a special failed-op tax is unnecessary scaffolding.
+
+(1) Keep share of lives with ≥3 chains as primary  mean chains and first-join latency as secondaries.
+(2) Wire pain-gated poking now (inert here, ready for hazards).
+(3) Ordinary step cost only.
+(4) PAD as full arm — tests distraction under larger K and adapter neutrality.
+(5) No recency arm yet  keep plain counts  test forgetting in its dedicated study.
+
+Recommendation
+Run CW1 with the updated transition + value-iteration model, affordance-only arbitration above the survival floor, primary   fraction of lives completing ≥3 chains, PAD retained, no extra costs or forgetting. Clean interface + discovery test.
+
+Confidence: 82 %
+
+## Claude's check after round 2, and the summary (who argued what, what survived)
+| point | GPT | Gemini | DeepSeek | Grok | goes into the plan |
+|---|---|---|---|---|---|
+| primary | mean chains (revised from discovery+reuse) | mean chains | mean chains (revised from 3+) | share 3+ | **mean chains per life**, share 3+ a named secondary |
+| pain-gated poke | defer | defer | defer (revised) | wire now, inert | **not in CW1** |
+| failed-op cost | step only | step only | step only | step only (revised) | **step only** (unanimous) |
+| PAD | full arm | full arm | secondary check | full arm | **full arm**, its comparison secondary |
+| recency arm | no | no | yes | no | **no** (the revision study) |
+- **Primary:** three of four now favour mean completed chains per life. Checked: with C used up when eaten, a
+  "completion" is one whole chain (A and B held, join, C eaten), so mean chains counts real repetitions, and the
+  paired bootstrap over 16 seeds works the same on a mean as on a share. Grok's worry (a mean can be carried by a few
+  lives) is met by reporting the share of lives with 3+ chains and the share with at least one beside it.
+- **Pain-gating:** Grok's "costs nothing" does not survive: a gate on a signal that is always 0 is never exercised,
+  so the frozen study would ship code no check can test. It goes to the first world with a hazard.
+- **DeepSeek's recency arm:** DeepSeek did not answer the point it was asked to defend (it repeats it as "include");
+  CW1's world is stationary, so a recency window has nothing to revise and can only lose rare transitions (Gemini).
+  Left for the revision study, which needs a mid-life change by design.
+- **GPT's condition** ("verify that planning propagates energy benefits backward through learned hand-state
+  transitions") becomes a scripted check before data. **GPT's note** on the survival floor's built-in bias (the floor
+  hands control back to the mover when hungry or tired, in every arm alike) is written into the plan's limits.
+- **DeepSeek's "dummy ops cannot reach the frozen mover"** is true but beside the point here: in CW1 the dummy
+  operations are chosen by the consequence model, not the mover, so PAD does test exploration under more dead
+  actions (GPT, Gemini, Grok).
+Round 3 not needed: every point has a clear majority with reasons that survived checking, and no model asked a
+question of Claude or the creator.
