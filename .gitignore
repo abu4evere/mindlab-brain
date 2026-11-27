@@ -22,3 +22,4 @@ exam_crafter/sources/*.pdf
 exam_crafter/sources/*.txt
 exam_crafter/__pycache__/
 body/BV1/brains/
+body/CW1/brains/

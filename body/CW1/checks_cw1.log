@@ -1,0 +1,54 @@
+2 physics: every verb on every held pair (B underfoot): PASS 0 wrong []
+2 physics: join in the order (B, A) gives C: PASS 
+2 physics: taking empties the spot: PASS 
+2 physics: not back before R steps: PASS t=200
+2 physics: the spot is full again R steps after: PASS t=201, taken 1
+2 physics: C dropped keeps on the ground (300 steps): PASS 
+2 physics: a meal of C is capped at EMAX and C is used up: PASS 
+2 physics: PAD has 12 operations, one joins: PASS 
+2 physics: NO-MAKE has no operations: PASS 
+3 delayed credit (dead ops untried): join > dead ops in (A, B): PASS join 88.80 vs 30.00
+3 delayed credit (untried): take B > drop in (A): PASS take 87.91 vs drop 30.00
+3 delayed credit (dead ops tried): join > dead ops in (A, B): PASS join 88.80 vs 87.91
+3 delayed credit (tried): take B > drop in (A): PASS take 87.91 vs drop 29.70
+3 only situations that can be met count (all tried, no energy -> V(empty hands) = 0): PASS V = 0.000
+4 adapter audit K=4 land 930001: verb list, legality and senses identical whichever op joins: PASS 
+4 adapter audit K=4 land 930002: verb list, legality and senses identical whichever op joins: PASS 
+4 adapter audit K=4 land 930003: verb list, legality and senses identical whichever op joins: PASS 
+4 adapter audit K=12 land 930001: verb list, legality and senses identical whichever op joins: PASS 
+4 adapter audit K=12 land 930002: verb list, legality and senses identical whichever op joins: PASS 
+4 adapter audit K=12 land 930003: verb list, legality and senses identical whichever op joins: PASS 
+5 same seed, same result (LEARN, seed 1, land 930001): PASS chains 1, acts 59
+1 zero check seed 1 LEARN: PASS (3000 steps identical)
+1 zero check seed 1 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 1 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 1 PAD: PASS (3000 steps identical)
+1 zero check seed 2 LEARN: PASS (3000 steps identical)
+1 zero check seed 2 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 2 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 2 PAD: PASS (3000 steps identical)
+1 zero check seed 3 LEARN: PASS (3000 steps identical)
+1 zero check seed 3 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 3 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 3 PAD: PASS (3000 steps identical)
+1 zero check seed 4 LEARN: PASS (1628 steps identical)
+1 zero check seed 4 RANDOM-OPS: PASS (1628 steps identical)
+1 zero check seed 4 NO-MAKE: PASS (1628 steps identical)
+1 zero check seed 4 PAD: PASS (1628 steps identical)
+1 zero check seed 5 LEARN: PASS (3000 steps identical)
+1 zero check seed 5 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 5 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 5 PAD: PASS (3000 steps identical)
+1 zero check seed 6 LEARN: PASS (3000 steps identical)
+1 zero check seed 6 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 6 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 6 PAD: PASS (3000 steps identical)
+1 zero check seed 7 LEARN: PASS (3000 steps identical)
+1 zero check seed 7 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 7 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 7 PAD: PASS (3000 steps identical)
+1 zero check seed 8 LEARN: PASS (3000 steps identical)
+1 zero check seed 8 RANDOM-OPS: PASS (3000 steps identical)
+1 zero check seed 8 NO-MAKE: PASS (3000 steps identical)
+1 zero check seed 8 PAD: PASS (3000 steps identical)
+All: PASS (53/53)
