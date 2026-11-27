@@ -75,3 +75,20 @@ fresh lands, a few hours on Oracle (or this PC at low priority).
 ## Expected (before data, the assistant's first guess)
 LEARN − RANDOM-OPS above 0: about 65% (the bonus for untried actions should find the join; the risk is the
 arbitration never giving the consequence model the chance).
+
+## Revised after round 1 of the round-table (26 Nov 2026; `roundtable_cw1_2026-11-26.md`; still a draft, not frozen)
+- **C is used up when eaten** (it only keeps until then): each use of C needs a new join.
+- **Delayed credit (GPT's point, checked):** joining gives no energy by itself, so the consequence model learns the
+  transitions (held looks, action) -> (next held looks, energy change) and values each action by the best energy
+  reachable within a few steps through hand states (a small value iteration over hand states, like the mover's
+  planner). Only energy is valued; nothing about A, B or C is written in.
+- **Arbitration at affordance moments (Gemini, checked: the frozen mover is blind to loose things):** the consequence
+  model acts only when something is underfoot with a free hand, or something is held, and only while energy and
+  tiredness are above a survival floor set before data; otherwise the mover acts. The same rule in every arm.
+- **RANDOM-OPS:** the same moments and opportunities, uniform over the legal non-move verbs.
+- **Plain counts** for CW1 (all four); forgetting gets its own study with a mid-life change (DeepSeek's recency arm is
+  an open question for round 2).
+- **Measures:** partial progress (took A, took B, joined, ate C) and first-join latency reported for every arm.
+- **Open for round 2 and the creator:** the primary (≥3 chains in a life vs mean chains per life vs discovery then
+  reuse); pain-gated poking (inert here: no hazard brings pain); a cost on failed operations beyond the step; PAD as an
+  arm or a secondary check.
