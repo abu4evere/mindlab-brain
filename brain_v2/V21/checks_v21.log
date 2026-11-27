@@ -1,0 +1,15 @@
+2 no reset with n = 2: PASS 
+2 reset with n = 3 and a full contradiction: PASS 
+3 after the reset the look reads 0 except the new event: PASS 
+2 no reset when |y - p| < 0.75: PASS 
+2 reset at exactly |y - p| = 0.75: PASS 
+4 SHAM resets another look with counts, never the contradicted one: PASS 
+5 WINDOW multiplies only the touched cell: PASS 
+2 CW1 key reset on a confident contradiction (SURPRISE): PASS 
+6 with no change, PLAIN reproduces CW1's LEARN life (seed 1, land 930003): PASS chains 7, acts 74
+6 the join changes at step 1,500 to a different operation: PASS t 1500, 0 -> 2
+7 same seed, same result (A, SURPRISE, swap): PASS lifespan 3000, resets 4
+7 same seed, same result (B, SURPRISE): PASS chains 1, resets 0
+1 PLAIN reproduces W3r's saved RMS lives (swap, seed 1, 50 lands): PASS []
+1 PLAIN reproduces W3r's saved RMS lives (stable, seed 1, 50 lands): PASS []
+All: PASS (14/14)
